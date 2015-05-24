@@ -1,0 +1,10 @@
+import javax.swing.*;
+
+public class AlphabetGameUI extends GameUI {
+	private AlphabetGameController alphabetrGame;
+
+	AlphabetGameUI() {
+		super();
+	}
+}
+c
