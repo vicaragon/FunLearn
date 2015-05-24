@@ -1,3 +1,3 @@
-abstract class AlphabetGameController extends GameController {
+public abstract class AlphabetGameController extends GameController {
 	private Integer GameID;
 }
