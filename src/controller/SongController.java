@@ -1,10 +1,12 @@
 package controller;
 import model.*;
+import sun.audio.AudioStream;
 import view.*;
 
 
 public class SongController{
 	private Song song;
+	private AudioStream audioIn;
 	/**
 	 * @param song
 	 */

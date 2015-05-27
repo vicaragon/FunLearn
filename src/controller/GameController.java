@@ -1,15 +1,52 @@
 package controller;
+import java.util.List;
+import java.util.Map;
+
+import sun.audio.AudioStream;
 import view.*;
 import model.*;
 
 public class GameController {
 	private Game game;
-	public void ifPreviousSaved();
+	private int index;
+	private int score;
+	/**
+	 * @param game
+	 */
+	public GameController(Game game) {
+		this.game = game;
+	}
 	public void loadGame();
 	public void playGame();
 	public void endGame();
 	
 	public void iterateQuestions();  
-	public boolean isRightAnswered();
-	public void displayScore();
+	public boolean isRightAnswer();
+	
+	public int updateScore();
+	
+	public ImageIcon retrievePicture() {
+		
+	};
+	public AudioStream retrieveMusic() {
+		
+	};
+	public String retrieveQuestion() {
+		
+	};
+	public AudioStream retrieveQuestionAudio() {
+		
+	};
+	public String retrieverightAnswer() {
+		
+	};
+	public AudioStream  retrieverightAnswerAudio() {
+		
+	};
+	public List<String> retrieveAnswers() {
+		
+	};
+	public List<AudioStream> retrieveAnswersAudio() {
+		
+	};
 }

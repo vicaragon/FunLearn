@@ -1,5 +1,5 @@
 package controller;
-import view.*;
+import sun.audio.AudioStream;
 import model.*;
 
 import javax.swing.*;
@@ -7,24 +7,24 @@ import javax.swing.*;
 public class StoryController {
 	private Story story;
 	private int index;
-	public boolean isAnswerRight() {
-		
-	};
-	public String[] retrieveQuestionAnswers() {
-		
-	};
-	public String retrieveText() {
+
+	/**
+	 * @param story
+	 */
+	public StoryController(Story story) {
+		this.story = story;
+	}
+	public String retrieveParagraph() {
 		
 	};
 	public ImageIcon retrievePicture() {
 		
 	};
-	public boolean updateScoreinDB(String playerName, Integer score) {
+	public AudioStream retrievemusicAudio() {
 		
 	};
-	public Integer getScorefromDB(String playerName) {
+	public AudioStream paragraphAudioPath() {
 		
 	};
 	
 }
-
