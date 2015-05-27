@@ -12,8 +12,13 @@ public class FindStudentUI {
 	private JPanel topPanel;
 	private JButton findStudentName;
 	private JButton findStudentID;
-	private JTextArea studentsInfo;
 	private FindStudent fsController;
+	private UpdateStudent editController;
+	private GetStats statsController;
+	private JTable searchResults;
+	private JButton edit;
+	private JButton delete;
+	private JButton getStats;
 	
 	public void registerEvents(){
 		

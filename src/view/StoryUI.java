@@ -22,11 +22,7 @@ public class StoryUI {
 	private JButton exit;
 	private JPanel storyPanel;
 	private JLabel storyText;
-	private JPanel questionsPanel;
-	private JLabel question;
-	private JButton choice1;
-	private JButton choice2;
-	private JButton choice3;
+
 	public StoryUI() {
 		
 	}

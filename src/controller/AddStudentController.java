@@ -7,4 +7,12 @@ public class AddStudentController {
 	public AddStudentController() {
 		
 	}
+	
+	public void setStudent(Student st){
+		s = st;
+	}
+	
+	public void addStudent(){
+		
+	}
 }
