@@ -1,28 +1,45 @@
 package model;
 import java.io.Serializable;
+import java.util.Map;
 
 
 public class Story implements Serializable {
-	private Integer storyID;
+	private int storyID;
 	private String storyName;
-	private Integer ageGroup;
+	private int ageGroup;
 	private String language;
-	private String[] questions;
-	private String[] rightAnswers;
-	private String[] possibleAnswers;
-	private String[] text;
-	private String[] picturesPaths;
-	public Story(String storyName, Integer ageGroup, String language,
-			String[] questions, String[] rightAnswers,
-			String[] possibleAnswers, String[] text, String[] picturesPaths) {
+	private Map<Integer,String> paragraph;
+	private Map<Integer,String> picturePath;
+	private Map<Integer,String> musicAudioPath;
+	private Map<Integer,String> paragraphAudioPath;
+	/**
+	 * @param storyID
+	 * @param storyName
+	 * @param ageGroup
+	 * @param language
+	 * @param paragraph
+	 * @param picturePath
+	 * @param musicAudioPath
+	 * @param paragraphAudioPath
+	 */
+	public Story(int storyID, String storyName, int ageGroup, String language,
+			Map<Integer, String> paragraph, Map<Integer, String> picturePath,
+			Map<Integer, String> musicAudioPath,
+			Map<Integer, String> paragraphAudioPath) {
+		this.storyID = storyID;
 		this.storyName = storyName;
 		this.ageGroup = ageGroup;
 		this.language = language;
-		this.questions = questions;
-		this.rightAnswers = rightAnswers;
-		this.possibleAnswers = possibleAnswers;
-		this.text = text;
-		this.picturesPaths = picturesPaths;
+		this.paragraph = paragraph;
+		this.picturePath = picturePath;
+		this.musicAudioPath = musicAudioPath;
+		this.paragraphAudioPath = paragraphAudioPath;
+	}
+	public int getStoryID() {
+		return storyID;
+	}
+	public void setStoryID(int storyID) {
+		this.storyID = storyID;
 	}
 	public String getStoryName() {
 		return storyName;
@@ -30,10 +47,10 @@ public class Story implements Serializable {
 	public void setStoryName(String storyName) {
 		this.storyName = storyName;
 	}
-	public Integer getAgeGroup() {
+	public int getAgeGroup() {
 		return ageGroup;
 	}
-	public void setAgeGroup(Integer ageGroup) {
+	public void setAgeGroup(int ageGroup) {
 		this.ageGroup = ageGroup;
 	}
 	public String getLanguage() {
@@ -42,34 +59,28 @@ public class Story implements Serializable {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
-	public String[] getQuestions() {
-		return questions;
+	public Map<Integer, String> getParagraph() {
+		return paragraph;
 	}
-	public void setQuestions(String[] questions) {
-		this.questions = questions;
+	public void setParagraph(Map<Integer, String> paragraph) {
+		this.paragraph = paragraph;
 	}
-	public String[] getRightAnswers() {
-		return rightAnswers;
+	public Map<Integer, String> getPicturePath() {
+		return picturePath;
 	}
-	public void setRightAnswers(String[] rightAnswers) {
-		this.rightAnswers = rightAnswers;
+	public void setPicturePath(Map<Integer, String> picturePath) {
+		this.picturePath = picturePath;
 	}
-	public String[] getPossibleAnswers() {
-		return possibleAnswers;
+	public Map<Integer, String> getMusicAudioPath() {
+		return musicAudioPath;
 	}
-	public void setPossibleAnswers(String[] possibleAnswers) {
-		this.possibleAnswers = possibleAnswers;
+	public void setMusicAudioPath(Map<Integer, String> musicAudioPath) {
+		this.musicAudioPath = musicAudioPath;
 	}
-	public String[] getText() {
-		return text;
+	public Map<Integer, String> getParagraphAudioPath() {
+		return paragraphAudioPath;
 	}
-	public void setText(String[] text) {
-		this.text = text;
-	}
-	public String[] getPicturesPaths() {
-		return picturesPaths;
-	}
-	public void setPicturesPaths(String[] picturesPaths) {
-		this.picturesPaths = picturesPaths;
+	public void setParagraphAudioPath(Map<Integer, String> paragraphAudioPath) {
+		this.paragraphAudioPath = paragraphAudioPath;
 	}
 }

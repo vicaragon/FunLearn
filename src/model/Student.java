@@ -1,61 +1,67 @@
 package model;
-import java.awt.Image;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Map;
 
-public class Student{
+public class Student implements Serializable {
 	private int studentID;
-	private Image pic;
-	private Map<Integer,Integer> storyScore;
+	private String picPath;
 	private Map<Integer,Integer> gameScore;
 	private String lastName;
 	private String firstName;
-	
-	public int getID(){
+	private int ageGroup;
+	/**
+	 * @param studentID
+	 * @param picPath
+	 * @param gameScore
+	 * @param lastName
+	 * @param firstName
+	 * @param ageGroup
+	 */
+	public Student(int studentID, String picPath,
+			Map<Integer, Integer> gameScore, String lastName, String firstName,
+			int ageGroup) {
+		this.studentID = studentID;
+		this.picPath = picPath;
+		this.gameScore = gameScore;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.ageGroup = ageGroup;
+	}
+	public int getStudentID() {
 		return studentID;
 	}
-	
-	public Image getPic(){
-		return pic;
+	public void setStudentID(int studentID) {
+		this.studentID = studentID;
 	}
-	
-	public String getLastName(){
-		return lastName;
+	public String getPicPath() {
+		return picPath;
 	}
-	
-	public String getFirstname(){
-		return firstName;
+	public void setPicPath(String picPath) {
+		this.picPath = picPath;
 	}
-	
-	public void setID(int i){
-		studentID = i;
-	}
-	
-	public void setPic(Image im){
-		pic = im;
-	}
-	
-	public void setLastName(String lname){
-		lastName = lname;
-	}
-	
-	public void setFirstName(String fname){
-		firstName = fname;
-	}
-
-	public Map<Integer, Integer> getStoryScore() {
-		return storyScore;
-	}
-
-	public void setStoryScore(Map<Integer, Integer> storyScore) {
-		this.storyScore = storyScore;
-	}
-
 	public Map<Integer, Integer> getGameScore() {
 		return gameScore;
 	}
-
 	public void setGameScore(Map<Integer, Integer> gameScore) {
 		this.gameScore = gameScore;
 	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public int getAgeGroup() {
+		return ageGroup;
+	}
+	public void setAgeGroup(int ageGroup) {
+		this.ageGroup = ageGroup;
+	}
+
 }

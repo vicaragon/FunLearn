@@ -1,13 +1,15 @@
 package model;
 
-public class Song{
-	private Integer songID;
+import java.io.Serializable;
+import java.util.List;
+
+public class Song implements Serializable {
+	private int songID;
 	private String songName;
-	private Integer ageGroup;
+	private int ageGroup;
 	private String language;
 	private String songAudioPath;
-	private String[] songImagePath;
-	
+	private List<String> songImagePath;
 	/**
 	 * @param songID
 	 * @param songName
@@ -16,8 +18,8 @@ public class Song{
 	 * @param songAudioPath
 	 * @param songImagePath
 	 */
-	public Song(Integer songID, String songName, Integer ageGroup,
-			String language, String songAudioPath, String[] songImagePath) {
+	public Song(int songID, String songName, int ageGroup, String language,
+			String songAudioPath, List<String> songImagePath) {
 		this.songID = songID;
 		this.songName = songName;
 		this.ageGroup = ageGroup;
@@ -25,10 +27,10 @@ public class Song{
 		this.songAudioPath = songAudioPath;
 		this.songImagePath = songImagePath;
 	}
-	public Integer getSongID() {
+	public int getSongID() {
 		return songID;
 	}
-	public void setSongID(Integer songID) {
+	public void setSongID(int songID) {
 		this.songID = songID;
 	}
 	public String getSongName() {
@@ -37,10 +39,10 @@ public class Song{
 	public void setSongName(String songName) {
 		this.songName = songName;
 	}
-	public Integer getAgeGroup() {
+	public int getAgeGroup() {
 		return ageGroup;
 	}
-	public void setAgeGroup(Integer ageGroup) {
+	public void setAgeGroup(int ageGroup) {
 		this.ageGroup = ageGroup;
 	}
 	public String getLanguage() {
@@ -55,10 +57,10 @@ public class Song{
 	public void setSongAudioPath(String songAudioPath) {
 		this.songAudioPath = songAudioPath;
 	}
-	public String[] getSongImagePath() {
+	public List<String> getSongImagePath() {
 		return songImagePath;
 	}
-	public void setSongImagePath(String[] songImagePath) {
+	public void setSongImagePath(List<String> songImagePath) {
 		this.songImagePath = songImagePath;
-	}	
+	}
 }
