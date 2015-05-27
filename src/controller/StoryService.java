@@ -5,10 +5,23 @@
  */
 package controller;
 
+import model.Story;
+
 /**
  *
  * @author rramsis
  */
 public class StoryService {
-    
+    public Story creatStory() {
+        
+    }
+    public Story readStory() {
+        
+    }
+    public Story updateStory() {
+        
+    }
+    public Story deleteStory() {
+        
+    }
 }

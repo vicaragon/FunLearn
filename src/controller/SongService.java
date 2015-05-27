@@ -5,10 +5,23 @@
  */
 package controller;
 
+import model.Song;
+
 /**
  *
  * @author rramsis
  */
 public class SongService {
-    
+    public Song creatSong() {
+        
+    }
+    public Song readSong() {
+        
+    }
+    public Song updateSong() {
+        
+    }
+    public Song deleteSong() {
+        
+    }
 }
