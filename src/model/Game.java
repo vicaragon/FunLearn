@@ -15,7 +15,7 @@ public class Game implements Serializable {
 	private Map<Integer,String> questionsAudioPath;
 	private Map<Integer,String> rightAnswer;
 	private Map<Integer,String> rightAnswerAudioPath;
-	private Map<Integer,List<Integer>> answers;
+	private Map<Integer,List<String>> answers;
 	private Map<Integer,List<String>> answersAudioPath;
 	/**
 	 * @param gameID
