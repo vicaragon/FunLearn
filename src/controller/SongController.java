@@ -5,7 +5,7 @@ import model.*;
 import view.*;
 
 
-public class PlaySong{
+public class SongController{
 	private Song song;
 	private HashSet<Song> songs;
 	
