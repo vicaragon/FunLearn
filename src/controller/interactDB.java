@@ -13,6 +13,10 @@ public class interactDB {
 	public int writeStudent(Student s) {
 		
 	}
+		
+	}
+		
+	}
 	public void removeStudent(int studentID) {
 		
 	}
