@@ -9,12 +9,12 @@ public class Game {
 	private Integer ageGroup;
 	private String language;
 
-	private List<String> pictures;
-	private List<String> music;
+	private List<String> picturePath;
+	private List<String> musicPath;
 	private Map<Integer,String> questions;
-	private Map<Integer,String> anwers;
-	private Map<Integer,List<Integer>> Rightanswer;
-	private Integer scores;
+	private Map<Integer,String> rightAnswers;
+	private Map<Integer,List<Integer>> answers;
+	private Integer topScore;
 
     public Game(){ 	
     }
