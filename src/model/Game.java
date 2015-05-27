@@ -112,10 +112,10 @@ public class Game implements Serializable {
 	public void setRightAnswerAudioPath(Map<Integer, String> rightAnswerAudioPath) {
 		this.rightAnswerAudioPath = rightAnswerAudioPath;
 	}
-	public Map<Integer, List<Integer>> getAnswers() {
+	public Map<Integer, List<String>> getAnswers() {
 		return answers;
 	}
-	public void setAnswers(Map<Integer, List<Integer>> answers) {
+	public void setAnswers(Map<Integer, List<String>> answers) {
 		this.answers = answers;
 	}
 	public Map<Integer, List<String>> getAnswersAudioPath() {
