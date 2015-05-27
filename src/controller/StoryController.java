@@ -5,8 +5,8 @@ import model.*;
 import javax.swing.*;
 
 public class StoryController {
-	private int index;
 	private Story story;
+	private int index;
 	public boolean isAnswerRight() {
 		
 	};
