@@ -1,24 +1,23 @@
 package controller;
-import java.util.HashSet;
-
 import model.*;
 import view.*;
 
 
 public class SongController{
 	private Song song;
-	private HashSet<Song> songs;
-	
+	/**
+	 * @param song
+	 */
+	public SongController(Song song) {
+		this.song = song;
+	}
 	public void playSong(){
 		
 	}
-	
-	public HashSet<Song> getAllSongs(){
+	public void pauseSong(){
 		
-		return songs;
 	}
-	
-	public void setSong(Song song1){
-		song = song1;
+	public void resumeSong(){
+		
 	}
 }
