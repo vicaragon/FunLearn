@@ -1,32 +1,32 @@
 package model;
 
 public class Song{
+	private Integer songID;
 	private String songName;
-	private int ageGroup;
-	private int level;
-	
-	public String getName(){
+	private Integer ageGroup;
+	private String language;
+	public Integer getSongID() {
+		return songID;
+	}
+	public void setSongID(Integer songID) {
+		this.songID = songID;
+	}
+	public String getSongName() {
 		return songName;
 	}
-	
-	public void setName(String name){
-		songName = name;
+	public void setSongName(String songName) {
+		this.songName = songName;
 	}
-	
-	public int getAge(){
+	public Integer getAgeGroup() {
 		return ageGroup;
 	}
-	
-	public void setAge(int age){
-		ageGroup = age;
+	public void setAgeGroup(Integer ageGroup) {
+		this.ageGroup = ageGroup;
 	}
-	
-	public int getLevel(){
-		return level;
+	public String getLanguage() {
+		return language;
 	}
-	
-	public void setLevel(int l){
-		level = l;
-	}
-		
+	public void setLanguage(String language) {
+		this.language = language;
+	}	
 }

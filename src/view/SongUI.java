@@ -10,12 +10,8 @@ import javax.swing.*;
 
 
 public class SongUI {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	
+	private Song song;
+	private SongController playSong;//song controller
 	private JFrame window;//the window frame
 	private JButton back;//to go back to previous page
 	private JButton next;//to go to next page
@@ -29,7 +25,7 @@ public class SongUI {
 	private File songF;//the song file
 	private String imageFName;//the image file name
 	private String songFName;//the song file name
-	private PlaySong playSong;//song controller
+	
 	private JPanel panel;//panel
 	
 	public SongUI(){

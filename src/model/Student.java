@@ -3,7 +3,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 
 public class Student{
-	private int id;
+	private int studentID;
 	private Image pic;
 	private ArrayList<Double> storyScore;
 	private ArrayList<Double> gameScore;
@@ -11,7 +11,7 @@ public class Student{
 	private String firstName;
 	
 	public int getID(){
-		return id;
+		return studentID;
 	}
 	
 	public Image getPic(){
@@ -35,7 +35,7 @@ public class Student{
 	}
 	
 	public void setID(int i){
-		id = i;
+		studentID = i;
 	}
 	
 	public void setPic(Image im){

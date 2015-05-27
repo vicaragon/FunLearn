@@ -4,8 +4,10 @@ import java.util.Map;
 
 
 public class Game {
-	private Integer GameID;
-	private String GameName;	
+	private Integer gameID;
+	private String gameName;
+	private Integer ageGroup;
+	private String language;
 
 	private List<String> pictures;
 	private List<String> music;
