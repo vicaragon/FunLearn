@@ -11,7 +11,7 @@ import javax.swing.*;
 
 public class SongUI {
 	private Song song;
-	private SongController playSong;//song controller
+	private SongController songController;//song controller
 	private JFrame window;//the window frame
 	private JButton back;//to go back to previous page
 	private JButton next;//to go to next page
