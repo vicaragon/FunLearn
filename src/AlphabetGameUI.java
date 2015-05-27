@@ -7,4 +7,3 @@ public class AlphabetGameUI extends GameUI {
 		super();
 	}
 }
-c
