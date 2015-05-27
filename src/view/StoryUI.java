@@ -27,4 +27,10 @@ public class StoryUI {
 	private JButton choice1;
 	private JButton choice2;
 	private JButton choice3;
+	public StoryUI() {
+		
+	}
+	public void registerEvents(){
+		
+	}
 }
