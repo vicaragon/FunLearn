@@ -1,6 +1,9 @@
+package controller;
+import model.Student;
 
-class GetStats{
-	private StudentInformation student;
+
+public class GetStats{
+	private Student student;
 	private FindStudent find;
 	
 	public GetStats(){
@@ -21,11 +24,11 @@ class GetStats{
 		return 0.0;
 	}
 	
-	public void setStudent(StudentInformation s){
+	public void setStudent(Student s){
 		student = s;
 	}
 	
-	public StudentInformation getStudent(){
+	public Student getStudent(){
 		return student;
 	}
 	

@@ -1,9 +1,12 @@
+package controller;
 import java.util.HashMap;
 
+import model.Student;
 
-class FindStudent{
-	private StudentInformation stud;
-	private HashMap<Integer,StudentInformation> students;
+
+public class FindStudent{
+	private Student stud;
+	private HashMap<Integer,Student> students;
 	
 	public void findStudentNames(String firstName, String lastName){
 		
@@ -17,7 +20,7 @@ class FindStudent{
 		
 	}
 	
-	public HashMap<Integer,StudentInformation> getStduents(){
+	public HashMap<Integer,Student> getStduents(){
 		return students;
 	}
 }

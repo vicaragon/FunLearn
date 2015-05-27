@@ -1,7 +1,8 @@
+package model;
 import java.io.Serializable;
 
 
-class Story implements Serializable {
+public class Story implements Serializable {
 	private Integer storyID;
 	private String storyName;
 	private Integer ageGroup;

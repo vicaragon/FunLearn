@@ -1,3 +1,7 @@
+package view;
+import controller.*;
+import model.*;
+
 import java.awt.*;
 import java.util.*;
 
@@ -12,6 +16,9 @@ public class FindStudentUI {
 	private FindStudent fsController;
 	
 	public void registerEvents(){
+		
+	}
+	public FindStudentUI() {
 		
 	}
 	

@@ -1,3 +1,7 @@
+package controller;
+import view.*;
+import model.*;
+
 public abstract class GameController {
 	protected Game game;
 	protected abstract void ifPreviousSaved();

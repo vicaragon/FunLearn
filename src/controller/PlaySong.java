@@ -1,7 +1,11 @@
+package controller;
 import java.util.HashSet;
 
+import model.*;
+import view.*;
 
-class PlaySong{
+
+public class PlaySong{
 	private Song song;
 	private HashSet<Song> songs;
 	

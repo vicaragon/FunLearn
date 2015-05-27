@@ -1,6 +1,9 @@
+package view;
 import java.awt.Image;
 
 import javax.swing.*;
+
+import model.Student;
 
 
 public class UpdateStudentUI {
@@ -21,7 +24,7 @@ public class UpdateStudentUI {
 }
 
 class UpdateStudent{
-	private StudentInformation student;
+	private Student student;
 	
 	public UpdateStudent(){
 		

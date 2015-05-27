@@ -1,3 +1,7 @@
+package view;
+import controller.*;
+import model.*;
+
 import java.awt.image.*;
 import java.io.File;
 import java.util.*;

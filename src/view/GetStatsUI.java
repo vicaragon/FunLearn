@@ -1,3 +1,7 @@
+package view;
+import controller.*;
+import model.*;
+
 import javax.swing.*;
 
 

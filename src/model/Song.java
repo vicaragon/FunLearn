@@ -1,5 +1,6 @@
+package model;
 
-class Song{
+public class Song{
 	private String songName;
 	private int ageGroup;
 	private int level;

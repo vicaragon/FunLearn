@@ -1,3 +1,4 @@
+package view;
 import javax.swing.*;
 
 public class GameUI {
@@ -9,4 +10,8 @@ public class GameUI {
 	private JLabel scores;
 	
 	public GameUI(){};
+	public void registerEvents(){
+		
+	}
+
 }

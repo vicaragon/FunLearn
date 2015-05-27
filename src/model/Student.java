@@ -1,7 +1,8 @@
+package model;
 import java.awt.Image;
 import java.util.ArrayList;
 
-public class StudentInformation{
+public class Student{
 	private int id;
 	private Image pic;
 	private ArrayList<Double> storyScore;
