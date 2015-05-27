@@ -8,11 +8,15 @@ public class FindStudent{
 	private Student stud;
 	private HashMap<Integer,Student> students;
 	
-	public void findStudentNames(String firstName, String lastName){
+	public void findStudentNames(String name){
 		
 	}
 	
 	public void findStudentID(int i){
+		
+	}
+	
+	public void findStudentAge(int age){
 		
 	}
 	

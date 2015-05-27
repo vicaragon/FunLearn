@@ -1,10 +1,14 @@
 package view;
 import javax.swing.*;
+import controller.*;
 
 public class AdminSetupUI {
+	private JFrame window;
+	private JFrame topPanel;
 	private JButton findStudentButton;
 	private JButton addStudentButton;
-	private JButton UpdateStudentButton;
+	private JButton setup;
+	private AddStudentController addStudent;
 	
 	public AdminSetupUI() {
 		
