@@ -6,7 +6,6 @@ import controller.UpdateStudent;
 
 
 public class UpdateStudentUI {
-	private JFrame window;
 	private JPanel topPanel;
 	private JButton add;
 	private Student updatedStudent;
