@@ -1,5 +1,6 @@
 package view;
 
+import controller.*;
 import javax.swing.*;
 
 import controller.SongController;
@@ -25,7 +26,7 @@ public class PlaySetupUI {
 	private SongController playSong;
 	private StoryController storySong;
 	private GameController gameSong;
-	private SpeedController speed;
+	//private SpeedController speed;
 	
 	public PlaySetupUI() {
 		
