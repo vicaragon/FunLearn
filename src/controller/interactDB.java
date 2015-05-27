@@ -13,8 +13,10 @@ public class interactDB {
 	public int writeStudent(Student s) {
 		
 	}
+	public void updateStudentGameScore(int studentID, int gameID, int scoreIncrement) {
 		
 	}
+	public void updateStudentStoryScore(int studentID, int StoryID, int scoreIncrement) {
 		
 	}
 	public void removeStudent(int studentID) {
