@@ -1,3 +1,7 @@
+package view;
+import controller.*;
+import model.*;
+
 import java.awt.image.*;
 import java.io.File;
 import java.util.*;
@@ -6,12 +10,8 @@ import javax.swing.*;
 
 
 public class SongUI {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	
+	private Song song;
+	private SongController playSong;//song controller
 	private JFrame window;//the window frame
 	private JButton back;//to go back to previous page
 	private JButton next;//to go to next page
@@ -25,7 +25,7 @@ public class SongUI {
 	private File songF;//the song file
 	private String imageFName;//the image file name
 	private String songFName;//the song file name
-	private PlaySong playSong;//song controller
+	
 	private JPanel panel;//panel
 	
 	public SongUI(){
@@ -46,57 +46,4 @@ public class SongUI {
 		
 	}
 	
-}
-
-class PlaySong{
-	private Song song;
-	private HashSet<Song> songs;
-	
-	public void playSong(){
-		
-	}
-	
-	public void updateSong(){
-		
-	}
-	
-	public HashSet<Song> getAllSongs(){
-		
-		return songs;
-	}
-	
-	public void setSong(Song song1){
-		song = song1;
-	}
-}
-
-class Song{
-	private String songName;
-	private int ageGroup;
-	private int level;
-	
-	public String getName(){
-		return songName;
-	}
-	
-	public void setName(String name){
-		songName = name;
-	}
-	
-	public int getAge(){
-		return ageGroup;
-	}
-	
-	public void setAge(int age){
-		ageGroup = age;
-	}
-	
-	public int getLevel(){
-		return level;
-	}
-	
-	public void setLevel(int l){
-		level = l;
-	}
-		
 }

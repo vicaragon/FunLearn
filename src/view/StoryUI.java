@@ -1,7 +1,11 @@
+package view;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import controller.*;
+import model.*;
 
 
 public class StoryUI {
@@ -23,4 +27,10 @@ public class StoryUI {
 	private JButton choice1;
 	private JButton choice2;
 	private JButton choice3;
+	public StoryUI() {
+		
+	}
+	public void registerEvents(){
+		
+	}
 }
