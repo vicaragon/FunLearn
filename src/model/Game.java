@@ -37,7 +37,7 @@ public class Game implements Serializable {
 			Map<Integer, String> questionsAudioPath,
 			Map<Integer, String> rightAnswer,
 			Map<Integer, String> rightAnswerAudioPath,
-			Map<Integer, List<Integer>> answers,
+			Map<Integer, List<String>> answers,
 			Map<Integer, List<String>> answersAudioPath) {
 		this.gameID = gameID;
 		this.gameName = gameName;
