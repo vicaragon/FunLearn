@@ -1,15 +1,30 @@
 package controller;
 import model.*;
+import java.sql.*;
 
 public class interactDB {
+	private Connection conn;
+	public interactDB(String uname, String pass) {
+		
+	}
+	public Student readStudent(int studentID) {
+		
+	}
+	public int writeStudent(Student s) {
+		
+	}
+	public void removeStudent(int studentID) {
+		
+	}
 	
-	public interactDB() {
+	public Game readGame() {
 		
 	}
-	public Student readStudent() {
+	public Song readSong() {
 		
 	}
-	public boolean writeStudent(Student s) {
+	public Story readStory() {
 		
 	}
+	
 }
