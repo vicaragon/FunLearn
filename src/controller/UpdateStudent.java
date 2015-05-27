@@ -13,19 +13,13 @@ public class UpdateStudent{
 		
 	}
 	
-	public void updateName(String name){
+
+	
+	public void deleteStudent(int id){
 		
 	}
 	
-	public void updateId(int id){
-		
-	}
-	
-	public void updateAge(int age){
-		
-	}
-	
-	public void updatePic(String picPath){
+	public void editStudent(int id){
 		
 	}
 }
