@@ -13,10 +13,6 @@ public class SongController{
 		
 	}
 	
-	public void updateSong(){
-		
-	}
-	
 	public HashSet<Song> getAllSongs(){
 		
 		return songs;
