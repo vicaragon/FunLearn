@@ -1,9 +1,7 @@
 package view;
-import java.awt.Image;
-
 import javax.swing.*;
 
-import model.Student;
+import controller.UpdateStudent;
 
 
 public class UpdateStudentUI {
@@ -19,26 +17,6 @@ public class UpdateStudentUI {
 	}
 	
 	public void registerEvents(){
-		
-	}
-}
-
-class UpdateStudent{
-	private Student student;
-	
-	public UpdateStudent(){
-		
-	}
-	
-	public void addStudent(int id, String lastName, String firstName, Image i){
-		
-	}
-	
-	public void deleteStudent(int id){
-		
-	}
-	
-	public void editStudent(int id){
 		
 	}
 }
