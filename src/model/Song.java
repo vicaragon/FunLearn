@@ -5,6 +5,26 @@ public class Song{
 	private String songName;
 	private Integer ageGroup;
 	private String language;
+	private String songAudioPath;
+	private String[] songImagePath;
+	
+	/**
+	 * @param songID
+	 * @param songName
+	 * @param ageGroup
+	 * @param language
+	 * @param songAudioPath
+	 * @param songImagePath
+	 */
+	public Song(Integer songID, String songName, Integer ageGroup,
+			String language, String songAudioPath, String[] songImagePath) {
+		this.songID = songID;
+		this.songName = songName;
+		this.ageGroup = ageGroup;
+		this.language = language;
+		this.songAudioPath = songAudioPath;
+		this.songImagePath = songImagePath;
+	}
 	public Integer getSongID() {
 		return songID;
 	}
@@ -28,5 +48,17 @@ public class Song{
 	}
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+	public String getSongAudioPath() {
+		return songAudioPath;
+	}
+	public void setSongAudioPath(String songAudioPath) {
+		this.songAudioPath = songAudioPath;
+	}
+	public String[] getSongImagePath() {
+		return songImagePath;
+	}
+	public void setSongImagePath(String[] songImagePath) {
+		this.songImagePath = songImagePath;
 	}	
 }
