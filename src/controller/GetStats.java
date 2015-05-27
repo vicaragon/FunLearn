@@ -4,7 +4,6 @@ import model.Student;
 
 public class GetStats{
 	private Student student;
-	private FindStudent find;
 	
 	public GetStats(){
 		
