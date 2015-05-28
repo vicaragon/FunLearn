@@ -8,11 +8,8 @@ import controller.*;
 import model.*;
 
 
-public class StoryUI {
-	private Story story;
+public class StoryUI extends JPanel {
 	private StoryController storyController; 
-	private JFrame frame;
-	private JPanel toppanel;
 	private JPanel scorePanel;
 	private JLabel score;
 	private JLabel playername;
