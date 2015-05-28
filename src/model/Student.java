@@ -3,6 +3,10 @@ import java.io.Serializable;
 import java.util.Map;
 
 public class Student implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8865536250554293578L;
 	private int studentID;
 	private String picPath;
 	private Map<Integer,Integer> gameScore;
@@ -26,6 +30,9 @@ public class Student implements Serializable {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.ageGroup = ageGroup;
+	}
+	public Student() {
+		
 	}
 	public int getStudentID() {
 		return studentID;

@@ -5,6 +5,10 @@ import java.util.Map;
 
 
 public class Game implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5305212893758946353L;
 	private int gameID;
 	private String gameName;
 	private int ageGroup;
@@ -51,6 +55,9 @@ public class Game implements Serializable {
 		this.rightAnswerAudioPath = rightAnswerAudioPath;
 		this.answers = answers;
 		this.answersAudioPath = answersAudioPath;
+	}
+	public Game() {
+		
 	}
 	public int getGameID() {
 		return gameID;

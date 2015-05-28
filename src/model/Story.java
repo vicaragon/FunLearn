@@ -4,6 +4,10 @@ import java.util.Map;
 
 
 public class Story implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7709726697403991641L;
 	private int storyID;
 	private String storyName;
 	private int ageGroup;
@@ -34,6 +38,9 @@ public class Story implements Serializable {
 		this.picturePath = picturePath;
 		this.musicAudioPath = musicAudioPath;
 		this.paragraphAudioPath = paragraphAudioPath;
+	}
+	public Story() {
+		
 	}
 	public int getStoryID() {
 		return storyID;

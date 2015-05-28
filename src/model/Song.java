@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Song implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4875581258729443007L;
 	private int songID;
 	private String songName;
 	private int ageGroup;
@@ -26,6 +30,9 @@ public class Song implements Serializable {
 		this.language = language;
 		this.songAudioPath = songAudioPath;
 		this.songImagePath = songImagePath;
+	}
+	public Song() {
+		
 	}
 	public int getSongID() {
 		return songID;
