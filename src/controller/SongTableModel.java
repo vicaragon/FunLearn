@@ -6,20 +6,20 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class GameTableModel extends AbstractTableModel {
-	private List<Game> gamesList;
+public class songTableModel extends AbstractTableModel {
+	private List<song> songsList;
 	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
 	private static EntityManagerFactory factory;
 	private EntityManager manager;
-	private GameService gameService;
-	private Game game;
-	private GameController gameController;
+	private songService songService;
+	private song song;
+	private songController songController;
 	private int numcols,numrows;
-	public GameTableModel () {
+	public songTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		manager = factory.createEntityManager();
-		Game = new Game();
-		GameService = new GameService(manager);
+		song = new song();
+		songService = new songService(manager);
 	}
 	@Override
 	public int getColumnCount() {
@@ -41,8 +41,8 @@ public class GameTableModel extends AbstractTableModel {
 	public void setValueAt(Object aValue, int row, int col) {
 		// TODO Auto-generated method stub
 	}
-	public List<Game> getList() {
-		return gamesList;
+	public List<song> getList() {
+		return songsList;
 	}
 	public EntityManager getEntityManager() {
 		return manager;

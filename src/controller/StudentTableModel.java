@@ -7,11 +7,11 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class StudentTableModel extends AbstractTableModel {
-	List<Student> StudentsList;
+	private List<Student> StudentsList;
 	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
 	private static EntityManagerFactory factory;
 	private EntityManager manager;
-	StudentService StudentService;
+	private StudentService StudentService;
 	private Student Student;
 	private StudentController StudentController;
 	private int numcols,numrows;
