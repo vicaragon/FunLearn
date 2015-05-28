@@ -7,10 +7,13 @@ import javax.swing.JPanel;
 public class SetupUI {
 	private JFrame window;
 	private JPanel cards;
-	private JPanel studentListUI;
-	private JPanel gameTypeUI;
-	private JPanel levelTypeUI;
-	private JPanel startUI;
+	private StudentsListUI studentListUI;
+	private GameTypeUI gameTypeUI;
+	private LevelTypeUI levelTypeUI;
+	private StartUI startUI;
+	private GameUI gameUI;
+	private StoryUI storyUI;
+	private SongUI songUI;
 	private String PERSISTENCE_UNIT_NAME="PersistenceUnit";
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 	EntityManager manager = factory.createEntityManager();

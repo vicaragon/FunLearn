@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.*;
+import controller.*;
 
 public class GameTypeUI extends JPanel {
 	private JLabel selectGame;

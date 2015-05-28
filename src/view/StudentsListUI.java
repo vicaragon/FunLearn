@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.*;
+import controller.*;
 
 public class StudentsListUI extends JPanel {
 	private JLabel name;
@@ -14,4 +15,5 @@ public class StudentsListUI extends JPanel {
 	private JTable PlayList;
 	private JButton deleteFromPlayList;
 	private JButton startPlaying;
+	private StudentController studentController;
 }
