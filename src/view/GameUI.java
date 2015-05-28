@@ -4,7 +4,6 @@ import controller.*;
 import model.*;
 
 public class GameUI {
-        private Game game;
 	private GameController gameController;
 	private JFrame window;
 	private JPanel panel;
