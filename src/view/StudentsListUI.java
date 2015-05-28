@@ -2,7 +2,7 @@ package view;
 
 import javax.swing.*;
 
-public class StudentsListUI {
+public class StudentsListUI extends JPanel {
 	private JLabel name;
 	private JLabel age;
 	private JButton addNewStudent;
