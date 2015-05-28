@@ -15,7 +15,6 @@ public class SongTableModel extends AbstractTableModel {
 	private EntityManager manager;
 	private SongService songService;
 	private Song song;
-	private SongController songController;
 	private int numcols,numrows;
 	public SongTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);

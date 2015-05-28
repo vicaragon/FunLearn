@@ -14,8 +14,7 @@ public class GameTableModel extends AbstractTableModel {
 	private static EntityManagerFactory factory;
 	private EntityManager manager;
 	private GameService gameService;
-	private Game game;
-	private GameController gameController;
+	private Game game;	
 	private int numcols,numrows;
 	public GameTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);

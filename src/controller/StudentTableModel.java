@@ -15,7 +15,6 @@ public class StudentTableModel extends AbstractTableModel {
 	private EntityManager manager;
 	private StudentService studentService;
 	private Student student;
-	private StudentController studentController;
 	private int numcols,numrows;
 	public StudentTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);

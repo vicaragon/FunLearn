@@ -15,7 +15,6 @@ public class StoryTableModel extends AbstractTableModel {
 	private EntityManager manager;
 	private StoryService storyService;
 	private Story story;
-	private StoryController storyController;
 	private int numcols,numrows;
 	public StoryTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
