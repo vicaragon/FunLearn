@@ -1,5 +1,6 @@
 package controller;
 
+import model.*;
 import javax.swing.table.AbstractTableModel;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

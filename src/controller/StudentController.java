@@ -1,11 +1,11 @@
 package controller;
+
 import java.util.HashMap;
 
 import model.Student;
 
-
-public class FindStudent{
-	private Student stud;
+public class StudentController {
+	private Student s;
 	private HashMap<Integer,Student> students;
 	
 	public void findStudentNames(String name){
@@ -20,11 +20,20 @@ public class FindStudent{
 		
 	}
 	
-	public void printStudents(){
-		
-	}
-	
 	public HashMap<Integer,Student> getStduents(){
 		return students;
 	}
+	
+	public void addStudent(){
+		
+	}
+	
+	public void deleteStudent(int id){
+		
+	}
+	
+	public void updateStudent(int id){
+		
+	}
+		
 }

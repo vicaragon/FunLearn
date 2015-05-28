@@ -1,24 +1,25 @@
 package controller;
 
 import javax.swing.table.AbstractTableModel;
+import model.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class songTableModel extends AbstractTableModel {
-	private List<song> songsList;
+	private List<Song> songsList;
 	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
 	private static EntityManagerFactory factory;
 	private EntityManager manager;
-	private songService songService;
-	private song song;
-	private songController songController;
+	private SongService songService;
+	private Song song;
+	private SongController songController;
 	private int numcols,numrows;
 	public songTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		manager = factory.createEntityManager();
-		song = new song();
+		song = new Song();
 		songService = new songService(manager);
 	}
 	@Override
@@ -41,7 +42,7 @@ public class songTableModel extends AbstractTableModel {
 	public void setValueAt(Object aValue, int row, int col) {
 		// TODO Auto-generated method stub
 	}
-	public List<song> getList() {
+	public List<Song> getList() {
 		return songsList;
 	}
 	public EntityManager getEntityManager() {

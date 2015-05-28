@@ -1,6 +1,7 @@
 package controller;
 
 import javax.swing.table.AbstractTableModel;
+import model.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -11,14 +12,14 @@ public class StudentTableModel extends AbstractTableModel {
 	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
 	private static EntityManagerFactory factory;
 	private EntityManager manager;
-	private StudentService StudentService;
-	private Student Student;
-	private StudentController StudentController;
+	private StudentService studentService;
+	private Student student;
+	private StudentController studentController;
 	private int numcols,numrows;
 	public StudentTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		manager = factory.createEntityManager();
-		Student = new Student();
+		student = new Student();
 		StudentService = new StudentService(manager);
 	}
 	@Override
