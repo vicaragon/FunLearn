@@ -12,6 +12,10 @@ import model.Song;
  * @author rramsis
  */
 public class SongService {
+    private EntityManager manager;
+    public SongService(EntityManager manager) {
+        this.manager = manager;
+    }
     public Song creatSong() {
         
     }

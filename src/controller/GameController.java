@@ -1,6 +1,7 @@
 package controller;
 import java.util.List;
 import java.util.Map;
+import javax.swing.ImageIcon;
 
 import sun.audio.AudioStream;
 import view.*;
@@ -10,11 +11,13 @@ public class GameController {
 	private Game game;
 	private int index;
 	private int score;
+        private GameTableModel GameTablemodel;
+        private GameUI GameUI;
 	/**
 	 * @param game
 	 */
-	public GameController(Game game) {
-		this.game = game;
+	public GameController(GameUI gameUI) {
+		this.gameUI = gameUI;
 	}
 	public void loadGame();
 	public void playGame();

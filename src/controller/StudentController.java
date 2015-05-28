@@ -3,11 +3,14 @@ package controller;
 import java.util.HashMap;
 
 import model.Student;
+import view.StudentsListUI;
 
 public class StudentController {
-	private Student s;
-	private HashMap<Integer,Student> students;
-	
+	private StudentTableModel studentTablemodel;
+        private StudentsListUI studentsListUI;
+	public StudentController(StudentsListUI studentsListUI) {
+            this.studentsListUI = studentsListUI;
+        }
 	public void findStudentNames(String name){
 		
 	}
@@ -18,10 +21,6 @@ public class StudentController {
 	
 	public void findStudentAge(int age){
 		
-	}
-	
-	public HashMap<Integer,Student> getStduents(){
-		return students;
 	}
 	
 	public void addStudent(){

@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import model.*;
 import javax.swing.table.AbstractTableModel;
 import javax.persistence.EntityManager;
@@ -19,8 +20,8 @@ public class GameTableModel extends AbstractTableModel {
 	public GameTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		manager = factory.createEntityManager();
-		Game = new Game();
-		GameService = new GameService(manager);
+		game = new Game();
+		gameService = new GameService(manager);
 	}
 	@Override
 	public int getColumnCount() {

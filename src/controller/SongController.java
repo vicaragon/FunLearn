@@ -5,13 +5,14 @@ import view.*;
 
 
 public class SongController{
-	private Song song;
+	private SongTableModel songTablemodel;
+        private SongUI songUI;
 	private AudioStream audioIn;
 	/**
 	 * @param song
 	 */
-	public SongController(Song song) {
-		this.song = song;
+	public SongController(SongUI songUI) {
+		this.songUI = songUI;
 	}
 	public void playSong(){
 		

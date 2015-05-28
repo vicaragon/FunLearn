@@ -12,6 +12,10 @@ import model.Student;
  * @author rramsis
  */
 public class StudentService {
+    private EntityManager manager;
+    public StudentService(EntityManager manager) {
+        this.manager = manager;
+    }
     public Student creatStudent() {
         
     }

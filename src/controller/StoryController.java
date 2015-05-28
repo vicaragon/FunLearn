@@ -3,16 +3,18 @@ import sun.audio.AudioStream;
 import model.*;
 
 import javax.swing.*;
+import view.StoryUI;
 
 public class StoryController {
-	private Story story;
+	private StoryTableModel StoryTablemodel;
+        private StoryUI storyUI;
 	private int index;
 
 	/**
 	 * @param story
 	 */
-	public StoryController(Story story) {
-		this.story = story;
+	public StoryController(StoryUI storyUI) {
+		this.storyUI = storyUI;
 	}
 	public String retrieveParagraph() {
 		

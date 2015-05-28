@@ -12,6 +12,10 @@ import model.Story;
  * @author rramsis
  */
 public class StoryService {
+    private EntityManager manager;
+    public StoryService(EntityManager manager) {
+        this.manager = manager;
+    }
     public Story creatStory() {
         
     }

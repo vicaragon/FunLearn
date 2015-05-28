@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.*;
 import javax.persistence.EntityManager;
@@ -7,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class songTableModel extends AbstractTableModel {
+public class SongTableModel extends AbstractTableModel {
 	private List<Song> songsList;
 	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
 	private static EntityManagerFactory factory;
@@ -16,11 +17,11 @@ public class songTableModel extends AbstractTableModel {
 	private Song song;
 	private SongController songController;
 	private int numcols,numrows;
-	public songTableModel () {
+	public SongTableModel () {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		manager = factory.createEntityManager();
 		song = new Song();
-		songService = new songService(manager);
+		songService = new SongService(manager);
 	}
 	@Override
 	public int getColumnCount() {

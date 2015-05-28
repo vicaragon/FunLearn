@@ -11,6 +11,11 @@ import model.*;
  * @author rramsis
  */
 public class GameService {
+    private EntityManager manager;
+    public GameService(EntityManager manager) {
+        this.manager = manager;
+    }
+    
     public Game creatGame() {
         
     }

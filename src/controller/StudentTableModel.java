@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.*;
 import javax.persistence.EntityManager;
@@ -20,7 +21,7 @@ public class StudentTableModel extends AbstractTableModel {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		manager = factory.createEntityManager();
 		student = new Student();
-		StudentService = new StudentService(manager);
+		studentService = new StudentService(manager);
 	}
 	@Override
 	public int getColumnCount() {
