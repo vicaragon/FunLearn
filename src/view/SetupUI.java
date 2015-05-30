@@ -5,8 +5,8 @@
  */
 package view;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import javax.swing.*;
 
 /**
  *
@@ -15,10 +15,23 @@ import javax.persistence.Persistence;
 public class SetupUI extends javax.swing.JPanel {
     public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
     public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+    private JFrame window;
+    private JPanel cards;
+    private StudentsListUI studentListUI;
+    private GameTypeUI gameTypeUI;
+    private LevelTypeUI levelTypeUI;
+    private StartUI startUI;
+    private GameUI gameUI;
+    private StoryUI storyUI;
+    private SongUI songUI;
     /**
      * Creates new form SetupUI
      */
     public SetupUI() {
+        cards.add(studentListUI);
+        cards.add(gameTypeUI); 
+        cards.add(levelTypeUI);
+        cards.add(startUI);
         initComponents();
     }
     public static void main (String[] args) {
