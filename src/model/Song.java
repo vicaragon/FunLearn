@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -21,8 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author me
  */
 @MappedSuperclass
-@Table(catalog = "FunLearnDB", schema = "", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"songID"})})
+@Table(catalog = "FunLearnDB", schema = "")
 @XmlRootElement
 public class Song implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -37,7 +35,8 @@ public class Song implements Serializable {
     private Integer ageGroup;
     @Column(length = 45)
     private String language;
-    @Column(length = 45)
+    @Basic(optional = false)
+    @Column(nullable = false, length = 45)
     private String songVideoPath;
 
     public Song() {
@@ -47,9 +46,10 @@ public class Song implements Serializable {
         this.songID = songID;
     }
 
-    public Song(Integer songID, String songName) {
+    public Song(Integer songID, String songName, String songVideoPath) {
         this.songID = songID;
         this.songName = songName;
+        this.songVideoPath = songVideoPath;
     }
 
     public Integer getSongID() {
