@@ -3,22 +3,20 @@ package controller;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.*;
+import view.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class StudentTableModel extends AbstractTableModel {
-	private List<Student> StudentsList;
-	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
-	private static EntityManagerFactory factory;
+	private List<Student> studentsList;
 	private EntityManager manager;
 	private StudentService studentService;
 	private Student student;
 	private int numcols,numrows;
 	public StudentTableModel () {
-		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		manager = factory.createEntityManager();
+		manager = StartUI.factory.createEntityManager();
 		student = new Student();
 		studentService = new StudentService(manager);
 	}
@@ -43,7 +41,7 @@ public class StudentTableModel extends AbstractTableModel {
 		// TODO Auto-generated method stub
 	}
 	public List<Student> getList() {
-		return StudentsList;
+		return studentsList;
 	}
 	public EntityManager getEntityManager() {
 		return manager;

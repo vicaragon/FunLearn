@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 import model.*;
+import view.*;
 import javax.swing.table.AbstractTableModel;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,15 +11,12 @@ import javax.persistence.Persistence;
 
 public class GameTableModel extends AbstractTableModel {
 	private List<Game> gamesList;
-	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
-	private static EntityManagerFactory factory;
 	private EntityManager manager;
 	private GameService gameService;
 	private Game game;	
 	private int numcols,numrows;
 	public GameTableModel () {
-		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		manager = factory.createEntityManager();
+		manager = StartUI.factory.createEntityManager();
 		game = new Game();
 		gameService = new GameService(manager);
 	}

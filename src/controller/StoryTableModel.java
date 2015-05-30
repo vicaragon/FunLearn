@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.*;
+import view.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -10,15 +11,12 @@ import javax.persistence.Persistence;
 
 public class StoryTableModel extends AbstractTableModel {
 	private List<Story> storysList;
-	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
-	private static EntityManagerFactory factory;
 	private EntityManager manager;
 	private StoryService storyService;
 	private Story story;
 	private int numcols,numrows;
 	public StoryTableModel () {
-		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		manager = factory.createEntityManager();
+		manager = StartUI.factory.createEntityManager();
 		story = new Story();
 		storyService = new StoryService(manager);
 	}

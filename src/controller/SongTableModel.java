@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.*;
+import view.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -10,15 +11,12 @@ import javax.persistence.Persistence;
 
 public class SongTableModel extends AbstractTableModel {
 	private List<Song> songsList;
-	private static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
-	private static EntityManagerFactory factory;
 	private EntityManager manager;
 	private SongService songService;
 	private Song song;
 	private int numcols,numrows;
 	public SongTableModel () {
-		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		manager = factory.createEntityManager();
+		manager = StartUI.factory.createEntityManager();
 		song = new Song();
 		songService = new SongService(manager);
 	}
