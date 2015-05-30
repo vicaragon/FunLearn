@@ -1,11 +1,10 @@
 package controller;
 
-import java.util.HashMap;
-
-import model.Student;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import view.StudentsListUI;
 
-public class StudentController {
+public class StudentController implements TableModelListener {
 	private StudentTableModel studentTablemodel;
         private StudentsListUI studentsListUI;
 	public StudentController(StudentsListUI studentsListUI) {
@@ -36,5 +35,10 @@ public class StudentController {
 	public void updateStudent(int id){
 		
 	}
+
+    @Override
+    public void tableChanged(TableModelEvent tme) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 		
 }
