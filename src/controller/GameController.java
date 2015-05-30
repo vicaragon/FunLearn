@@ -10,8 +10,8 @@ import model.*;
 public class GameController {
 	private int index;
 	private int score;
-    private GameTableModel GameTablemodel;
-    private GameUI GameUI;
+        private GameTableModel gameTablemodel;
+        private GameUI gameUI;
 	/**
 	 * @param game
 	 */

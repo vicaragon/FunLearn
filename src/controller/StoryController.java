@@ -6,7 +6,7 @@ import javax.swing.*;
 import view.StoryUI;
 
 public class StoryController {
-	private StoryTableModel StoryTablemodel;
+	private StoryTableModel storyTablemodel;
         private StoryUI storyUI;
 	private int index;
 
