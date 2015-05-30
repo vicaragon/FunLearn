@@ -1,5 +1,8 @@
 package view;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +14,8 @@ package view;
  * @author Sonam
  */
 public class StartUI extends javax.swing.JPanel {
-
+	public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
+	public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     /**
      * Creates new form StartUI
      */
