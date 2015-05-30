@@ -22,6 +22,13 @@ public class StartUI extends javax.swing.JPanel {
     public StartUI() {
         initComponents();
     }
+    public static void main (String[] args) {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new StartUI().setVisible(true);
+            }
+        });
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
