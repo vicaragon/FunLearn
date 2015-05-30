@@ -40,7 +40,7 @@ public class StoryTableModel extends AbstractTableModel {
 	public void setValueAt(Object aValue, int row, int col) {
 		// TODO Auto-generated method stub
 	}
-	public List<story> getList() {
+	public List<Story> getList() {
 		return storysList;
 	}
 	public EntityManager getEntityManager() {

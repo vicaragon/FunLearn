@@ -17,16 +17,16 @@ public class StoryController {
 		this.storyUI = storyUI;
 	}
 	public String retrieveParagraph() {
-		
+		return null;
 	};
 	public ImageIcon retrievePicture() {
-		
+		return null;
 	};
 	public AudioStream retrievemusicAudio() {
-		
+		return null;
 	};
 	public AudioStream paragraphAudioPath() {
-		
+		return null;
 	};
 	
 }

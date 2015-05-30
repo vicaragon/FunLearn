@@ -6,7 +6,7 @@
 package controller;
 
 import model.Student;
-
+import javax.persistence.EntityManager;
 /**
  *
  * @author rramsis
@@ -17,15 +17,15 @@ public class StudentService {
         this.manager = manager;
     }
     public Student creatStudent() {
-        
+        return null;
     }
     public Student readStudent() {
-        
+        return null;
     }
     public Student updateStudent() {
-        
+        return null;
     }
     public Student deleteStudent() {
-        
+        return null;
     }
 }

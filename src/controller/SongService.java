@@ -6,7 +6,7 @@
 package controller;
 
 import model.Song;
-
+import javax.persistence.EntityManager;
 /**
  *
  * @author rramsis
@@ -17,15 +17,15 @@ public class SongService {
         this.manager = manager;
     }
     public Song creatSong() {
-        
+        return null;
     }
     public Song readSong() {
-        
+        return null;
     }
     public Song updateSong() {
-        
+        return null;
     }
     public Song deleteSong() {
-        
+        return null;
     }
 }
