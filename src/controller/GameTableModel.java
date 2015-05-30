@@ -23,7 +23,7 @@ public class GameTableModel extends AbstractTableModel {
                 gameResultList = gameService.readAll();
                 
                 numrows = gameResultList.size();
-                numcols = gameResultList.getNumberOfColumns();
+                numcols = game.getNumberOfColumns();
 	}
 	@Override
 	public int getColumnCount() {

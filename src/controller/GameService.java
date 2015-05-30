@@ -18,11 +18,11 @@ public class GameService {
         this.manager = manager;
     }
     
-    public Game creatGame() {
-        
+    public Game createGame() {
+        return null;
     }
     public Game readGame() {
-        
+        return null;
     }
     public List<Game> readAll() {
          TypedQuery<Game> query = manager.createQuery("SELECT e FROM courselist e", Game.class);
@@ -31,9 +31,9 @@ public class GameService {
     	 return result;      
     }
     public Game updateGame() {
-        
+        return null;
     }
     public Game deleteGame() {
-        
+        return null;
     }
 }

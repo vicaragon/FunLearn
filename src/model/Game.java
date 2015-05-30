@@ -240,6 +240,48 @@ public class Game implements Serializable {
         return true;
     }
 
+       public int getNumberOfColumns() {
+	   return 16;
+   }
+       
+          // return the data in column i
+   public String getColumnData(int i) throws Exception {
+	   if (i == 0)
+		   return Integer.toString(getGameID());
+	   else if (i == 1)
+		   return getGameName();
+	   else if (i == 2) 
+		   return Integer.toString(getAgeGroup());
+	   else if (i == 3)
+		   return getLanguage();
+	   else if (i == 4)
+		   return getPicturePath();
+           else if (i == 5)
+		   return getMusicPath();
+           else if (i == 6)
+		   return getQuestions();
+           else if (i == 7)
+		   return getQuestionsAudioPath();
+           else if (i == 8)
+		   return getRightAnswer();
+           else if (i == 9)
+		   return getRightAnswerAudioPath();
+           else if (i == 10)
+		   return getOp1();
+           else if (i == 11)
+		   return getOp2();
+           else if (i == 12)
+		   return getOp3();
+           else if (i == 13)
+		   return getOp1AudioPath();
+           else if (i == 14)
+		   return getOp2AudioPath();
+           else if (i == 15)
+		   return getOp3AudioPath();
+	   else
+		   throw new Exception("Error: invalid column index in courselist table");    
+   }
+       
     @Override
     public String toString() {
         return "model.Game[ gameID=" + gameID + " ]";
