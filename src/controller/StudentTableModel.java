@@ -16,7 +16,7 @@ public class StudentTableModel extends AbstractTableModel {
 	private Student student;
 	private int numcols,numrows;
 	public StudentTableModel () {
-		manager = StartUI.factory.createEntityManager();
+		manager = SetupUI.factory.createEntityManager();
 		student = new Student();
 		studentService = new StudentService(manager);
 	}

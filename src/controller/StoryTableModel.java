@@ -16,7 +16,7 @@ public class StoryTableModel extends AbstractTableModel {
 	private Story story;
 	private int numcols,numrows;
 	public StoryTableModel () {
-		manager = StartUI.factory.createEntityManager();
+		manager = SetupUI.factory.createEntityManager();
 		story = new Story();
 		storyService = new StoryService(manager);
 	}

@@ -14,21 +14,13 @@ import javax.persistence.Persistence;
  * @author Sonam
  */
 public class StartUI extends javax.swing.JPanel {
-	public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
-	public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     /**
      * Creates new form StartUI
      */
     public StartUI() {
         initComponents();
     }
-    public static void main (String[] args) {
-            java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StartUI().setVisible(true);
-            }
-        });
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

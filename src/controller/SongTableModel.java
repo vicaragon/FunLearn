@@ -16,7 +16,7 @@ public class SongTableModel extends AbstractTableModel {
 	private Song song;
 	private int numcols,numrows;
 	public SongTableModel () {
-		manager = StartUI.factory.createEntityManager();
+		manager = SetupUI.factory.createEntityManager();
 		song = new Song();
 		songService = new SongService(manager);
 	}
