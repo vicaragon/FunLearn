@@ -5,9 +5,6 @@ import model.*;
 import view.*;
 import javax.swing.table.AbstractTableModel;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 public class GameTableModel extends AbstractTableModel {
 	private List<Game> gameResultList;
@@ -16,12 +13,10 @@ public class GameTableModel extends AbstractTableModel {
 	private Game game;	
 	private int numcols,numrows;
 	public GameTableModel () {
-		manager = StartUI.factory.createEntityManager();
+		manager = SetupUI.factory.createEntityManager();
 		game = new Game();
 		gameService = new GameService(manager);
-                
                 gameResultList = gameService.readAll();
-                
                 numrows = gameResultList.size();
                 numcols = game.getNumberOfColumns();
 	}
