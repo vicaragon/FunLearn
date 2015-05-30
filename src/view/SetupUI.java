@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.CardLayout;
 import javax.persistence.*;
 import javax.swing.*;
 
@@ -28,10 +29,11 @@ public class SetupUI extends javax.swing.JPanel {
      * Creates new form SetupUI
      */
     public SetupUI() {
-        cards.add(studentListUI);
-        cards.add(gameTypeUI); 
-        cards.add(levelTypeUI);
-        cards.add(startUI);
+        cards = new JPanel(new CardLayout());
+        cards.add(studentListUI,"StudentList");
+        cards.add(gameTypeUI,"GameType"); 
+        cards.add(levelTypeUI,"Level Type");
+        cards.add(startUI,"Start");
         initComponents();
     }
     public static void main (String[] args) {
