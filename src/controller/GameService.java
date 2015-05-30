@@ -6,7 +6,7 @@
 package controller;
 import model.*;
 import java.util.*;
-import javax.persistence.EntityManager;
+import javax.persistence.*;
 
 /**
  *
@@ -25,7 +25,10 @@ public class GameService {
         
     }
     public List<Game> readAll() {
-        
+         TypedQuery<Game> query = manager.createQuery("SELECT e FROM courselist e", Game.class);
+    	 List<Game> result =  query.getResultList();
+
+    	 return result;      
     }
     public Game updateGame() {
         
