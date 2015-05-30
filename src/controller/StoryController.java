@@ -1,7 +1,6 @@
 package controller;
-import sun.audio.AudioStream;
-import model.*;
 
+import java.io.File;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -26,10 +25,10 @@ public class StoryController implements TableModelListener {
 	public ImageIcon retrievePicture() {
 		return null;
 	};
-	public AudioStream retrievemusicAudio() {
+	public File retrievemusicAudio() {
 		return null;
 	};
-	public AudioStream paragraphAudioPath() {
+	public File paragraphAudioPath() {
 		return null;
 	};
 

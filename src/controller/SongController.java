@@ -2,14 +2,12 @@ package controller;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import model.*;
-import sun.audio.AudioStream;
 import view.*;
 
 
 public class SongController implements TableModelListener {
 	private SongTableModel songTablemodel;
         private SongUI songUI;
-	private AudioStream audioIn;
 	/**
 	 * @param song
 	 */
