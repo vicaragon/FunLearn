@@ -2,12 +2,14 @@ package controller;
 import java.util.List;
 import java.util.Map;
 import javax.swing.ImageIcon;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 
 import sun.audio.AudioStream;
 import view.*;
 import model.*;
 
-public class GameController {
+public class GameController implements TableModelListener {
 	private int index;
 	private int score;
         private GameTableModel gameTablemodel;
@@ -15,9 +17,11 @@ public class GameController {
 	/**
 	 * @param game
 	 */
-	public GameController(GameUI gameUI) {
-		this.gameUI = gameUI;
-	}
+        public GameController(GameUI gameUI) {
+            this.gameUI = gameUI;
+            gameTablemodel = new GameTableModel();
+            gameTablemodel.addTableModelListener(this);
+        }
 	public void loadGame() {
             
         }
@@ -63,4 +67,9 @@ public class GameController {
 	public List<AudioStream> retrieveAnswersAudio() {
 		return null;
 	}
+
+    @Override
+    public void tableChanged(TableModelEvent tme) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

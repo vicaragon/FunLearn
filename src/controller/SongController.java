@@ -1,19 +1,23 @@
 package controller;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import model.*;
 import sun.audio.AudioStream;
 import view.*;
 
 
-public class SongController{
+public class SongController implements TableModelListener {
 	private SongTableModel songTablemodel;
         private SongUI songUI;
 	private AudioStream audioIn;
 	/**
 	 * @param song
 	 */
-	public SongController(SongUI songUI) {
-		this.songUI = songUI;
-	}
+        public SongController(SongUI songUI) {
+            this.songUI = songUI;
+            songTablemodel = new SongTableModel();
+            songTablemodel.addTableModelListener(this);
+        }
 	public void playSong(){
 		
 	}
@@ -23,4 +27,9 @@ public class SongController{
 	public void resumeSong(){
 		
 	}
+
+    @Override
+    public void tableChanged(TableModelEvent tme) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
