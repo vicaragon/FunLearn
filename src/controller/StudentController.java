@@ -10,6 +10,8 @@ public class StudentController {
         private StudentsListUI studentsListUI;
 	public StudentController(StudentsListUI studentsListUI) {
             this.studentsListUI = studentsListUI;
+            studentTablemodel = new StudentTablemodel();
+            studentTablemodel.addTableModelListener(this);
         }
 	public void findStudentNames(String name){
 		
