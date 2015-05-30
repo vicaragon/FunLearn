@@ -5,6 +5,8 @@
  */
 package controller;
 import model.*;
+import java.util.*;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -20,6 +22,9 @@ public class GameService {
         
     }
     public Game readGame() {
+        
+    }
+    public List<Game> readAll() {
         
     }
     public Game updateGame() {
