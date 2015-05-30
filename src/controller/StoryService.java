@@ -6,7 +6,7 @@
 package controller;
 
 import model.Story;
-
+import javax.persistence.EntityManager;
 /**
  *
  * @author rramsis
@@ -17,15 +17,15 @@ public class StoryService {
         this.manager = manager;
     }
     public Story creatStory() {
-        
+        return null;
     }
     public Story readStory() {
-        
+        return null;
     }
     public Story updateStory() {
-        
+        return null;
     }
     public Story deleteStory() {
-        
+        return null;
     }
 }

@@ -5,7 +5,7 @@
  */
 package controller;
 import model.*;
-
+import javax.persistence.EntityManager;
 /**
  *
  * @author rramsis
@@ -17,15 +17,15 @@ public class GameService {
     }
     
     public Game creatGame() {
-        
+        return null;
     }
     public Game readGame() {
-        
+        return null;
     }
     public Game updateGame() {
-        
+        return null;
     }
     public Game deleteGame() {
-        
+        return null;
     }
 }

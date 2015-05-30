@@ -18,37 +18,49 @@ public class GameController {
 	public GameController(GameUI gameUI) {
 		this.gameUI = gameUI;
 	}
-	public void loadGame();
-	public void playGame();
-	public void endGame();
+	public void loadGame() {
+            
+        }
+	public void playGame(){
+            
+        }
+	public void endGame() {
+            
+        }
 	
-	public void iterateQuestions();  
-	public boolean isRightAnswer();
+	public void iterateQuestions() {
+            
+        }
+	public boolean isRightAnswer() {
+            return false;
+        }
 	
-	public int updateScore();
+	public int updateScore() {
+            return 0;
+        }
 	
 	public ImageIcon retrievePicture() {
-		
-	};
+		return null;
+	}
 	public AudioStream retrieveMusic() {
-		
-	};
+		return null;
+	}
 	public String retrieveQuestion() {
-		
-	};
+		return null;
+	}
 	public AudioStream retrieveQuestionAudio() {
-		
-	};
+		return null;
+	}
 	public String retrieverightAnswer() {
-		
-	};
+		return null;
+	}
 	public AudioStream  retrieverightAnswerAudio() {
-		
-	};
+		return null;
+	}
 	public List<String> retrieveAnswers() {
-		
-	};
+		return null;
+	}
 	public List<AudioStream> retrieveAnswersAudio() {
-		
-	};
+		return null;
+	}
 }
