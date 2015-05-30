@@ -4,7 +4,7 @@ import java.util.List;
 import model.*;
 import view.*;
 import javax.swing.table.AbstractTableModel;
-import javax.persistence.EntityManager;
+import javax.persistence.*;
 
 public class GameTableModel extends AbstractTableModel {
 	private List<Game> gameResultList;

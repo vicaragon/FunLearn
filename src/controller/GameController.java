@@ -22,6 +22,9 @@ public class GameController implements TableModelListener {
             gameTablemodel = new GameTableModel();
             gameTablemodel.addTableModelListener(this);
         }
+        public GameTableModel getTableModel() {
+            return gameTablemodel;
+	}
 	public void loadGame() {
             
         }
