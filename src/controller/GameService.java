@@ -7,8 +7,6 @@ package controller;
 import model.*;
 import java.util.*;
 import javax.persistence.*;
-import model.Game;
-import static model.Game_.gameID;
 
 /**
  *
@@ -24,12 +22,10 @@ public class GameService {
         return null;
     }
     public Game readGame() {
-        Game game = manager.find(Game.class, gameID);
-    	 return game;  
+        return null;
     }
     public List<Game> readAll() {
-         TypedQuery<Game> query;
-        query = manager.createQuery("SELECT e FROM game e", Game.class);
+         TypedQuery<Game> query = manager.createQuery("SELECT e FROM courselist e", Game.class);
     	 List<Game> result =  query.getResultList();
 
     	 return result;      
