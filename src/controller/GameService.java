@@ -28,7 +28,8 @@ public class GameService {
     	 return game;  
     }
     public List<Game> readAll() {
-         TypedQuery<Game> query = manager.createQuery("SELECT e FROM game e", Game.class);
+         TypedQuery<Game> query;
+        query = manager.createQuery("SELECT e FROM game e", Game.class);
     	 List<Game> result =  query.getResultList();
 
     	 return result;      
