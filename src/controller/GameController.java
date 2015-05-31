@@ -21,17 +21,29 @@ public class GameController implements TableModelListener {
             this.gameUI = gameUI;
             gameTablemodel = new GameTableModel();
             gameTablemodel.addTableModelListener(this);
+            score = 0;
         }
         public GameTableModel getTableModel() {
             return gameTablemodel;
 	}
-	public void loadGame(int n) {
-            	gameUI.setPictureField( (String) gameTablemodel.getValueAt(n, 4));
-		gameUI.setQuestionField( (String) gameTablemodel.getValueAt(n, 6));
-		gameUI.setOption1Field( (String) gameTablemodel.getValueAt(n, 10));
-		gameUI.setOption2Field( (String) gameTablemodel.getValueAt(n, 11));
-		gameUI.setOption3Field( (String) gameTablemodel.getValueAt(n, 12));
+	public void loadGame(int gameNumber) {
+            	String picturePaths = (String) gameTablemodel.getValueAt(gameNumber, 4);
+		String questionPaths =  (String) gameTablemodel.getValueAt(gameNumber, 6);
+		String option1Paths = (String) gameTablemodel.getValueAt(gameNumber, 10);
+		String option2Paths= (String) gameTablemodel.getValueAt(gameNumber, 11);
+		String option3Paths = (String) gameTablemodel.getValueAt(gameNumber, 12);
         }
+        
+        public void loadGameEntry(int n) {
+            int question = 0;
+        //         gameUI.setPictureField( ) ;
+	//	gameUI.setQuestionField( ) ;
+	//	gameUI.setOption1Field() ;
+	//	gameUI.setOption2Field( );
+	//	gameUI.setOption3Field(); 
+            
+        }
+        
 	public void playGame(){
             
         }
@@ -46,6 +58,10 @@ public class GameController implements TableModelListener {
             return false;
         }
 	
+        public int getScore() {
+            return score;
+        }
+        
 	public int updateScore() {
             return 0;
         }

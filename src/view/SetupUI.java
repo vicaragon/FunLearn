@@ -20,7 +20,7 @@ public class SetupUI extends javax.swing.JPanel {
     private JPanel cards;
     private StudentsListUI studentListUI;
     private GameTypeUI gameTypeUI;
-    private LevelTypeUI levelTypeUI;
+    private SpeedTypeUI speedTypeUI;
     private StartUI startUI;
     private GameUI gameUI;
     private StoryUI storyUI;
@@ -32,7 +32,7 @@ public class SetupUI extends javax.swing.JPanel {
         cards = new JPanel(new CardLayout());
         cards.add(studentListUI,"StudentList");
         cards.add(gameTypeUI,"GameType"); 
-        cards.add(levelTypeUI,"Level Type");
+        cards.add(speedTypeUI,"Speed");
         cards.add(startUI,"Start");
         initComponents();
     }

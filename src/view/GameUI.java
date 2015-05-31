@@ -20,8 +20,8 @@ public class GameUI extends javax.swing.JFrame {
     public GameUI() {
         initComponents();
         gameController = new GameController(this); 
-        int n = 0;
-        gameController.loadGame(n);
+        int gameNumber = 0;
+        gameController.loadGame(gameNumber);
     }
     
     public void setScoreField(String value) {
@@ -35,15 +35,15 @@ public class GameUI extends javax.swing.JFrame {
     }
      
     public void setOption1Field(String value) {
-   // 	jButton1.setText(value);
+    	jButton1.setText(value);
     }
     
     public void setOption2Field(String value) {
-  //  	jButton2.setText(value);
+    	jButton2.setText(value);
     }
         
     public void setOption3Field(String value) {
- //   	jButton3.setText(value);
+    	jButton3.setText(value);
     }
 
     /**
@@ -65,6 +65,8 @@ public class GameUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTextField1.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
