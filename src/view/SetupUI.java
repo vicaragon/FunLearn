@@ -17,7 +17,6 @@ public class SetupUI extends javax.swing.JPanel {
     public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
     public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     private JFrame window;
-    private JPanel cards;
     private StudentsListUI studentListUI;
     private GameTypeUI gameTypeUI;
     private SpeedTypeUI speedTypeUI;
@@ -25,16 +24,43 @@ public class SetupUI extends javax.swing.JPanel {
     private GameUI gameUI;
     private StoryUI storyUI;
     private SongUI songUI;
+    static private CardLayout cardLayout;
+    static private JPanel cards;
     /**
      * Creates new form SetupUI
      */
     public SetupUI() {
-        cards = new JPanel(new CardLayout());
+        window = new JFrame();
+        cardLayout = new CardLayout();
+        cards = new JPanel(cardLayout);
+        studentListUI = new StudentsListUI();
+        gameTypeUI = new GameTypeUI();
+        speedTypeUI = new SpeedTypeUI();
+        startUI = new StartUI();
         cards.add(studentListUI,"StudentList");
         cards.add(gameTypeUI,"GameType"); 
         cards.add(speedTypeUI,"Speed");
         cards.add(startUI,"Start");
+        window.setContentPane(cards);
+        
+        window.setVisible(true);
         initComponents();
+    }
+
+    static public JPanel getCards() {
+        return cards;
+    }
+
+    public void setCards(JPanel cards) {
+        this.cards = cards;
+    }
+
+    static public CardLayout getCardLayout() {
+        return cardLayout;
+    }
+
+    public void setCardLayout(CardLayout cardLayout) {
+        this.cardLayout = cardLayout;
     }
     public static void main (String[] args) {
             java.awt.EventQueue.invokeLater(new Runnable() {
