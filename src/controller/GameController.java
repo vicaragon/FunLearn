@@ -26,21 +26,12 @@ public class GameController implements TableModelListener {
         public GameTableModel getTableModel() {
             return gameTablemodel;
 	}
-<<<<<<< HEAD
 	public void loadGame(int gameNumber) {
             	String picturePaths = (String) gameTablemodel.getValueAt(gameNumber, 4);
 		String questionPaths =  (String) gameTablemodel.getValueAt(gameNumber, 6);
 		String option1Paths = (String) gameTablemodel.getValueAt(gameNumber, 10);
 		String option2Paths= (String) gameTablemodel.getValueAt(gameNumber, 11);
 		String option3Paths = (String) gameTablemodel.getValueAt(gameNumber, 12);
-=======
-	public void loadGame() {
-            	gameUI.setPictureField( (String) gameTablemodel.getValueAt(0, 4));
-		gameUI.setQuestionField( (String) gameTablemodel.getValueAt(0, 6));
-		gameUI.setOption1Field( (String) gameTablemodel.getValueAt(0, 10));
-		gameUI.setOption2Field( (String) gameTablemodel.getValueAt(0, 11));
-		gameUI.setOption3Field( (String) gameTablemodel.getValueAt(0, 12));
->>>>>>> origin/master
         }
         
         public void loadGameEntry(int n) {
