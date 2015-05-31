@@ -35,7 +35,7 @@ public class GameTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int row, int col) {
                 try {
-		  return gamesResultList.get(row).getColumnData(col);
+                   return gamesResultList.get(row).getColumnData(col);
 		} catch (Exception e) {
 			e.getMessage();
 			return null;

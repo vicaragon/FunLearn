@@ -6,21 +6,16 @@
 package model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
+import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author me
  */
-@MappedSuperclass
-@Table(catalog = "FunLearnDB", schema = "")
-@XmlRootElement
+@Entity(name = "game")
 public class Game implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

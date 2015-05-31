@@ -13,13 +13,14 @@ import controller.*;
 public class GameUI extends javax.swing.JFrame {
     
     private GameController gameController;
-    
+       
     /**
      * Creates new form GameUI
      */
     public GameUI() {
         initComponents();
-        int n = 1;
+        gameController = new GameController(this); 
+        int n = 0;
         gameController.loadGame(n);
     }
     
@@ -34,15 +35,15 @@ public class GameUI extends javax.swing.JFrame {
     }
      
     public void setOption1Field(String value) {
-    	jButton1.setText(value);
+   // 	jButton1.setText(value);
     }
     
     public void setOption2Field(String value) {
-    	jButton2.setText(value);
+  //  	jButton2.setText(value);
     }
         
     public void setOption3Field(String value) {
-    	jButton3.setText(value);
+ //   	jButton3.setText(value);
     }
 
     /**
@@ -155,6 +156,38 @@ public class GameUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GameUI().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
