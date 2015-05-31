@@ -39,7 +39,7 @@ public class SetupUI extends javax.swing.JPanel {
     public static void main (String[] args) {
             java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SetupUI().setVisible(true);
+    //            new SetupUI().setVisible(true);
             }
         });
     }
