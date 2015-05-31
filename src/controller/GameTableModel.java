@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.persistence.*;
 
 public class GameTableModel extends AbstractTableModel {
-	private List<Game> gameResultList;
+	private List<Game> gamesResultList;
 	private EntityManager manager;
 	private GameService gameService;
 	private Game game;	
@@ -16,8 +16,8 @@ public class GameTableModel extends AbstractTableModel {
 		manager = SetupUI.factory.createEntityManager();
 		game = new Game();
 		gameService = new GameService(manager);
-                gameResultList = gameService.readAll();
-                numrows = gameResultList.size();
+                gamesResultList = gameService.readAll();
+                numrows = gamesResultList.size();
                 numcols = game.getNumberOfColumns();
 	}
 	@Override
@@ -35,17 +35,22 @@ public class GameTableModel extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int row, int col) {
                 try {
-		  return gameResultList.get(row).getColumnData(col);
+		  return gamesResultList.get(row).getColumnData(col);
 		} catch (Exception e) {
 			e.getMessage();
 			return null;
 		}
 	}
+        
+        public Class<?> getColumnClass(int col) {
+		return getValueAt(0, col).getClass();
+	 }
+        
 	//public void setValueAt(Object aValue, int row, int col) {
 		// TODO Auto-generated method stub
 	//}
 	public List<Game> getList() {
-		return gameResultList;
+		return gamesResultList;
 	}
 	public EntityManager getEntityManager() {
 		return manager;
@@ -53,8 +58,8 @@ public class GameTableModel extends AbstractTableModel {
         
         	 // create a new table model using the existing data in list
 	 public GameTableModel(List<Game> list, EntityManager em)  {
-	    gameResultList = list;
-	    numrows = gameResultList.size();
+	    gamesResultList = list;
+	    numrows = gamesResultList.size();
 	    game = new Game();
 	   	numcols = game.getNumberOfColumns();     
 		manager = em;  

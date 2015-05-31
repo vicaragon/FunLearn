@@ -25,12 +25,12 @@ public class GameController implements TableModelListener {
         public GameTableModel getTableModel() {
             return gameTablemodel;
 	}
-	public void loadGame() {
-            	gameUI.setPictureField( (String) gameTablemodel.getValueAt(0, 4));
-		gameUI.setQuestionField( (String) gameTablemodel.getValueAt(0, 6));
-		gameUI.setOption1Field( (String) gameTablemodel.getValueAt(0, 10));
-		gameUI.setOption2Field( (String) gameTablemodel.getValueAt(0, 11));
-		gameUI.setOption3Field( (String) gameTablemodel.getValueAt(0, 12));
+	public void loadGame(int n) {
+            	gameUI.setPictureField( (String) gameTablemodel.getValueAt(n, 4));
+		gameUI.setQuestionField( (String) gameTablemodel.getValueAt(n, 6));
+		gameUI.setOption1Field( (String) gameTablemodel.getValueAt(n, 10));
+		gameUI.setOption2Field( (String) gameTablemodel.getValueAt(n, 11));
+		gameUI.setOption3Field( (String) gameTablemodel.getValueAt(n, 12));
         }
 	public void playGame(){
             
