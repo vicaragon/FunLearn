@@ -1,5 +1,7 @@
 package controller;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import javax.swing.ImageIcon;
@@ -14,6 +16,11 @@ public class GameController implements TableModelListener {
 	private int score;
         private GameTableModel gameTablemodel;
         private GameUI gameUI;
+        private ArrayList<String> picturePaths;
+        private ArrayList<String> questionPaths;
+        private ArrayList<String> option1Paths;
+        private ArrayList<String> option2Paths;
+        private ArrayList<String> option3Paths;
 	/**
 	 * @param game
 	 */
@@ -27,21 +34,19 @@ public class GameController implements TableModelListener {
             return gameTablemodel;
 	}
 	public void loadGame(int gameNumber) {
-            	String picturePaths = (String) gameTablemodel.getValueAt(gameNumber, 4);
-		String questionPaths =  (String) gameTablemodel.getValueAt(gameNumber, 6);
-		String option1Paths = (String) gameTablemodel.getValueAt(gameNumber, 10);
-		String option2Paths= (String) gameTablemodel.getValueAt(gameNumber, 11);
-		String option3Paths = (String) gameTablemodel.getValueAt(gameNumber, 12);
+                picturePaths = new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 4)).split(";")));
+		questionPaths =  new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 6)).split(";")));
+		option1Paths = new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 10)).split(";")));
+		option2Paths= new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 11)).split(";")));
+		option3Paths = new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 12)).split(";")));
         }
         
-        public void loadGameEntry(int n) {
-            int question = 0;
-        //         gameUI.setPictureField( ) ;
-	//	gameUI.setQuestionField( ) ;
-	//	gameUI.setOption1Field() ;
-	//	gameUI.setOption2Field( );
-	//	gameUI.setOption3Field(); 
-            
+        public void loadGameEntry(int questionNumber) {
+                gameUI.setPictureField(picturePaths.get(questionNumber));
+                gameUI.setQuestionField(questionPaths.get(questionNumber));
+		gameUI.setOption1Field(option1Paths.get(questionNumber));
+		gameUI.setOption2Field(option2Paths.get(questionNumber));
+		gameUI.setOption3Field(option3Paths.get(questionNumber));     
         }
         
 	public void playGame(){
