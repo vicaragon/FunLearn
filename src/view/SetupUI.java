@@ -29,27 +29,17 @@ public class SetupUI extends javax.swing.JPanel {
      * Creates new form SetupUI
      */
     public SetupUI() {
-        window = new JFrame();
-        CardLayout cardLayout = new CardLayout();
-        cards = new JPanel(cardLayout);
-        studentListUI = new StudentsListUI();
-        gameTypeUI = new GameTypeUI();
-        levelTypeUI = new LevelTypeUI();
-        startUI = new StartUI();
+        cards = new JPanel(new CardLayout());
         cards.add(studentListUI,"StudentList");
         cards.add(gameTypeUI,"GameType"); 
         cards.add(levelTypeUI,"Level Type");
         cards.add(startUI,"Start");
-        window.setContentPane(cards);
-        cardLayout.next(cards);;
-        window.setVisible(true);
         initComponents();
     }
     public static void main (String[] args) {
             java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SetupUI();
-                //cards.next(this);
+                new SetupUI().setVisible(true);
             }
         });
     }
