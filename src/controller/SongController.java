@@ -8,6 +8,10 @@ import view.*;
 public class SongController implements TableModelListener {
 	private SongTableModel songTablemodel;
         private SongUI songUI;
+        private int index;
+        private String songName;
+        private String songVideoPath;
+        
 	/**
 	 * @param song
 	 */
@@ -16,8 +20,27 @@ public class SongController implements TableModelListener {
             songTablemodel = new SongTableModel();
             songTablemodel.addTableModelListener(this);
         }
+        
+        public SongTableModel getTableModel() {
+            return songTablemodel;
+	}
+        
+	public void loadSong(int songNumber) {
+            index = songNumber;
+            songName = (String)songTablemodel.getValueAt(songNumber,1);
+            songVideoPath = (String)songTablemodel.getValueAt(songNumber,4);
+        }
+        
+        public String getSongName(){
+            return songName;
+        }
+        
+        public String getSongVideoPath(){
+            return songVideoPath;
+        }
+        
 	public void playSong(){
-		
+            
 	}
 	public void pauseSong(){
 		

@@ -5,8 +5,11 @@
  */
 package controller;
 
+import java.util.List;
 import model.Song;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import static model.Song_.songID;
 /**
  *
  * @author rramsis
@@ -20,8 +23,18 @@ public class SongService {
         return null;
     }
     public Song readSong() {
-        return null;
+        Song song = manager.find(Song.class, songID);
+    	 return song;
     }
+    
+    public List<Song> readAll() {
+         TypedQuery<Song> query;
+        query = manager.createQuery("SELECT e FROM song e", Song.class);
+    	 List<Song> result =  query.getResultList();
+
+    	 return result;      
+    }
+    
     public Song updateSong() {
         return null;
     }

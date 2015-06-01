@@ -34,6 +34,7 @@ public class GameController implements TableModelListener {
             return gameTablemodel;
 	}
 	public void loadGame(int gameNumber) {
+                index = gameNumber;
                 picturePaths = new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 4)).split(";")));
 		questionPaths =  new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 6)).split(";")));
 		option1Paths = new ArrayList<String>(Arrays.asList(((String) gameTablemodel.getValueAt(gameNumber, 10)).split(";")));

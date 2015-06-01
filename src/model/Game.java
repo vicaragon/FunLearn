@@ -274,7 +274,7 @@ public class Game implements Serializable {
            else if (i == 15)
 		   return getOp3AudioPath();
 	   else
-		   throw new Exception("Error: invalid column index in courselist table");    
+		   throw new Exception("Error: invalid column index in game table");    
    }
        
     @Override

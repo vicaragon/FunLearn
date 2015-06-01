@@ -111,7 +111,29 @@ public class Song implements Serializable {
         }
         return true;
     }
-
+    
+     public int getNumberOfColumns() {
+	   return 5;
+   }
+       
+          // return the data in column i
+   public String getColumnData(int i) throws Exception {
+	   if (i == 0)
+		   return Integer.toString(getSongID());
+	   else if (i == 1)
+		   return getSongName();
+	   else if (i == 2) 
+		   return Integer.toString(getAgeGroup());
+	   else if (i == 3)
+		   return getLanguage();
+	   else if (i == 4)
+		   return getSongVideoPath();
+           
+	   else
+		   throw new Exception("Error: invalid column index in song table");    
+   }
+       
+    
     @Override
     public String toString() {
         return "model.Song[ songID=" + songID + " ]";
