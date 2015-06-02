@@ -20,15 +20,17 @@ public class StudentController implements ListSelectionListener, TableModelListe
 		return studentTablemodel;
 	}
         
+        @Override
 	public void valueChanged(ListSelectionEvent e) {
             ListSelectionModel selectModel = (ListSelectionModel) e.getSource();
             int firstIndex = selectModel.getMinSelectionIndex();
 		
             studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 0));
-                studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
-                studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
+            studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
+            studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
 	}   
         
+        @Override
         public void tableChanged(TableModelEvent e) {
 	   try {
 	    	// get the index of the inserted row

@@ -5,9 +5,6 @@ import javax.swing.table.AbstractTableModel;
 import model.*;
 import view.*;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 public class StudentTableModel extends AbstractTableModel {
 	private List<Student> studentsList;
@@ -15,7 +12,8 @@ public class StudentTableModel extends AbstractTableModel {
 	private StudentService studentService;
 	private Student student;
 	private int numcols,numrows;
-	public StudentTableModel () {
+	
+        public StudentTableModel () {
             
 		manager = SetupUI.factory.createEntityManager();
 		student = new Student();
@@ -54,6 +52,14 @@ public class StudentTableModel extends AbstractTableModel {
         
         public Class<?> getColumnClass(int col) {
 		return getValueAt(0, col).getClass();
+	 }
+        
+        public String getColumnName(int col) {
+            try {
+                return student.getColumnName(col);
+            } catch (Exception err) {
+	        return err.toString();
+	       }             
 	 }
                  
 	public void setValueAt(Object aValue, int row, int col) {

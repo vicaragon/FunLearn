@@ -156,6 +156,26 @@ public class Student implements Serializable {
 	   else
 		   throw new Exception("Error: invalid column index in courselist table");    
    }
+    
+       public String getColumnName(int i) throws Exception {
+	   String colName = null;
+	   if (i == 0) 
+		   colName = "first_name";
+	   else if (i == 1)
+		   colName = "last_name";
+	   else if (i == 2)
+		   colName = "age_group";
+	   else if (i == 3)
+		   colName = "min_score";
+	   else if (i == 4)
+		   colName = "max_score";
+           else if (i == 5)
+		   colName = "avg_score";
+	   else 
+		   throw new Exception("Access to invalid column number in courselist table");
+	   
+	   return colName;
+   }
 
        public void setColumnData(int i, Object value) throws Exception {
 	   if (i == 0) 
