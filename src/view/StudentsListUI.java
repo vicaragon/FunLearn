@@ -2,10 +2,11 @@ package view;
 
 import controller.*;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.ArrayList;
+import javax.swing.table.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,16 +20,22 @@ import java.util.ArrayList;
  */
 public class StudentsListUI extends javax.swing.JPanel {
     private StudentController studentController;
+    private List<Object> playerList;
+    private Object[][] arr;
     private int i;
     /**
      * Creates new form StudentsListUI
      */
     public StudentsListUI() {
         studentController = new StudentController(this);
+        playerList = new ArrayList<Object>();
+     //   playerList.add("hello");
+        arr = playerList.toArray(new Object[playerList.size()][]);
+
         initComponents();
-        
+         
         jTable1.getSelectionModel().addListSelectionListener(studentController);
-                
+              
         class CircularList<E> extends ArrayList<E> {
             @Override
             public E get(int index) {
@@ -112,6 +119,10 @@ public class StudentsListUI extends javax.swing.JPanel {
    	    studentController.updateStudent( rowNumber, array);
     } 
      
+    private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+        playerList.add(jTextField1.getText());
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -260,25 +271,7 @@ public class StudentsListUI extends javax.swing.JPanel {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
-            },
-            new String [] {
-                "Players"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        jTable2.setModel(new DefaultTableModel(playerList.toArray(new Object[playerList.size()][]), new String [] {"Players"}));
         jScrollPane1.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

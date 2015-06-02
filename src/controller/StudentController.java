@@ -76,6 +76,10 @@ public class StudentController implements ListSelectionListener, TableModelListe
 	public void updateStudent(int rowNumber, String[] array){
             studentTablemodel.updateRow(rowNumber, array);	
 	}
+        
+        public void addPlayer(String[] array){
+            studentTablemodel.addRow(array);	
+	}
 
 		
 }
