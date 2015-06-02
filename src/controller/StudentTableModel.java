@@ -4,7 +4,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import model.*;
 import view.*;
-import javax.persistence.EntityManager;
+import javax.persistence.*;
 
 public class StudentTableModel extends AbstractTableModel {
 	private List<Student> studentsList;
@@ -92,7 +92,22 @@ public class StudentTableModel extends AbstractTableModel {
 	 }
         
         public void addRow(Object[] array) {
-            
+            EntityTransaction userTransaction = manager.getTransaction();  
+            userTransaction.begin();
+            Student newRecord = studentService.createStudent(new Integer(0), (String) array[0],(String) array[1], Integer.parseInt((String) array[2]), Integer.parseInt((String) array[3]), Integer.parseInt((String) array[4]), Integer.parseInt((String) array[5]));
+            userTransaction.commit();
+		 		 
+            // set the current row to rowIndex
+            studentsList.add(newRecord);
+	    int row = studentsList.size();  
+	    int col = 0;
+
+	    // update the data in the model to the entries in array
+	    for (Object data : array) {
+	     	 setValueAt((String) data, row-1, col++);
+	    }
+		          
+	    numrows++;           
         }
         
         public void deleteRow(Object[] array) {

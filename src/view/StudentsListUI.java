@@ -47,7 +47,7 @@ public class StudentsListUI extends javax.swing.JPanel {
         }
         TimerHandler timerHandler = new TimerHandler();
         Timer timer1 = new Timer(4000, timerHandler);
-        timer1.start();
+     //   timer1.start();
 
     }
     
@@ -71,6 +71,46 @@ public class StudentsListUI extends javax.swing.JPanel {
     public void setAgeTextField(String value) {
     	jTextField3.setText(value);
     }
+    
+     // code for the Add button
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        //add a row to the table
+    	String[] array = new String[jTable1.getColumnCount()];
+    	array[0] = jTextField1.getText();
+    	array[1] = jTextField2.getText();
+    	array[2] = jTextField3.getText();
+        array[3] = "0";
+        array[4] = "0";
+        array[5] = "0";
+    	// send data to the controller to add it to the model
+   	    studentController.addStudent(array);
+    } 
+    
+    // code for the Delete button
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        //add a row to the table
+    	String[] array = new String[jTable1.getColumnCount()];
+    	array[0] = jTextField1.getText();
+    	array[1] = jTextField2.getText();
+    	array[2] = jTextField3.getText();
+    	// send data to the controller to add it to the model
+   	    studentController.deleteStudent( array);
+    } 
+    
+    // code for the Update button
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        //add a row to the table
+    	int rowNumber = jTable1.getRowCount();
+    	String[] array = new String[jTable1.getColumnCount()];
+    	array[0] = jTextField1.getText();
+    	array[1] = jTextField2.getText();
+    	array[2] = jTextField3.getText();
+    	// send data to the controller to add it to the model
+   	    studentController.updateStudent( rowNumber, array);
+    } 
      
 
     /**
@@ -113,6 +153,11 @@ public class StudentsListUI extends javax.swing.JPanel {
         jTextField3.setColumns(10);
 
         jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Update");
 
@@ -142,22 +187,22 @@ public class StudentsListUI extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel5))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -300,6 +345,10 @@ public class StudentsListUI extends javax.swing.JPanel {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        addButtonActionPerformed(evt);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

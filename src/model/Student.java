@@ -32,8 +32,8 @@ public class Student implements Serializable {
     @Column(nullable = false, length = 45)
     private String firstName;
     @Column(length = 45)
+
     private String lastName;
-    @Column(length = 45)
     private String picPath;
     private Integer maxScore;
     private Integer minScore;
@@ -196,7 +196,13 @@ public class Student implements Serializable {
        
     @Override
     public String toString() {
-        return "model.Student[ studentID=" + studentID + " ]";
+        return "Student[studentFirstName =" + firstName + ","
+    	    + " studentLastName =" + lastName + ","
+    	    + " studentAge =" + ageGroup + ","
+    	    + " minScore =" + minScore + ","
+            + " maxScore =" + maxScore + ","
+            + " avgScore =" + avgScore + ","
+        + "]";
     }
     
 }
