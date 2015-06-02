@@ -136,7 +136,45 @@ public class Student implements Serializable {
         }
         return true;
     }
+    
+    public int getNumberOfColumns() {
+	   return 5;
+   }
+    
+    public String getColumnData(int i) throws Exception {
+	   if (i == 0)
+		   return getFirstName();
+	   else if (i == 1)
+		   return getLastName();
+	   else if (i == 2) 
+		   return Integer.toString(getAgeGroup());
+	   else if (i == 3)
+		   return Integer.toString(getMinScore());
+	   else if (i == 4)
+		   return Integer.toString(getMaxScore());
+           else if (i == 5)
+		   return Integer.toString(getAvgScore());
+	   else
+		   throw new Exception("Error: invalid column index in courselist table");    
+   }
 
+       public void setColumnData(int i, Object value) throws Exception {
+	   if (i == 0) 
+		   firstName = (String) value;
+	   else if (i == 1) 
+		   lastName = (String) value;
+	   else if (i == 2) 
+		   ageGroup =  Integer.parseInt((String) value);
+	   else if (i == 3)
+		   minScore = Integer.parseInt((String) value);
+	   else if (i == 4)
+		  maxScore = Integer.parseInt((String) value);
+           else if (i == 5)
+		  avgScore = Integer.parseInt((String) value);           
+	   else
+		   throw new Exception("Error: invalid column index in courselist table");    
+   }
+       
     @Override
     public String toString() {
         return "model.Student[ studentID=" + studentID + " ]";

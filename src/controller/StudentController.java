@@ -24,8 +24,9 @@ public class StudentController implements ListSelectionListener, TableModelListe
             ListSelectionModel selectModel = (ListSelectionModel) e.getSource();
             int firstIndex = selectModel.getMinSelectionIndex();
 		
-            studentsListUI.setNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 0));
-            studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
+            studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 0));
+                studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
+                studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
 	}   
         
         public void tableChanged(TableModelEvent e) {
@@ -35,13 +36,14 @@ public class StudentController implements ListSelectionListener, TableModelListe
 	    	int firstIndex =  e.getFirstRow();
 	    	
 	    	// create a new table model with the new data
-	        studentTablemodel = new StudentTablemodel(studentTablemodel.getList(), studentTablemodel.getEntityManager());
+	        studentTablemodel = new StudentTableModel(studentTablemodel.getList(), studentTablemodel.getEntityManager());
 	        studentTablemodel.addTableModelListener(this);
 	        // update the JTable with the data
 	    	studentsListUI.updateTable1();
 	    
-	        studentsListUI.setNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 0));
-                studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
+	        studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 0));
+                studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
+                studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
 
 	} catch(Exception exp) {
 		exp.getMessage();
@@ -61,16 +63,16 @@ public class StudentController implements ListSelectionListener, TableModelListe
 		
 	}
 	
-	public void addStudent(){
-		
+	public void addStudent(String[] array){
+         //   studentTablemodel.addRow(array);	
 	}
 	
-	public void deleteStudent(int id){
-		
+	public void deleteStudent(String[] array){
+        //    studentTablemodel.deleteRow(array);	
 	}
 	
-	public void updateStudent(int id){
-		
+	public void updateStudent(int rowNumber, String[] array){
+        //    studentTablemodel.updateRow(rowNumber, array);	
 	}
 
 		
