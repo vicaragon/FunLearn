@@ -6,6 +6,8 @@
 package view;
 
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.persistence.*;
 import javax.swing.*;
 
@@ -14,6 +16,7 @@ import javax.swing.*;
  * @author me
  */
 public class SetupUI extends javax.swing.JPanel {
+    //USE JFRAME INSTEAD
     public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
     public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     private JFrame window;
@@ -42,9 +45,21 @@ public class SetupUI extends javax.swing.JPanel {
         cards.add(speedTypeUI,"Speed");
         cards.add(startUI,"Start");
         window.setContentPane(cards);
-        
-        window.setVisible(true);
         initComponents();
+        class TimerHandler implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                window.setTitle("WOOOW");
+            }
+            
+        }
+        TimerHandler timerHandler = new TimerHandler();
+        Timer timer1 = new Timer(7000,timerHandler);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        timer1.start();
+        window.setSize(600,600);
+        window.setVisible(true);
     }
 
     static public JPanel getCards() {
