@@ -26,6 +26,9 @@ public class StudentsListUI extends javax.swing.JPanel {
     public StudentsListUI() {
         studentController = new StudentController(this);
         initComponents();
+        
+        jTable1.getSelectionModel().addListSelectionListener(studentController);
+                
         class CircularList<E> extends ArrayList<E> {
             @Override
             public E get(int index) {
@@ -57,15 +60,16 @@ public class StudentsListUI extends javax.swing.JPanel {
     }
      
     public void setFirstNameTextField(String value) {
+        System.out.println("Value: " + value);
     	jTextField1.setText(value);
     }
     
     public void setLastNameTextField(String value) {
-    	jTextField3.setText(value);
+    	jTextField2.setText(value);
     }
      
     public void setAgeTextField(String value) {
-    	jTextField2.setText(value);
+    	jTextField3.setText(value);
     }
      
 

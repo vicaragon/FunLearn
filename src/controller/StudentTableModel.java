@@ -51,10 +51,10 @@ public class StudentTableModel extends AbstractTableModel {
 		return false;
 	 }
         
- //       @Override
-  //      public Class<?> getColumnClass(int col) {
-//		return getValueAt(0, col).getClass();
-//	 }
+        @Override
+        public Class<?> getColumnClass(int col) {
+		return getValueAt(0, col).getClass();
+	 }
         
         @Override
         public String getColumnName(int col) {
