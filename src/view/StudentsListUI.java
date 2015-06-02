@@ -3,6 +3,9 @@ package view;
 import controller.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,12 +19,33 @@ import java.awt.*;
  */
 public class StudentsListUI extends javax.swing.JPanel {
     private StudentController studentController;
+    private int i;
     /**
      * Creates new form StudentsListUI
      */
     public StudentsListUI() {
         studentController = new StudentController(this);
         initComponents();
+        class CircularList<E> extends ArrayList<E> {
+            @Override
+            public E get(int index) {
+                return super.get(index % size());
+            }
+        }
+        final CircularList<JButton> buttonsList = new CircularList<JButton>();
+        buttonsList.add(jButton1);
+        buttonsList.add(jButton2);
+        buttonsList.add(jButton3);
+        class TimerHandler implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                buttonsList.get(i++).requestFocusInWindow();
+            }
+        }
+        TimerHandler timerHandler = new TimerHandler();
+        Timer timer1 = new Timer(4000, timerHandler);
+        timer1.start();
+
     }
     
      public void updateTable1() {
