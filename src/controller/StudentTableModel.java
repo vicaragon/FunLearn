@@ -46,14 +46,17 @@ public class StudentTableModel extends AbstractTableModel {
 		}
 	}
         
+        @Override
         public boolean isCellEditable(int rowIndex, int colIndex) {
 		return false;
 	 }
         
+        @Override
         public Class<?> getColumnClass(int col) {
 		return getValueAt(0, col).getClass();
 	 }
         
+        @Override
         public String getColumnName(int col) {
             try {
                 return student.getColumnName(col);
@@ -61,7 +64,8 @@ public class StudentTableModel extends AbstractTableModel {
 	        return err.toString();
 	       }             
 	 }
-                 
+         
+        @Override
 	public void setValueAt(Object aValue, int row, int col) {
 		try {
 		   Student element = studentsList.get(row);
@@ -86,6 +90,18 @@ public class StudentTableModel extends AbstractTableModel {
             manager = em;  
             studentService = new StudentService(manager);
 	 }
+        
+        public void addRow(Object[] array) {
+            
+        }
+        
+        public void deleteRow(Object[] array) {
+            
+        }
+        
+        public void updateRow(int rowNumber, Object[] array) {
+            
+        }
 	
 
 }

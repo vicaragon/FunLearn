@@ -137,21 +137,23 @@ public class Student implements Serializable {
     }
     
     public int getNumberOfColumns() {
-	   return 5;
+	   return 8;
    }
     
     public String getColumnData(int i) throws Exception {
-	   if (i == 0)
+           if (i == 0)
+		   return Integer.toString(getStudentID());
+           else if (i == 1)
 		   return getFirstName();
-	   else if (i == 1)
+	   else if (i == 2)
 		   return getLastName();
-	   else if (i == 2) 
+	   else if (i == 7) 
 		   return Integer.toString(getAgeGroup());
-	   else if (i == 3)
+	   else if (i == 5)
 		   return Integer.toString(getMinScore());
 	   else if (i == 4)
 		   return Integer.toString(getMaxScore());
-           else if (i == 5)
+           else if (i == 6)
 		   return Integer.toString(getAvgScore());
 	   else
 		   throw new Exception("Error: invalid column index in courselist table");    
@@ -178,20 +180,22 @@ public class Student implements Serializable {
    }
 
        public void setColumnData(int i, Object value) throws Exception {
-	   if (i == 0) 
+           if (i == 0) 
+		   studentID = Integer.parseInt((String) value);
+           else if (i == 1) 
 		   firstName = (String) value;
-	   else if (i == 1) 
-		   lastName = (String) value;
 	   else if (i == 2) 
+		   lastName = (String) value;
+	   else if (i == 7) 
 		   ageGroup =  Integer.parseInt((String) value);
-	   else if (i == 3)
+	   else if (i == 5)
 		   minScore = Integer.parseInt((String) value);
 	   else if (i == 4)
 		  maxScore = Integer.parseInt((String) value);
-           else if (i == 5)
+           else if (i == 6)
 		  avgScore = Integer.parseInt((String) value);           
 	   else
-		   throw new Exception("Error: invalid column index in courselist table");    
+		   throw new Exception("Error: invalid column index in courselist table");  
    }
        
     @Override

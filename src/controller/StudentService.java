@@ -17,7 +17,7 @@ public class StudentService {
     public StudentService(EntityManager manager) {
         this.manager = manager;
     }
-    public Student creatStudent(Integer studentID, String studentFirstName, String studentLastName, Integer studentAgeGroup, Integer studentMinScore, Integer studentMaxScore, Integer studentAvgScore) {
+    public Student createStudent(Integer studentID, String studentFirstName, String studentLastName, Integer studentAgeGroup, Integer studentMinScore, Integer studentMaxScore, Integer studentAvgScore) {
             Student student = new Student();
             student.setStudentID(studentID);
  	    student.setFirstName(studentFirstName);
@@ -41,9 +41,10 @@ public class StudentService {
     	 return result;   	 
      }
          
-    public Student updateStudent(String studentFirstName, String studentLastName, Integer studentAgeGroup, Integer studentMinScore, Integer studentMaxScore, Integer studentAvgScore) {
-         Student student = manager.find(Student.class, studentFirstName);
+    public Student updateStudent(Integer studentID, String studentFirstName, String studentLastName, Integer studentAgeGroup, Integer studentMinScore, Integer studentMaxScore, Integer studentAvgScore) {
+         Student student = manager.find(Student.class, studentID);
     	 if (student != null) {
+            student.setLastName(studentFirstName);
             student.setLastName(studentLastName);
  	    student.setAgeGroup(studentAgeGroup);
  	    student.setMinScore(studentMinScore);
