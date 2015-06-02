@@ -32,7 +32,6 @@ public class StudentsListUI extends javax.swing.JPanel {
     	
     }
      
-         // display data on the courseNameTextField
     public void setFirstNameTextField(String value) {
     	jTextField1.setText(value);
     }
@@ -41,7 +40,6 @@ public class StudentsListUI extends javax.swing.JPanel {
     	jTextField3.setText(value);
     }
      
-    // display data on the courseNumberTextField
     public void setAgeTextField(String value) {
     	jTextField2.setText(value);
     }
