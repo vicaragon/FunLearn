@@ -11,21 +11,21 @@ import javax.persistence.EntityManager;
  *
  * @author rramsis
  */
-public class StoryService {
+public class StoryService implements Servicer {
     private EntityManager manager;
     public StoryService(EntityManager manager) {
         this.manager = manager;
     }
-    public Story creatStory() {
+    public Story create() {
         return null;
     }
-    public Story readStory() {
+    public Story read() {
         return null;
     }
-    public Story updateStory() {
+    public Story update() {
         return null;
     }
-    public Story deleteStory() {
+    public Story delete() {
         return null;
     }
 }

@@ -14,16 +14,16 @@ import static model.Game_.gameID;
  *
  * @author rramsis
  */
-public class GameService {
+public class GameService implements Servicer {
     private EntityManager manager;
     public GameService(EntityManager manager) {
         this.manager = manager;
     }
     
-    public Game createGame() {
+    public Game create() {
         return null;
     }
-    public Game readGame() {
+    public Game read() {
         Game game = manager.find(Game.class, gameID);
     	 return game;  
     }
@@ -34,10 +34,10 @@ public class GameService {
 
     	 return result;      
     }
-    public Game updateGame() {
+    public Game update() {
         return null;
     }
-    public Game deleteGame() {
+    public Game delete() {
         return null;
     }
 }

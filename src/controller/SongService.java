@@ -14,15 +14,15 @@ import static model.Song_.songID;
  *
  * @author rramsis
  */
-public class SongService {
+public class SongService implements Servicer {
     private EntityManager manager;
     public SongService(EntityManager manager) {
         this.manager = manager;
     }
-    public Song creatSong() {
+    public Song create() {
         return null;
     }
-    public Song readSong() {
+    public Song read() {
         Song song = manager.find(Song.class, songID);
     	 return song;
     }
@@ -35,10 +35,10 @@ public class SongService {
     	 return result;      
     }
     
-    public Song updateSong() {
+    public Song update() {
         return null;
     }
-    public Song deleteSong() {
+    public Song delete() {
         return null;
     }
 }
