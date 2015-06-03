@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.Timer;
 
@@ -18,8 +20,7 @@ import javax.swing.Timer;
  * @author Sonam
  */
 public class GameUI extends javax.swing.JFrame {
-
-    private int i;
+    
     private GameController gameController;
     private int gameNumber;
     private int questionNumber;
@@ -54,8 +55,10 @@ public class GameUI extends javax.swing.JFrame {
         jButton1.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (rightAnswer.equals(((JButton)e.getSource()).getText()))
+            if (rightAnswer.equals(((JButton)e.getSource()).getText())){
                 right = true;
+                //update the student score
+            }
         }
         });
     }
@@ -68,7 +71,8 @@ public class GameUI extends javax.swing.JFrame {
         buttonsList.add(jButton1);
         buttonsList.add(jButton2);
         buttonsList.add(jButton3);
-        class TimerHandler implements ActionListener {
+        
+        /*class TimerHandler implements ActionListener {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -80,7 +84,22 @@ public class GameUI extends javax.swing.JFrame {
         TimerHandler timerHandler = new TimerHandler();
         Timer timer1 = new Timer(4000, timerHandler);
         timer1.setRepeats(false);
-        timer1.start();
+        timer1.start();*/
+        
+        //no need to use timer: a for loop is engough;
+        for (int i=0; i<3; i++){
+            try {
+                buttonsList.get(i++).requestFocusInWindow();
+                optionPlayer.setAudioFile(optionAudios.get(i++));
+                optionPlayer.play();
+                if (right)
+                    break;
+                Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    
     }
     
     //to finish playing one question and its answers
