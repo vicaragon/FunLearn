@@ -4,48 +4,80 @@
  * and open the template in the editor.
  */
 package view;
+
 import controller.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.Timer;
 
 /**
  *
  * @author Sonam
  */
 public class GameUI extends javax.swing.JFrame {
-    
+
+    private int i;
     private GameController gameController;
-       
+
     /**
      * Creates new form GameUI
      */
     public GameUI() {
         initComponents();
-        gameController = new GameController(this); 
+        gameController = new GameController(this);
         int gameNumber = 0;
+        int questionNumber = 0;
         gameController.loadGame(gameNumber);
+        gameController.loadGameEntry(questionNumber);
+
+        class CircularList<E> extends ArrayList<E> {
+
+            @Override
+            public E get(int index) {
+                return super.get(index % size());
+            }
+        }
+        final CircularList<JButton> buttonsList = new CircularList<JButton>();
+        buttonsList.add(jButton1);
+        buttonsList.add(jButton2);
+        buttonsList.add(jButton3);
+        class TimerHandler implements ActionListener {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                buttonsList.get(i++).requestFocusInWindow();
+            }
+        }
+        TimerHandler timerHandler = new TimerHandler();
+        Timer timer1 = new Timer(4000, timerHandler);
+        timer1.start();
     }
-    
+
     public void setScoreField(String value) {
-    	jTextField1.setText(value);
+        jTextField1.setText(value);
     }
+
     public void setPictureField(String value) {
-    //	jPanle2;
+        //	jPanle2;
     }
+
     public void setQuestionField(String value) {
-    	jLabel2.setText(value);
+        jLabel2.setText(value);
     }
-     
+
     public void setOption1Field(String value) {
-    	jButton1.setText(value);
+        jButton1.setText(value);
     }
-    
+
     public void setOption2Field(String value) {
-    	jButton2.setText(value);
+        jButton2.setText(value);
     }
-        
+
     public void setOption3Field(String value) {
-    	jButton3.setText(value);
+        jButton3.setText(value);
     }
-     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -158,7 +190,7 @@ public class GameUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-           public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
