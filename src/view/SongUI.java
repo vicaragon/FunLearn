@@ -9,7 +9,6 @@ import controller.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,16 +37,15 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
     public SongUI() {
         initComponents();
         //songController = new SongController(this);
-        jPanel1 = new JPanel();
-        jPanel1.setLayout(new BorderLayout());
+        setLayout(new BorderLayout());
     }
     
     public SongUI(int songNumber) throws IOException{
         this();
         //songController.loadSong(songNumber);
         //songController.loadSongEntry(this);
-        jLabel1 = new JLabel("sample");
-        jPanel1.add(jLabel1,BorderLayout.NORTH);
+        jLabel1.setText("sample");
+        add(jLabel1,BorderLayout.NORTH);
     }
     
     public void setSongName(String name){
@@ -78,10 +76,6 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
         }
     }
     
-    public void paintComponent(Graphics g){
-        PicturePanel picture = new PicturePanel();
-        jPanel1.add(picture,BorderLayout.CENTER);
-    }
     
     public void start(){
         t = new Thread(this);
@@ -124,6 +118,8 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
             window.setSize(800, 800);
             window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
             SongUI songPanel = new SongUI(0);
+            
+            //test: set variables using hard-coded values
             songPanel.setSongName("Sample Song");
             songPanel.setAudioPath("song/blues.wav");
             ArrayList<String> paths = new ArrayList<String>();
@@ -133,9 +129,13 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
             ArrayList<Integer> time = new ArrayList<Integer>();
             time.add(5);
             time.add(10);
+            songPanel.setPictureTime(time);
             
-            window.add( songPanel );
+            window.setContentPane( songPanel );
             window.setVisible( true );
+            
+            //start to play the song as well as playing the pictures
+            songPanel.start();
         } catch (IOException ex) {
             Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -151,57 +151,40 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 235, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(166, 166, 166)
+                .addComponent(jLabel1)
+                .addContainerGap(234, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(286, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
+    private PicturePanel picture;
+    
     @Override
     public void run() {
         for (int i=0; i<picturePaths.size();i++){
             try {
                 pictureIndex = i;
+                picture = new PicturePanel();
+                add(picture,BorderLayout.CENTER);
                 repaint();
-                Thread.sleep(pictureTime.get(i));
+                Thread.sleep(pictureTime.get(i)*1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
             }
