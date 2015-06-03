@@ -33,7 +33,8 @@ public class StudentsListUI extends javax.swing.JPanel {
         arr = playerList.toArray(new Object[playerList.size()][]);
 
         initComponents();
-         
+     //   jTextField4.setVisible(false);
+        
         jTable1.getSelectionModel().addListSelectionListener(studentController);
               
         class CircularList<E> extends ArrayList<E> {
@@ -79,17 +80,22 @@ public class StudentsListUI extends javax.swing.JPanel {
     	jTextField3.setText(value);
     }
     
+    public void setStudentID(String value) {
+        jTextField4.setText(value);
+    }
+    
      // code for the Add button
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
         //add a row to the table
     	String[] array = new String[jTable1.getColumnCount()];
-    	array[0] = jTextField1.getText();
-    	array[1] = jTextField2.getText();
-    	array[2] = jTextField3.getText();
-        array[3] = "0";
+        array[0] = jTextField4.getText();
+    	array[1] = jTextField1.getText();
+    	array[2] = jTextField2.getText();
+    	array[3] = jTextField3.getText();
         array[4] = "0";
         array[5] = "0";
+        array[6] = "0";
     	// send data to the controller to add it to the model
    	    studentController.addStudent(array);
     } 
@@ -99,9 +105,10 @@ public class StudentsListUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         //add a row to the table
     	String[] array = new String[jTable1.getColumnCount()];
-    	array[0] = jTextField1.getText();
-    	array[1] = jTextField2.getText();
-    	array[2] = jTextField3.getText();
+    	array[0] = jTextField4.getText();
+        array[1] = jTextField1.getText();
+    	array[2] = jTextField2.getText();
+    	array[3] = jTextField3.getText();
     	// send data to the controller to add it to the model
    	    studentController.deleteStudent( array);
     } 
@@ -112,9 +119,10 @@ public class StudentsListUI extends javax.swing.JPanel {
         //add a row to the table
     	int rowNumber = jTable1.getRowCount();
     	String[] array = new String[jTable1.getColumnCount()];
-    	array[0] = jTextField1.getText();
-    	array[1] = jTextField2.getText();
-    	array[2] = jTextField3.getText();
+        array[0] = jTextField4.getText();
+    	array[1] = jTextField1.getText();
+    	array[2] = jTextField2.getText();
+    	array[3] = jTextField3.getText();
     	// send data to the controller to add it to the model
    	    studentController.updateStudent( rowNumber, array);
     } 
@@ -148,6 +156,7 @@ public class StudentsListUI extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -171,8 +180,18 @@ public class StudentsListUI extends javax.swing.JPanel {
         });
 
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Delete");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Add Player");
 
@@ -212,8 +231,11 @@ public class StudentsListUI extends javax.swing.JPanel {
                                             .addComponent(jLabel5))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(38, 38, 38)
+                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -224,7 +246,7 @@ public class StudentsListUI extends javax.swing.JPanel {
                                 .addComponent(jButton2)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton3)))
-                        .addGap(0, 68, Short.MAX_VALUE)))
+                        .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
@@ -238,10 +260,12 @@ public class StudentsListUI extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -257,7 +281,7 @@ public class StudentsListUI extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         jLabel4.setText("Play List of Students");
@@ -343,6 +367,13 @@ public class StudentsListUI extends javax.swing.JPanel {
         addButtonActionPerformed(evt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        updateButtonActionPerformed(evt);
+    }                                        
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        deleteButtonActionPerformed(evt);
+    }  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -365,5 +396,6 @@ public class StudentsListUI extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
