@@ -9,7 +9,6 @@ import java.util.List;
 import model.Song;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import static model.Song_.songID;
 /**
  *
  * @author rramsis
@@ -22,10 +21,12 @@ public class SongService implements Servicer {
     public Song create() {
         return null;
     }
+    
     public Song read() {
-        Song song = manager.find(Song.class, songID);
-    	 return song;
+        //Song song = manager.find(Song.class, songID);
+        return null;
     }
+    
     
     public List<Song> readAll() {
          TypedQuery<Song> query;
