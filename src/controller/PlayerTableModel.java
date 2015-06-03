@@ -90,7 +90,7 @@ public class PlayerTableModel extends AbstractTableModel {
         numcols = 1;     
      }
     
-    public void addRow(Object name) {	 		 
+    public void addRow(String name) {	 		 
         // set the current row to rowIndex
         playerList.add(name);
 	int row = playerList.size();  
@@ -102,7 +102,7 @@ public class PlayerTableModel extends AbstractTableModel {
 	numrows++;           
     }
         
-        public void deleteRow(Object name) {	 
+        public void deleteRow(String name) {	 
             // set the current row to rowIndex
             playerList.remove(name);
 	    int row = playerList.size();  

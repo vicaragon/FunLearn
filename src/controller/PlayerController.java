@@ -42,7 +42,11 @@ public class PlayerController implements ListSelectionListener, TableModelListen
 	}
 	}
 
-	public void deletePlayer(String[] array){
-      //      playerTablemodel.deleteRow(array);	
+        public void addPlayer(String name){
+            playerTablemodel.addRow(name);	
+	}
+        
+	public void deletePlayer(String name){
+            playerTablemodel.deleteRow(name);	
 	}	
 }

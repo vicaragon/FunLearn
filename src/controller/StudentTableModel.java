@@ -105,8 +105,7 @@ public class StudentTableModel extends AbstractTableModel {
 	    // update the data in the model to the entries in array
 	    for (Object data : array) {
 	     	 setValueAt((String) data, row-1, col++);
-	    }
-		          
+            }	          
 	    numrows++;           
         }
         

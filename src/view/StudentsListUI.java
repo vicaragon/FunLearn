@@ -126,8 +126,11 @@ public class StudentsListUI extends javax.swing.JPanel {
     } 
      
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) { 
-//        playerList.add(jTextField1.getText());
-        
+        playerController.addPlayer(jTextField1.getText());
+    }
+    
+    private void deletePlayerButtonActionPerformed(java.awt.event.ActionEvent evt) { 
+        playerController.deletePlayer(jTextField1.getText());
     }
 
     /**
@@ -192,6 +195,11 @@ public class StudentsListUI extends javax.swing.JPanel {
         });
 
         jButton4.setText("Add Player");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Last Name:");
 
@@ -285,6 +293,11 @@ public class StudentsListUI extends javax.swing.JPanel {
         jLabel4.setText("Play List of Students");
 
         jButton5.setText("Delete Player");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Setup Game!");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -364,6 +377,14 @@ public class StudentsListUI extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         addButtonActionPerformed(evt);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        deletePlayerButtonActionPerformed(evt);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        addPlayerButtonActionPerformed(evt);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         updateButtonActionPerformed(evt);
