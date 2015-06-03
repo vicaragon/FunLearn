@@ -5,21 +5,25 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.sound.sampled.*;
+import javax.swing.Timer;
 
 /**
  *
  * @author Xinran
  */
-public class AudioPlayer implements Runnable{
+public class AudioPlayer implements ActionListener {
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        play();
+    }
     
     private File audioFile = null;
     
@@ -36,16 +40,38 @@ public class AudioPlayer implements Runnable{
         setAudioFile(f);
     }
     
-    public void play(){
+    public int getAudioLength(){
+        AudioInputStream audioInputStream = null;
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(audioFile);
+            AudioFormat format = audioInputStream.getFormat();
+            long frames = audioInputStream.getFrameLength();
+            double durationInSeconds = (frames+0.0) / format.getFrameRate();
+            return (int)Math.ceil(durationInSeconds);
+        } catch (UnsupportedAudioFileException ex) {
+            Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                audioInputStream.close();
+            } catch (IOException ex) {
+                Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return 0;
+    }
+    
+    public  void play(){
         AudioInputStream stream = null;
+        
         try {
             stream = AudioSystem.getAudioInputStream(audioFile);
             Clip clip = (Clip)AudioSystem.getClip();
             
             clip.open(stream);
             clip.start();
-            
-            Thread.sleep(1800*1000);
+            Thread.sleep(getAudioLength()*1000);
         } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -63,10 +89,11 @@ public class AudioPlayer implements Runnable{
         }
     }
     
-    
-    @Override
-    public void run() {
-        play();
+    public static void main(String[] args){
+        AudioPlayer player = new AudioPlayer(new File("song/blues.wav"));
+        System.out.println(player.getAudioLength());
+        Timer songTimer = new Timer(0,player);
+        songTimer.setRepeats(false);
+        //songTimer.start();
     }
-    
 }

@@ -18,7 +18,7 @@ import javax.swing.border.*;
  *
  * @author Xinran
  */
-public class SongUI extends javax.swing.JFrame implements Runnable {
+public class SongUI extends javax.swing.JFrame {
 
     /**
      * Creates new form SongUI
@@ -85,8 +85,7 @@ public class SongUI extends javax.swing.JFrame implements Runnable {
         }
     }
     
-    @Override
-    public void run() {
+    public void play() {
         for (int i=0; i<picturePaths.size();i++){
             try {
                 pictureIndex = i;
@@ -101,13 +100,16 @@ public class SongUI extends javax.swing.JFrame implements Runnable {
     }
     
     public void start(){
-        t = new Thread(this);
-        player = new AudioPlayer();
-        player.setAudioFile(new File(audioPath));
-        Thread p = new Thread(player);
-        t.start();
-        p.start();
+        player = new AudioPlayer(new File(audioPath));
+        player.play();
+        Timer songTimer = new Timer(0,player);
+        songTimer.setRepeats(false);
+        //songTimer.start();
+        this.play();
+        player.play();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
