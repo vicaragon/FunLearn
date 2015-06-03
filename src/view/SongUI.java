@@ -101,12 +101,18 @@ public class SongUI extends javax.swing.JFrame {
     
     public void start(){
         player = new AudioPlayer(new File(audioPath));
-        player.play();
-        Timer songTimer = new Timer(0,player);
-        songTimer.setRepeats(false);
-        //songTimer.start();
+        SwingWorker songWorker = new SwingWorker(){
+
+            @Override
+            protected Object doInBackground() throws Exception {
+                player.play();
+                System.out.println("Playing");
+                return null;
+            }
+        };
+        songWorker.execute();
         this.play();
-        player.play();
+        //player.play();
     }
     
     

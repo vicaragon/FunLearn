@@ -18,13 +18,8 @@ import javax.swing.Timer;
  *
  * @author Xinran
  */
-public class AudioPlayer implements ActionListener {
+public class AudioPlayer {
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        play();
-    }
-    
     private File audioFile = null;
     
     public void setAudioFile(File f){
@@ -92,8 +87,8 @@ public class AudioPlayer implements ActionListener {
     public static void main(String[] args){
         AudioPlayer player = new AudioPlayer(new File("song/blues.wav"));
         System.out.println(player.getAudioLength());
-        Timer songTimer = new Timer(0,player);
-        songTimer.setRepeats(false);
+        //Timer songTimer = new Timer(0,player);
+        //songTimer.setRepeats(false);
         //songTimer.start();
     }
 }

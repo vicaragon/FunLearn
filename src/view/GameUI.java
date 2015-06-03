@@ -8,6 +8,7 @@ package view;
 import controller.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.Timer;
@@ -20,25 +21,49 @@ public class GameUI extends javax.swing.JFrame {
 
     private int i;
     private GameController gameController;
+    private int gameNumber;
+    private int questionNumber;
+    private AudioPlayer questionPlayer;
+    private AudioPlayer optionPlayer;
+    private AudioPlayer answerPlayer;
+    private CircularList<File> optionAudios;
+    private String rightAnswer;
+    private boolean right = false;
 
     /**
      * Creates new form GameUI
      */
+    
     public GameUI() {
         initComponents();
         gameController = new GameController(this);
-        int gameNumber = 0;
-        int questionNumber = 0;
+        gameNumber = 0;
+        questionNumber = 0;
+        
+    }
+    
+    public GameUI(int[] userLists){
+        this();
+        //set the user list
+    }
+    
+    //prepareQuestion donnot repeat
+    public void prepareQuestion(){
         gameController.loadGame(gameNumber);
         gameController.loadGameEntry(questionNumber);
-
-        class CircularList<E> extends ArrayList<E> {
-
-            @Override
-            public E get(int index) {
-                return super.get(index % size());
-            }
+        jButton1.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (rightAnswer.equals(((JButton)e.getSource()).getText()))
+                right = true;
         }
+        });
+    }
+    
+    //playQuestion may repeat
+    public void playQuestion(){
+        questionPlayer.play();
+        
         final CircularList<JButton> buttonsList = new CircularList<JButton>();
         buttonsList.add(jButton1);
         buttonsList.add(jButton2);
@@ -48,13 +73,34 @@ public class GameUI extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 buttonsList.get(i++).requestFocusInWindow();
+                optionPlayer.setAudioFile(optionAudios.get(i++));
+                optionPlayer.play();
             }
         }
         TimerHandler timerHandler = new TimerHandler();
         Timer timer1 = new Timer(4000, timerHandler);
+        timer1.setRepeats(false);
         timer1.start();
     }
-
+    
+    //to finish playing one question and its answers
+    public void play(){
+        prepareQuestion();
+        //when it's not right or it's less than three times
+        int count = 0;
+        while (!right && count < 3){
+            playQuestion();
+            count ++;
+        }
+    }
+    
+    //to iterate through a list of questions
+    public void start(){
+        //iterate and set game number
+        //iterate and set question number
+        play();
+    }
+    
     public void setScoreField(String value) {
         jTextField1.setText(value);
     }
@@ -77,6 +123,27 @@ public class GameUI extends javax.swing.JFrame {
 
     public void setOption3Field(String value) {
         jButton3.setText(value);
+    }
+    
+    public void setQustionAudio(String value){
+        File temp = new File(value);
+        questionPlayer = new AudioPlayer(temp);
+    }
+    
+    public void setOptionAudio(String op1, String op2, String op3){
+        optionAudios = new CircularList<File>();
+        optionPlayer = new AudioPlayer();
+        optionAudios.add(new File(op1));
+        optionAudios.add(new File(op2));
+        optionAudios.add(new File(op3));
+    }
+    
+    public void setAnswerAudio(String answerPath){
+        answerPlayer = new AudioPlayer(new File(answerPath));
+    }
+    
+    public void setRightAnswer(String answer){
+        rightAnswer = answer;
     }
 
     /**
@@ -241,4 +308,14 @@ public class GameUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    
+    class CircularList<E> extends ArrayList<E> {
+
+            @Override
+            public E get(int index) {
+                return super.get(index % size());
+            }
+        }
 }
+

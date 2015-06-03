@@ -61,7 +61,9 @@ public class StartUI extends javax.swing.JPanel {
     private void startPlayingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPlayingActionPerformed
         switch (SetupUI.activityType) {
             case 1:
-                new GameUI().setVisible(true);
+                GameUI gameUI = new GameUI();
+                gameUI.setVisible(true);
+                gameUI.start();
                 break;
             case 2:
                 new StoryUI().setVisible(true);
@@ -72,7 +74,9 @@ public class StartUI extends javax.swing.JPanel {
                 songUI.start();
                 break;
             default:
-                new SongUI().setVisible(true);
+                SongUI songDef = new SongUI(0);
+                songDef.setVisible(true);
+                songDef.start();
         }
     }//GEN-LAST:event_startPlayingActionPerformed
 
