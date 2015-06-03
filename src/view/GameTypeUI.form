@@ -79,6 +79,9 @@
           <ComponentRef name="buttonGroup"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="storyActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="game">
       <Properties>
@@ -87,6 +90,9 @@
           <ComponentRef name="buttonGroup"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gameActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

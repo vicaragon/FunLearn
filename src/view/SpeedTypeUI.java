@@ -37,6 +37,11 @@ public class SpeedTypeUI extends javax.swing.JPanel {
         jLabel1.setText("Select Speed:");
 
         speed1.setText("1");
+        speed1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                speed1ActionPerformed(evt);
+            }
+        });
 
         speed2.setText("2");
         speed2.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +51,11 @@ public class SpeedTypeUI extends javax.swing.JPanel {
         });
 
         speed3.setText("3");
+        speed3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                speed3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,13 +87,22 @@ public class SpeedTypeUI extends javax.swing.JPanel {
                     .addComponent(speed1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
-
-        speed3.getAccessibleContext().setAccessibleName("3");
     }// </editor-fold>//GEN-END:initComponents
 
     private void speed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed2ActionPerformed
-        // TODO add your handling code here:
+        SetupUI.setTransitionSpeed(2);
+        SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_speed2ActionPerformed
+
+    private void speed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed1ActionPerformed
+        SetupUI.setTransitionSpeed(1);
+        SetupUI.getCardLayout().next(SetupUI.getCards());
+    }//GEN-LAST:event_speed1ActionPerformed
+
+    private void speed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed3ActionPerformed
+        SetupUI.setTransitionSpeed(3);
+        SetupUI.getCardLayout().next(SetupUI.getCards());
+    }//GEN-LAST:event_speed3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

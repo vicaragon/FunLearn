@@ -59,7 +59,19 @@ public class StartUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startPlayingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPlayingActionPerformed
-        // TODO add your handling code here:
+        switch (SetupUI.activityType) {
+            case 1:
+                new GameUI().setVisible(true);
+                break;
+            case 2:
+                new StoryUI().setVisible(true);
+                break;
+            case 3:
+                new SongUI().setVisible(true);
+                break;
+            default:
+                new SongUI().setVisible(true);
+        }
     }//GEN-LAST:event_startPlayingActionPerformed
 
 

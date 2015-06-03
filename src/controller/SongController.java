@@ -1,4 +1,6 @@
 package controller;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import model.*;
@@ -6,17 +8,19 @@ import view.*;
 
 
 public class SongController implements TableModelListener {
-	private SongTableModel songTablemodel;
-        private SongUI songUI;
         private int index;
+        private SongTableModel songTablemodel;
+        //private SongUI songUI;
         private String songName;
-        private String songVideoPath;
+        private String audioPath;
+        private ArrayList<String> picturePaths;
+        private ArrayList<String> pictureTime;
         
 	/**
 	 * @param song
 	 */
         public SongController(SongUI songUI) {
-            this.songUI = songUI;
+            //this.songUI = songUI;
             songTablemodel = new SongTableModel();
             songTablemodel.addTableModelListener(this);
         }
@@ -28,26 +32,21 @@ public class SongController implements TableModelListener {
 	public void loadSong(int songNumber) {
             index = songNumber;
             songName = (String)songTablemodel.getValueAt(songNumber,1);
-            songVideoPath = (String)songTablemodel.getValueAt(songNumber,4);
+            audioPath = (String)songTablemodel.getValueAt(songNumber,4);
+            picturePaths = new ArrayList<String>(Arrays.asList(((String) songTablemodel.getValueAt(songNumber, 5)).split(";")));
+            pictureTime = new ArrayList<String>(Arrays.asList(((String)songTablemodel.getValueAt(songNumber,6)).split("l")));
         }
         
-        public String getSongName(){
-            return songName;
+	public void loadSongEntry(SongUI songUI){
+            songUI.setSongName(songName);
+            songUI.setAudioPath(audioPath);
+            songUI.setPicturePaths(picturePaths);
+            ArrayList<Integer> temp = new ArrayList<Integer>();
+            for (String t:pictureTime){
+                temp.add(Integer.parseInt(t));
+            }
+            songUI.setPictureTime(temp);
         }
-        
-        public String getSongVideoPath(){
-            return songVideoPath;
-        }
-        
-	public void playSong(){
-            
-	}
-	public void pauseSong(){
-		
-	}
-	public void resumeSong(){
-		
-	}
 
     @Override
     public void tableChanged(TableModelEvent tme) {
