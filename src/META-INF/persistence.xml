@@ -10,11 +10,7 @@
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql4.freemysqlhosting.net:3306/sql479207"/>
       <property name="javax.persistence.jdbc.user" value="sql479207"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-<<<<<<< Updated upstream
       <property name="javax.persistence.jdbc.password" value="wJ6%tC3!"/>
-=======
-      <property name="javax.persistence.jdbc.password" value="101630vic"/>
->>>>>>> Stashed changes
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
