@@ -42,17 +42,17 @@ public class SongUI extends javax.swing.JFrame implements Runnable {
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         songPanel = new JPanel(new BorderLayout());
         setContentPane(songPanel);
-        //songController = new SongController(this);
+        songController = new SongController(this);
     }
     
     public SongUI(int songNumber){
         this();
-        //songController.loadSong(songNumber);
-        //songController.loadSongEntry(this);
         songTitle = new JLabel("",SwingConstants.CENTER);
         songTitle.setSize(100,800);
         songTitle.setBorder(new BevelBorder(BevelBorder.RAISED));
         songTitle.setFont(new Font("Serif", Font.PLAIN, 40));
+        songController.loadSong(songNumber);
+        songController.loadSongEntry(this);
         songPanel.add(songTitle,BorderLayout.NORTH);
         setVisible(true);
     }
@@ -164,16 +164,16 @@ public class SongUI extends javax.swing.JFrame implements Runnable {
         /* Create and display the form */
         
         SongUI songWindow = new SongUI(0);
-        songWindow.setSongName("Sample Song");
-        songWindow.setAudioPath("song/blues.wav");
-        ArrayList<String> paths = new ArrayList<String>();
-        paths.add("pic/butterflies.png");
-        paths.add("pic/daffodils.jpg");
-        songWindow.setPicturePaths(paths);
-        ArrayList<Integer> time = new ArrayList<Integer>();
-        time.add(5);
-        time.add(10);
-        songWindow.setPictureTime(time);
+        //songWindow.setSongName("Sample Song");
+        //songWindow.setAudioPath("song/blues.wav");
+        //ArrayList<String> paths = new ArrayList<String>();
+        //paths.add("pic/butterflies.png");
+        //paths.add("pic/daffodils.jpg");
+        //songWindow.setPicturePaths(paths);
+        //ArrayList<Integer> time = new ArrayList<Integer>();
+        //time.add(5);
+        //time.add(10);
+        //songWindow.setPictureTime(time);
         songWindow.setVisible( true );
         songWindow.start();
     }

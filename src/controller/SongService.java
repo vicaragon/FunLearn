@@ -29,11 +29,11 @@ public class SongService implements Servicer {
     
     
     public List<Song> readAll() {
-         TypedQuery<Song> query;
+        TypedQuery<Song> query;
         query = manager.createQuery("SELECT e FROM song e", Song.class);
-    	 List<Song> result =  query.getResultList();
+    	List<Song> result =  query.getResultList();
 
-    	 return result;      
+    	return result;      
     }
     
     public Song update() {

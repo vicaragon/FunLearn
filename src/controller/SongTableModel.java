@@ -66,9 +66,9 @@ public class SongTableModel extends AbstractTableModel {
 	    songsResultList = list;
 	    numrows = songsResultList.size();
 	    song = new Song();
-	   	numcols = song.getNumberOfColumns();     
-		manager = em;  
-		songService = new SongService(manager);
+	    numcols = song.getNumberOfColumns();     
+	    manager = em;  
+	    songService = new SongService(manager);
 	 }
 	
 

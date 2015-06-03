@@ -29,7 +29,7 @@ public class GameService implements Servicer {
     }
     public List<Game> readAll() {
          TypedQuery<Game> query;
-        query = manager.createQuery("SELECT e FROM game e", Game.class);
+         query = manager.createQuery("SELECT e FROM game e", Game.class);
     	 List<Game> result =  query.getResultList();
 
     	 return result;      

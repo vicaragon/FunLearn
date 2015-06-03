@@ -10,7 +10,7 @@ import view.*;
 public class SongController implements TableModelListener {
         private int index;
         private SongTableModel songTablemodel;
-        //private SongUI songUI;
+        private SongUI songUI;
         private String songName;
         private String audioPath;
         private ArrayList<String> picturePaths;
@@ -20,7 +20,7 @@ public class SongController implements TableModelListener {
 	 * @param song
 	 */
         public SongController(SongUI songUI) {
-            //this.songUI = songUI;
+            this.songUI = songUI;
             songTablemodel = new SongTableModel();
             songTablemodel.addTableModelListener(this);
         }
@@ -34,18 +34,18 @@ public class SongController implements TableModelListener {
             songName = (String)songTablemodel.getValueAt(songNumber,1);
             audioPath = (String)songTablemodel.getValueAt(songNumber,4);
             picturePaths = new ArrayList<String>(Arrays.asList(((String) songTablemodel.getValueAt(songNumber, 5)).split(";")));
-            pictureTime = new ArrayList<String>(Arrays.asList(((String)songTablemodel.getValueAt(songNumber,6)).split("l")));
+            pictureTime = new ArrayList<String>(Arrays.asList(((String)songTablemodel.getValueAt(songNumber,6)).split(";")));
         }
         
-	public void loadSongEntry(SongUI songUI){
-            songUI.setSongName(songName);
-            songUI.setAudioPath(audioPath);
-            songUI.setPicturePaths(picturePaths);
+	public void loadSongEntry(SongUI newSongUI){
+            newSongUI.setSongName(songName);
+            newSongUI.setAudioPath(audioPath);
+            newSongUI.setPicturePaths(picturePaths);
             ArrayList<Integer> temp = new ArrayList<Integer>();
             for (String t:pictureTime){
                 temp.add(Integer.parseInt(t));
             }
-            songUI.setPictureTime(temp);
+            newSongUI.setPictureTime(temp);
         }
 
     @Override
