@@ -141,18 +141,22 @@ public class Student implements Serializable {
    }
     
     public String getColumnData(int i) throws Exception {
-           if (i == 0)
+            if (i == 0) 
+		   return Integer.toString(getStudentID());  
+           else if (i == 1)
 		   return getFirstName();
-	   else if (i == 1)
+	   else if (i == 2)
 		   return getLastName();
-	   else if (i == 2) 
+	   else if (i == 3) 
 		   return Integer.toString(getAgeGroup());
-	   else if (i == 3)
-		   return Integer.toString(getMinScore());
 	   else if (i == 4)
+		   return Integer.toString(getMinScore());
+	   else if (i == 5)
 		   return Integer.toString(getMaxScore());
-           else if (i == 5)
+           else if (i == 6)
 		   return Integer.toString(getAvgScore());
+           else if (i == 7)
+		   return Integer.toString(getStudentID());
 	   else
 		   throw new Exception("Error: invalid column index in courselist table");    
    }
@@ -160,16 +164,18 @@ public class Student implements Serializable {
        public String getColumnName(int i) throws Exception {
 	   String colName = null;
 	   if (i == 0) 
-		   colName = "first_name";
+		   colName = "ID";
 	   else if (i == 1)
-		   colName = "last_name";
+		   colName = "first_name";
 	   else if (i == 2)
-		   colName = "age_group";
+		   colName = "last_name";
 	   else if (i == 3)
-		   colName = "min_score";
+		   colName = "age_group";
 	   else if (i == 4)
-		   colName = "max_score";
+		   colName = "min_score";
            else if (i == 5)
+		   colName = "max_score";
+           else if (i == 6)
 		   colName = "avg_score";
 	   else 
 		   throw new Exception("Access to invalid column number in courselist table");
@@ -179,17 +185,19 @@ public class Student implements Serializable {
 
        public void setColumnData(int i, Object value) throws Exception {
            if (i == 0) 
-		   firstName = (String) value;
+		   studentID = Integer.parseInt((String) value);
 	   else if (i == 1) 
-		   lastName = (String) value;
+		   firstName = (String) value;
 	   else if (i == 2) 
-		   ageGroup =  Integer.parseInt((String) value);
+		   lastName = (String) value;
 	   else if (i == 3)
-		   minScore = Integer.parseInt((String) value);
+		   ageGroup =  Integer.parseInt((String) value);
 	   else if (i == 4)
-		  maxScore = Integer.parseInt((String) value);
+		  minScore = Integer.parseInt((String) value);
            else if (i == 5)
-		  avgScore = Integer.parseInt((String) value);           
+		  maxScore = Integer.parseInt((String) value);  
+           else if (i == 6)
+		  avgScore = Integer.parseInt((String) value); 
 	   else
 		   throw new Exception("Error: invalid column index in courselist table");  
    }

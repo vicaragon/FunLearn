@@ -25,9 +25,10 @@ public class StudentController implements ListSelectionListener, TableModelListe
             ListSelectionModel selectModel = (ListSelectionModel) e.getSource();
             int firstIndex = selectModel.getMinSelectionIndex();
 		
-            studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 0));
-            studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
-            studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
+            studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
+            studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
+            studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 3));
+            studentsListUI.setStudentID( (String) studentTablemodel.getValueAt(firstIndex, 7));
 	}   
         
         @Override
@@ -43,9 +44,10 @@ public class StudentController implements ListSelectionListener, TableModelListe
 	        // update the JTable with the data
 	    	studentsListUI.updateTable1();
 	    
-	        studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 0));
-                studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
-                studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
+	        studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
+                studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));
+                studentsListUI.setAgeTextField( (String) studentTablemodel.getValueAt(firstIndex, 3));
+                studentsListUI.setStudentID( (String) studentTablemodel.getValueAt(firstIndex, 7));
 
 	} catch(Exception exp) {
 		exp.getMessage();

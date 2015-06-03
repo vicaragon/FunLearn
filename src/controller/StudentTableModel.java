@@ -111,11 +111,36 @@ public class StudentTableModel extends AbstractTableModel {
         }
         
         public void deleteRow(Object[] array) {
-            
+            EntityTransaction userTransaction = manager.getTransaction();  
+            userTransaction.begin();
+            studentService.deleteStudent(Integer.parseInt((String) array[0]));
+            userTransaction.commit();
+		 		 
+            // set the current row to rowIndex
+	    int row = studentsList.size();  
+	    int col = 0;
+
+	    // update the data in the model to the entries in array
+	    for (Object data : array) {
+		 setValueAt((String) data, row-1, col++);
+	    }
+		          
+	    numrows--;
         }
         
         public void updateRow(int rowNumber, Object[] array) {
-            
+            EntityTransaction userTransaction = manager.getTransaction();  
+            userTransaction.begin();
+		Student updatedRecord = studentService.updateStudent(Integer.parseInt((String) array[0]),(String) array[1],(String) array[2], Integer.parseInt((String) array[3]));
+		userTransaction.commit();
+		studentsList.set(1, updatedRecord);
+                int row = studentsList.size();  
+                int col = 0;
+
+             // update the data in the model to the entries in array
+                for (Object data : array) {
+          	  setValueAt((String) data, row-1, col++);
+                }
         }
 	
 

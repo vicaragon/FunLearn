@@ -41,15 +41,15 @@ public class StudentService {
     	 return result;   	 
      }
          
-    public Student updateStudent(Integer studentID, String studentFirstName, String studentLastName, Integer studentAgeGroup, Integer studentMinScore, Integer studentMaxScore, Integer studentAvgScore) {
+    public Student updateStudent(Integer studentID, String studentFirstName, String studentLastName, Integer studentAgeGroup) {
          Student student = manager.find(Student.class, studentID);
     	 if (student != null) {
             student.setLastName(studentFirstName);
             student.setLastName(studentLastName);
  	    student.setAgeGroup(studentAgeGroup);
- 	    student.setMinScore(studentMinScore);
- 	    student.setMaxScore(studentMaxScore);
- 	    student.setAvgScore(studentAvgScore);
+ 	//    student.setMinScore(studentMinScore);
+ 	//    student.setMaxScore(studentMaxScore);
+ 	//    student.setAvgScore(studentAvgScore);
     	 }
     	 return student;
     }
