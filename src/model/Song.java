@@ -8,9 +8,11 @@ package model;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,9 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author me
  */
-@MappedSuperclass
-@Table(catalog = "FunLearnDB", schema = "")
-@XmlRootElement
+@Entity(name = "SONG")
 public class Song implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -37,7 +37,15 @@ public class Song implements Serializable {
     private String language;
     @Basic(optional = false)
     @Column(nullable = false, length = 45)
-    private String songVideoPath;
+    private String songAudioPath;
+    @Basic(optional = false)
+    @Lob
+    @Column(nullable = false, length = 2147483647)
+    private String songPicturePaths;
+    @Basic(optional = false)
+    @Lob
+    @Column(nullable = false, length = 2147483647)
+    private String songPictureTimes;
 
     public Song() {
     }
@@ -46,10 +54,12 @@ public class Song implements Serializable {
         this.songID = songID;
     }
 
-    public Song(Integer songID, String songName, String songVideoPath) {
+    public Song(Integer songID, String songName, String songAudioPath, String songPicturePaths, String songPictureTimes) {
         this.songID = songID;
         this.songName = songName;
-        this.songVideoPath = songVideoPath;
+        this.songAudioPath = songAudioPath;
+        this.songPicturePaths = songPicturePaths;
+        this.songPictureTimes = songPictureTimes;
     }
 
     public Integer getSongID() {
@@ -84,13 +94,51 @@ public class Song implements Serializable {
         this.language = language;
     }
 
-    public String getSongVideoPath() {
-        return songVideoPath;
+    public String getSongAudioPath() {
+        return songAudioPath;
     }
 
-    public void setSongVideoPath(String songVideoPath) {
-        this.songVideoPath = songVideoPath;
+    public void setSongAudioPath(String songAudioPath) {
+        this.songAudioPath = songAudioPath;
     }
+
+    public String getSongPicturePaths() {
+        return songPicturePaths;
+    }
+
+    public void setSongPicturePaths(String songPicturePaths) {
+        this.songPicturePaths = songPicturePaths;
+    }
+
+    public String getSongPictureTimes() {
+        return songPictureTimes;
+    }
+
+    public void setSongPictureTimes(String songPictureTimes) {
+        this.songPictureTimes = songPictureTimes;
+    }
+    public int getNumberOfColumns() {
+        return 7;
+    }
+   // return the data in column i
+   public String getColumnData(int i) throws Exception {
+	   if (i == 0)
+		   return Integer.toString(getSongID());
+	   else if (i == 1)
+		   return getSongName();
+	   else if (i == 2) 
+		   return Integer.toString(getAgeGroup());
+	   else if (i == 3)
+		   return getLanguage();
+	   else if (i == 4)
+		   return getSongAudioPath();
+	   else if (i == 5)
+		   return getSongPicturePaths();
+	   else if (i == 6)
+		   return getSongPictureTimes();
+	   else
+		   throw new Exception("Error: invalid column index in song table");    
+   }
 
     @Override
     public int hashCode() {
@@ -111,29 +159,7 @@ public class Song implements Serializable {
         }
         return true;
     }
-    
-     public int getNumberOfColumns() {
-	   return 5;
-   }
-       
-          // return the data in column i
-   public String getColumnData(int i) throws Exception {
-	   if (i == 0)
-		   return Integer.toString(getSongID());
-	   else if (i == 1)
-		   return getSongName();
-	   else if (i == 2) 
-		   return Integer.toString(getAgeGroup());
-	   else if (i == 3)
-		   return getLanguage();
-	   else if (i == 4)
-		   return getSongVideoPath();
-           
-	   else
-		   throw new Exception("Error: invalid column index in song table");    
-   }
-       
-    
+
     @Override
     public String toString() {
         return "model.Song[ songID=" + songID + " ]";

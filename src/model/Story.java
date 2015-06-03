@@ -8,9 +8,11 @@ package model;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,9 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author me
  */
-@MappedSuperclass
-@Table(catalog = "FunLearnDB", schema = "")
-@XmlRootElement
+@Entity(name = "STORY")
 public class Story implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,7 +39,19 @@ public class Story implements Serializable {
     private String language;
     @Basic(optional = false)
     @Column(nullable = false, length = 45)
-    private String storyVideoPath;
+    private String storyAudioPath;
+    @Basic(optional = false)
+    @Lob
+    @Column(nullable = false, length = 2147483647)
+    private String storyTexts;
+    @Basic(optional = false)
+    @Lob
+    @Column(nullable = false, length = 2147483647)
+    private String storyPicturePaths;
+    @Basic(optional = false)
+    @Lob
+    @Column(nullable = false, length = 2147483647)
+    private String storyPictureTime;
 
     public Story() {
     }
@@ -48,11 +60,14 @@ public class Story implements Serializable {
         this.storyID = storyID;
     }
 
-    public Story(Integer storyID, String storyName, int ageGroup, String storyVideoPath) {
+    public Story(Integer storyID, String storyName, int ageGroup, String storyAudioPath, String storyTexts, String storyPicturePaths, String storyPictureTime) {
         this.storyID = storyID;
         this.storyName = storyName;
         this.ageGroup = ageGroup;
-        this.storyVideoPath = storyVideoPath;
+        this.storyAudioPath = storyAudioPath;
+        this.storyTexts = storyTexts;
+        this.storyPicturePaths = storyPicturePaths;
+        this.storyPictureTime = storyPictureTime;
     }
 
     public Integer getStoryID() {
@@ -87,12 +102,36 @@ public class Story implements Serializable {
         this.language = language;
     }
 
-    public String getStoryVideoPath() {
-        return storyVideoPath;
+    public String getStoryAudioPath() {
+        return storyAudioPath;
     }
 
-    public void setStoryVideoPath(String storyVideoPath) {
-        this.storyVideoPath = storyVideoPath;
+    public void setStoryAudioPath(String storyAudioPath) {
+        this.storyAudioPath = storyAudioPath;
+    }
+
+    public String getStoryTexts() {
+        return storyTexts;
+    }
+
+    public void setStoryTexts(String storyTexts) {
+        this.storyTexts = storyTexts;
+    }
+
+    public String getStoryPicturePaths() {
+        return storyPicturePaths;
+    }
+
+    public void setStoryPicturePaths(String storyPicturePaths) {
+        this.storyPicturePaths = storyPicturePaths;
+    }
+
+    public String getStoryPictureTime() {
+        return storyPictureTime;
+    }
+
+    public void setStoryPictureTime(String storyPictureTime) {
+        this.storyPictureTime = storyPictureTime;
     }
 
     @Override
