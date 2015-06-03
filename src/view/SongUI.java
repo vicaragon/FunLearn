@@ -8,19 +8,17 @@ package view;
 import controller.*;
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-
-
+import javax.swing.border.*;
 
 /**
  *
  * @author Xinran
  */
-public class SongUI extends javax.swing.JPanel implements Runnable {
+public class SongUI extends javax.swing.JFrame implements Runnable {
 
     /**
      * Creates new form SongUI
@@ -34,22 +32,33 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
     private ArrayList<Integer> pictureTime;
     private Thread t;
     
+    private JPanel songPanel;
+    private JLabel songTitle;
+    private PicturePanel picture;
+    
     public SongUI() {
         initComponents();
+        setSize(800, 800);
+        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        songPanel = new JPanel(new BorderLayout());
+        setContentPane(songPanel);
         //songController = new SongController(this);
-        setLayout(new BorderLayout());
     }
     
-    public SongUI(int songNumber) throws IOException{
+    public SongUI(int songNumber){
         this();
         //songController.loadSong(songNumber);
         //songController.loadSongEntry(this);
-        jLabel1.setText("sample");
-        add(jLabel1,BorderLayout.NORTH);
+        songTitle = new JLabel("",SwingConstants.CENTER);
+        songTitle.setSize(100,800);
+        songTitle.setBorder(new BevelBorder(BevelBorder.RAISED));
+        songTitle.setFont(new Font("Serif", Font.PLAIN, 40));
+        songPanel.add(songTitle,BorderLayout.NORTH);
+        setVisible(true);
     }
     
     public void setSongName(String name){
-        jLabel1 = new JLabel(name);
+        songTitle.setText(name);
     }
     
     public void setAudioPath(String path){
@@ -76,6 +85,20 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
         }
     }
     
+    @Override
+    public void run() {
+        for (int i=0; i<picturePaths.size();i++){
+            try {
+                pictureIndex = i;
+                picture = new PicturePanel();
+                songPanel.add(picture,BorderLayout.CENTER);
+                songPanel.repaint();
+                Thread.sleep(pictureTime.get(i)*1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
     public void start(){
         t = new Thread(this);
@@ -85,64 +108,9 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
         t.start();
         p.start();
     }
-    
-    public static void main(String args[]) {
 
-        try {
-            /* Set the Nimbus look and feel */
-            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-            * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-            */
-            try {
-                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                    if ("Nimbus".equals(info.getName())) {
-                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                        break;
-                    }
-                }
-            } catch (ClassNotFoundException ex) {
-                java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                java.util.logging.Logger.getLogger(GameUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            }
-            //</editor-fold>
-            //</editor-fold>
-            
-            /* Create and display the form */
-            JFrame window = new JFrame( "Song Test" );
-            window.setSize(800, 800);
-            window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-            SongUI songPanel = new SongUI(0);
-            
-            //test: set variables using hard-coded values
-            songPanel.setSongName("Sample Song");
-            songPanel.setAudioPath("song/blues.wav");
-            ArrayList<String> paths = new ArrayList<String>();
-            paths.add("pic/butterflies.png");
-            paths.add("pic/daffodils.jpg");
-            songPanel.setPicturePaths(paths);
-            ArrayList<Integer> time = new ArrayList<Integer>();
-            time.add(5);
-            time.add(10);
-            songPanel.setPictureTime(time);
-            
-            window.setContentPane( songPanel );
-            window.setVisible( true );
-            
-            //start to play the song as well as playing the pictures
-            songPanel.start();
-        } catch (IOException ex) {
-            Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-    }
-        /*Method is called from within the constructor to initialize the form.
+    /**
+     * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
@@ -150,44 +118,68 @@ public class SongUI extends javax.swing.JPanel implements Runnable {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jLabel1)
-                .addContainerGap(234, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel1)
-                .addContainerGap(286, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SongUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SongUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SongUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SongUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        
+        SongUI songWindow = new SongUI(0);
+        songWindow.setSongName("Sample Song");
+        songWindow.setAudioPath("song/blues.wav");
+        ArrayList<String> paths = new ArrayList<String>();
+        paths.add("pic/butterflies.png");
+        paths.add("pic/daffodils.jpg");
+        songWindow.setPicturePaths(paths);
+        ArrayList<Integer> time = new ArrayList<Integer>();
+        time.add(5);
+        time.add(10);
+        songWindow.setPictureTime(time);
+        songWindow.setVisible( true );
+        songWindow.start();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-    private PicturePanel picture;
+
     
-    @Override
-    public void run() {
-        for (int i=0; i<picturePaths.size();i++){
-            try {
-                pictureIndex = i;
-                picture = new PicturePanel();
-                add(picture,BorderLayout.CENTER);
-                repaint();
-                Thread.sleep(pictureTime.get(i)*1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
 }

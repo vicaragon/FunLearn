@@ -67,7 +67,9 @@ public class StartUI extends javax.swing.JPanel {
                 new StoryUI().setVisible(true);
                 break;
             case 3:
-                new SongUI().setVisible(true);
+                SongUI songUI = new SongUI(0);
+                songUI.setVisible(true);
+                songUI.start();
                 break;
             default:
                 new SongUI().setVisible(true);
