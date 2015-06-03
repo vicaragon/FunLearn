@@ -137,7 +137,7 @@ public class Student implements Serializable {
     }
     
     public int getNumberOfColumns() {
-	   return 6;
+	   return 7;
    }
     
     public String getColumnData(int i) throws Exception {

@@ -94,7 +94,7 @@ public class StudentTableModel extends AbstractTableModel {
         public void addRow(Object[] array) {
             EntityTransaction userTransaction = manager.getTransaction();  
             userTransaction.begin();
-            Student newRecord = studentService.createStudent(new Integer(0), (String) array[0],(String) array[1], Integer.parseInt((String) array[2]), Integer.parseInt((String) array[3]), Integer.parseInt((String) array[4]), Integer.parseInt((String) array[5]));
+            Student newRecord = studentService.createStudent(new Integer(0), (String) array[1],(String) array[2], Integer.parseInt((String) array[3]), Integer.parseInt((String) array[4]), Integer.parseInt((String) array[5]), Integer.parseInt((String) array[6]));
             userTransaction.commit();
 		 		 
             // set the current row to rowIndex

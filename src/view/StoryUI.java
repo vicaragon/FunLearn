@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.media.*;
 import javax.swing.*;
 /**
  *
@@ -23,7 +22,7 @@ public class StoryUI extends javax.swing.JPanel {
      */
     
     private StoryController storyController;
-    private Player storyPlayer;
+//    private Player storyPlayer;
     
     public StoryUI() {
         initComponents();
