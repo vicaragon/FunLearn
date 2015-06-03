@@ -20,22 +20,20 @@ import javax.swing.table.*;
  */
 public class StudentsListUI extends javax.swing.JPanel {
     private StudentController studentController;
-    private List<Object> playerList;
-    private Object[][] arr;
+    private PlayerController playerController;
     private int i;
     /**
      * Creates new form StudentsListUI
      */
     public StudentsListUI() {
         studentController = new StudentController(this);
-        playerList = new ArrayList<Object>();
-     //   playerList.add("hello");
-        arr = playerList.toArray(new Object[playerList.size()][]);
+        playerController = new PlayerController(this);
 
         initComponents();
-     //   jTextField4.setVisible(false);
+        jTextField4.setVisible(false);
         
         jTable1.getSelectionModel().addListSelectionListener(studentController);
+        jTable2.getSelectionModel().addListSelectionListener(playerController);
               
         class CircularList<E> extends ArrayList<E> {
             @Override
@@ -64,7 +62,7 @@ public class StudentsListUI extends javax.swing.JPanel {
     }
      
      public void updateTable2() {
-    	
+    	jTable2.setModel(playerController.getTableModel());
     }
      
     public void setFirstNameTextField(String value) {
@@ -128,7 +126,7 @@ public class StudentsListUI extends javax.swing.JPanel {
     } 
      
     private void addPlayerButtonActionPerformed(java.awt.event.ActionEvent evt) { 
-        playerList.add(jTextField1.getText());
+//        playerList.add(jTextField1.getText());
         
     }
 
@@ -295,7 +293,7 @@ public class StudentsListUI extends javax.swing.JPanel {
             }
         });
 
-        jTable2.setModel(new DefaultTableModel(playerList.toArray(new Object[playerList.size()][]), new String [] {"Players"}));
+        jTable2.setModel(playerController.getTableModel());
         jScrollPane1.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
