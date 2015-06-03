@@ -46,9 +46,19 @@ public class GameTypeUI extends javax.swing.JPanel {
 
         story.setText("Story");
         buttonGroup.add(story);
+        story.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                storyActionPerformed(evt);
+            }
+        });
 
         game.setText("Game");
         buttonGroup.add(game);
+        game.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,16 +86,26 @@ public class GameTypeUI extends javax.swing.JPanel {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(game, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(story, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addComponent(song, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(story, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                    .addComponent(song, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void songActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_songActionPerformed
-        // TODO add your handling code here:
+        SetupUI.setActivityType(3);
+        SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_songActionPerformed
+
+    private void storyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storyActionPerformed
+        SetupUI.setActivityType(2);
+        SetupUI.getCardLayout().next(SetupUI.getCards());
+    }//GEN-LAST:event_storyActionPerformed
+
+    private void gameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameActionPerformed
+        SetupUI.setActivityType(1);
+        SetupUI.getCardLayout().next(SetupUI.getCards());
+    }//GEN-LAST:event_gameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -29,6 +29,25 @@ public class SetupUI extends javax.swing.JPanel {
     private SongUI songUI;
     static private CardLayout cardLayout;
     static private JPanel cards;
+    static int activityType=2;//Story is default activity
+
+    public static int getActivityType() {
+        return activityType;
+    }
+
+    public static void setActivityType(int activityType) {
+        SetupUI.activityType = activityType;
+    }
+
+    public static int getTransitionSpeed() {
+        return transitionSpeed;
+    }
+
+    public static void setTransitionSpeed(int transitionSpeed) {
+        SetupUI.transitionSpeed = transitionSpeed;
+    }
+    static int transitionSpeed=3;//Default timing for audio is 3 seconds
+    
     /**
      * Creates new form SetupUI
      */
