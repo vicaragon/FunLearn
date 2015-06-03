@@ -19,6 +19,11 @@ public class StoryController implements TableModelListener {
             storyTablemodel = new StoryTableModel();
             storyTablemodel.addTableModelListener(this);
         }
+        
+        public void loadStory(int storyNumber){
+            
+        }
+        
 	public String retrieveParagraph() {
 		return null;
 	};
