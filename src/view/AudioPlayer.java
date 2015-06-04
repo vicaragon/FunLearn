@@ -67,6 +67,7 @@ public class AudioPlayer {
             clip.open(stream);
             clip.start();
             Thread.sleep(getAudioLength()*1000);
+            //Thread.sleep(4200);
         } catch (UnsupportedAudioFileException ex) {
             Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

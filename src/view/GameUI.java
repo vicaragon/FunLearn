@@ -10,9 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.SwingWorker;
 import javax.swing.Timer;
 
 /**
@@ -20,6 +22,13 @@ import javax.swing.Timer;
  * @author Sonam
  */
 public class GameUI extends javax.swing.JFrame {
+    private final AudioPlayer judgePlayer;
+    private final File correct;
+    private final File wrong;
+    private final CircularList<JButton> buttonsList ;
+    
+    private int i,j;
+    private Timer timer1;
     
     private GameController gameController;
     private int gameNumber;
@@ -40,7 +49,10 @@ public class GameUI extends javax.swing.JFrame {
         gameController = new GameController(this);
         gameNumber = 0;
         questionNumber = 0;
-        
+        judgePlayer = new AudioPlayer();
+        correct = new File("song/correct.wav");
+        wrong = new File("song/wrong.wav");
+        buttonsList = new CircularList<JButton>();
     }
     
     public GameUI(int[] userLists){
@@ -52,96 +64,117 @@ public class GameUI extends javax.swing.JFrame {
     public void prepareQuestion(){
         gameController.loadGame(gameNumber);
         gameController.loadGameEntry(questionNumber);
-        jButton1.addActionListener(new ActionListener() {
+        SwingWorker questionWorker = new SwingWorker(){
+
+            @Override
+            protected Object doInBackground() throws Exception {
+                questionPlayer.play();
+                return null;
+            }
+        };
+        questionWorker.execute();
+        
+        jButton1.addActionListener(new ButtonListener());
+        jButton2.addActionListener(new ButtonListener());
+        jButton3.addActionListener(new ButtonListener());
+    }
+    
+    class ButtonListener implements ActionListener{
+
         @Override
         public void actionPerformed(ActionEvent e) {
             if (rightAnswer.equals(((JButton)e.getSource()).getText())){
                 right = true;
                 //update the student score
             }
+            else{
+                right = false;
+            }
+            timer1.stop();
+            judgeAnswer();
         }
-        });
+        
     }
+    
+    class TimerHandler implements ActionListener {
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                buttonsList.get(i).requestFocusInWindow();
+                optionPlayer.setAudioFile(optionAudios.get(i++));
+                optionPlayer.play();
+            }
+        }
     
     //playQuestion may repeat
     public void playQuestion(){
-        questionPlayer.play();
         
-        final CircularList<JButton> buttonsList = new CircularList<JButton>();
         buttonsList.add(jButton1);
         buttonsList.add(jButton2);
         buttonsList.add(jButton3);
-        
-        /*class TimerHandler implements ActionListener {
 
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                buttonsList.get(i++).requestFocusInWindow();
-                optionPlayer.setAudioFile(optionAudios.get(i++));
-                optionPlayer.play();
-            }
-        }
         TimerHandler timerHandler = new TimerHandler();
-        Timer timer1 = new Timer(4000, timerHandler);
-        timer1.setRepeats(false);
-        timer1.start();*/
-        
-        //no need to use timer: a for loop is engough;
-        for (int i=0; i<3; i++){
-            try {
-                buttonsList.get(i++).requestFocusInWindow();
-                optionPlayer.setAudioFile(optionAudios.get(i++));
-                optionPlayer.play();
-                if (right)
-                    break;
-                Thread.sleep(2000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(GameUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        timer1 = new Timer(3500, timerHandler);
+        timer1.setRepeats(true);
+        timer1.start();
+    }
     
+    public void judgeAnswer(){
+        //judge the answers
+        if (right){
+            judgePlayer.setAudioFile(correct);
+            judgePlayer.play();
+        }
+        else{
+            judgePlayer.setAudioFile(wrong);
+            judgePlayer.play();
+        }
+        answerPlayer.play();
     }
     
     //to finish playing one question and its answers
     public void play(){
         prepareQuestion();
-        //when it's not right or it's less than three times
-        int count = 0;
-        while (!right && count < 3){
-            playQuestion();
-            count ++;
-        }
+        playQuestion();
+        
     }
     
     //to iterate through a list of questions
     public void start(){
         //iterate and set game number
         //iterate and set question number
+        //iterate and set student player id
         play();
     }
     
     public void setScoreField(String value) {
         jTextField1.setText(value);
+        jTextField1.repaint();
     }
 
     public void setPictureField(String value) {
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/"+value)));
+        jLabel3.setIcon(new javax.swing.ImageIcon(value));
+        jLabel3.repaint();
     }
 
     public void setQuestionField(String value) {
         jLabel2.setText(value);
+        jLabel2.repaint();
     }
 
     public void setOption1Field(String value) {
         jButton1.setText(value);
+        jButton1.repaint();
     }
 
     public void setOption2Field(String value) {
         jButton2.setText(value);
+        jButton2.repaint();
     }
 
     public void setOption3Field(String value) {
         jButton3.setText(value);
+        jButton3.repaint();
     }
     
     public void setQustionAudio(String value){
@@ -229,15 +262,16 @@ public class GameUI extends javax.swing.JFrame {
                         .addGap(76, 76, 76)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(26, 26, 26)
-                                .addComponent(jButton2)
-                                .addGap(21, 21, 21)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 86, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -257,10 +291,11 @@ public class GameUI extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,7 +346,11 @@ public class GameUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GameUI().setVisible(true);
+                GameUI playGame = new GameUI();
+                playGame.setVisible(true);
+                //playGame.prepareQuestion();
+                //playGame.playQuestion();
+                playGame.start();
             }
         });
     }
