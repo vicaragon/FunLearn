@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author me
  */
-@Entity(name = "STORY")
+@Entity(name = "story")
 public class Story implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -133,6 +133,32 @@ public class Story implements Serializable {
     public void setStoryPictureTime(String storyPictureTime) {
         this.storyPictureTime = storyPictureTime;
     }
+    
+    public int getNumberOfColumns() {
+        return 8;
+    }
+    
+    // return the data in column i
+   public String getColumnData(int i) throws Exception {
+	   if (i == 0)
+		   return Integer.toString(getStoryID());
+	   else if (i == 1)
+		   return getStoryName();
+	   else if (i == 2) 
+		   return Integer.toString(getAgeGroup());
+	   else if (i == 3)
+		   return getLanguage();
+	   else if (i == 4)
+		   return getStoryAudioPath();
+           else if (i == 5)
+                   return getStoryTexts();
+	   else if (i == 6)
+		   return getStoryPicturePaths();
+	   else if (i == 7)
+		   return getStoryPictureTime();
+	   else
+		   throw new Exception("Error: invalid column index in song table");    
+   }
 
     @Override
     public int hashCode() {

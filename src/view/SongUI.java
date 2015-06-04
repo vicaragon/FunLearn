@@ -30,35 +30,41 @@ public class SongUI extends javax.swing.JFrame {
     private int pictureIndex;
     private ArrayList<String> picturePaths;
     private ArrayList<Integer> pictureTime;
-    private Thread t;
     
-    private JPanel songPanel;
-    private JLabel songTitle;
-    private PicturePanel picture;
+    //private JPanel songPanel;
+    //private JLabel songTitle;
+    //private PicturePanel picture;
+    //private JLabel picLabel;
     
     public SongUI() {
         initComponents();
         setSize(800, 800);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        songPanel = new JPanel(new BorderLayout());
-        setContentPane(songPanel);
+        //songPanel = new JPanel(new BorderLayout());
+        //setContentPane(songPanel);
         songController = new SongController(this);
     }
     
     public SongUI(int songNumber){
         this();
-        songTitle = new JLabel("",SwingConstants.CENTER);
-        songTitle.setSize(100,800);
-        songTitle.setBorder(new BevelBorder(BevelBorder.RAISED));
-        songTitle.setFont(new Font("Serif", Font.PLAIN, 40));
+        //songTitle = new JLabel("",SwingConstants.CENTER);
+        //songTitle.setSize(100,800);
+        //songTitle.setBorder(new BevelBorder(BevelBorder.RAISED));
+        //songTitle.setFont(new Font("Serif", Font.PLAIN, 40));
+        jLabel1.setSize(100,800);
+        jLabel1.setBorder(new BevelBorder(BevelBorder.RAISED));
+        jLabel1.setFont(new Font("Serif", Font.PLAIN, 40));
         songController.loadSong(songNumber);
         songController.loadSongEntry(this);
-        songPanel.add(songTitle,BorderLayout.NORTH);
+        //songPanel.add(songTitle,BorderLayout.NORTH);
+        //picLabel = new JLabel();
+        //songPanel.add(picLabel,BorderLayout.CENTER);
         setVisible(true);
     }
     
     public void setSongName(String name){
-        songTitle.setText(name);
+        //songTitle.setText(name);
+        jLabel1.setText(name);
     }
     
     public void setAudioPath(String path){
@@ -73,7 +79,7 @@ public class SongUI extends javax.swing.JFrame {
         pictureTime = time;
     }
     
-    class PicturePanel extends JPanel {
+    /*class PicturePanel extends JPanel {
         @Override
         public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -83,20 +89,25 @@ public class SongUI extends javax.swing.JFrame {
             g.drawImage(pic,0,0,null);
         }
         }
-    }
+    }*/
     
     public void play() {
         for (int i=0; i<picturePaths.size();i++){
             try {
+                //pictureIndex = i;
                 pictureIndex = i;
-                picture = new PicturePanel();
-                songPanel.add(picture,BorderLayout.CENTER);
-                songPanel.repaint();
-                Thread.sleep(pictureTime.get(i)*1000);
+                //picture = new PicturePanel();
+                //picLabel.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+                //songPanel.add(picLabel,BorderLayout.CENTER);
+                //picLabel.repaint();
+                jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+                jLabel2.repaint();
+                Thread.sleep(pictureTime.get(pictureIndex)*1000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
     }
     
     public void start(){
@@ -112,7 +123,6 @@ public class SongUI extends javax.swing.JFrame {
         };
         songWorker.execute();
         this.play();
-        //player.play();
     }
     
     
@@ -126,17 +136,48 @@ public class SongUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 343, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 240, Short.MAX_VALUE)
+        );
+
+        jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap())
         );
 
         pack();
@@ -187,6 +228,9 @@ public class SongUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     

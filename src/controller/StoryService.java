@@ -5,8 +5,11 @@
  */
 package controller;
 
+import java.util.List;
 import model.Story;
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import model.Song;
 /**
  *
  * @author rramsis
@@ -22,6 +25,15 @@ public class StoryService implements Servicer {
     public Story read() {
         return null;
     }
+    
+    public List<Story> readAll() {
+        TypedQuery<Story> query;
+        query = manager.createQuery("SELECT e FROM story e", Story.class);
+    	List<Story> result = query.getResultList();
+
+    	return result;      
+    }
+    
     public Story update() {
         return null;
     }
