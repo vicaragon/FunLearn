@@ -25,6 +25,22 @@ public class StudentsListUI extends javax.swing.JPanel {
     private JTable jTable1; 
     private JTable jTable2; 
     private StudentController studentController;
+
+    public StudentController getStudentController() {
+        return studentController;
+    }
+
+    public void setStudentController(StudentController studentController) {
+        this.studentController = studentController;
+    }
+
+    public PlayerController getPlayerController() {
+        return playerController;
+    }
+
+    public void setPlayerController(PlayerController playerController) {
+        this.playerController = playerController;
+    }
     private PlayerController playerController;
     private int i;
     /**
@@ -64,7 +80,7 @@ public class StudentsListUI extends javax.swing.JPanel {
     }
     
     public void addJTable1() {
-        
+        //TODO: Revisit code to be removed, but keep listSelection Listener.
         jTable1 = new JTable(studentController.getTableModel());
         jTable1.getSelectionModel().addListSelectionListener(studentController);
         JScrollPane scrollpane1 = new JScrollPane(jTable1);

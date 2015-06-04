@@ -9,6 +9,14 @@ import javax.swing.ListSelectionModel;
 
 public class PlayerController implements ListSelectionListener, TableModelListener {
 	private PlayerTableModel playerTablemodel;
+
+    public PlayerTableModel getPlayerTablemodel() {
+        return playerTablemodel;
+    }
+
+    public void setPlayerTablemodel(PlayerTableModel playerTablemodel) {
+        this.playerTablemodel = playerTablemodel;
+    }
         private StudentsListUI studentsListUI;
 	public PlayerController(StudentsListUI studentsListUI) {
             this.studentsListUI = studentsListUI;

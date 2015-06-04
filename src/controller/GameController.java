@@ -76,17 +76,21 @@ public class GameController implements TableModelListener {
 	public void iterateQuestions() {
             
         }
-	public boolean isRightAnswer() {
-            return false;
+        public boolean isRightAnswer(String ans1, String ans2) {
+            return ans1.equals(ans2);
         }
 	
         public int getScore() {
             return score;
         }
         
-	public int updateScore() {
-            return 0;
+	public int updateScore(boolean status, int score) {
+        if (status) {
+            return score++;
+        } else {
+            return score; //we can implement penalty later if needed
         }
+    }
 	
 	public ImageIcon retrievePicture() {
 		return null;
