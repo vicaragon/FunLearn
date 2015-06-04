@@ -104,7 +104,6 @@ public class PlayerTableModel extends AbstractTableModel {
     public void addRow(Integer ID, String name) {	 		 
         playerIDs.add(ID);
         playerList.add(name);
-        System.out.println("ID: " + ID + "name: " + name);
         fireTableRowsInserted(playerList.size()-1, numcols-1);
         numrows++;
     }

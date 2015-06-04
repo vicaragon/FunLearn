@@ -53,10 +53,11 @@ public class StudentService {
     	 }
     	 return student;
     }
-    public void deleteStudent(Integer studentID) {
+    public Student deleteStudent(Integer studentID) {
          Student student = manager.find(Student.class, studentID);
     	 if (student != null) {
             manager.remove(student);
     	 }
+         return student;
     }
 }

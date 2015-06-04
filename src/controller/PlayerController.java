@@ -39,10 +39,7 @@ public class PlayerController implements ListSelectionListener, TableModelListen
         @Override
         public void tableChanged(TableModelEvent e) {
 	   try {
-	    	// get the index of the inserted row
-	        //tableModel.getRowSet().moveToCurrentRow();
 	    	int firstIndex =  e.getFirstRow();
-	    	System.out.println("able event");
 	    	// create a new table model with the new data
 	        playerTablemodel = new PlayerTableModel(playerTablemodel.getPlayerIDs(), playerTablemodel.getPlayerList());
 	        playerTablemodel.addTableModelListener(this);

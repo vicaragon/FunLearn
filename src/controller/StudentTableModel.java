@@ -101,39 +101,28 @@ public class StudentTableModel extends AbstractTableModel {
             studentsList.add(newRecord);
 	    int row = studentsList.size();  
 	    int col = 0;
+            
+            fireTableRowsInserted(studentsList.size()-1, numcols-1);
 
 	    // update the data in the model to the entries in array
-	    for (Object data : array) {
-	     	 setValueAt((String) data, row-1, col++);
-            }	          
+//	    for (Object data : array) {
+//	     	 setValueAt((String) data, row-1, col++);
+//            }	          
 	    numrows++;           
         }
         
         public void deleteRow(int rowNumber, Object[] array) {
             EntityTransaction userTransaction = manager.getTransaction();  
             userTransaction.begin();
-            studentService.deleteStudent(Integer.parseInt((String) array[0]));
+            Student delRecord = studentService.deleteStudent(Integer.parseInt((String) array[0]));
             userTransaction.commit();
 		 		 
             // set the current row to rowIndex
 	    int row = studentsList.size();  
 	    int col = 0;
 
-	    studentsList.remove(rowNumber-1);
-            
-            while(rowNumber < row) {  
-                Student element1 = studentsList.get(rowNumber-1);
-                Student element2 = studentsList.get(rowNumber);
-                int i = 0;
-                try {
-                    while (i < 7)
-                    element1.setColumnData(i, element2.getColumnData(i)); 
-        //            fireTableCellUpdated((rowNumber-1), i);
-                } catch(Exception err) {
-			err.toString();
-		}
-                rowNumber++;
-            }
+	    studentsList.remove(delRecord);         
+            fireTableRowsDeleted(studentsList.size()-1, numcols-1);  
 		          
 	    numrows--;
         }
@@ -141,16 +130,20 @@ public class StudentTableModel extends AbstractTableModel {
         public void updateRow(int rowNumber, Object[] array) {
             EntityTransaction userTransaction = manager.getTransaction();  
             userTransaction.begin();
+                Student student1 = manager.find(Student.class, Integer.parseInt((String) array[0]));
+        //        studentsList.getClass()
 		Student updatedRecord = studentService.updateStudent(Integer.parseInt((String) array[0]),(String) array[1],(String) array[2], Integer.parseInt((String) array[3]));
 		userTransaction.commit();
-		studentsList.set(rowNumber-1, updatedRecord);
                 int row = studentsList.size();  
-                int col = 0;
+                int col = 1;
 
-             // update the data in the model to the entries in array
-                for (Object data : array) {
-          	  setValueAt((String) data, rowNumber, col++);
-                }
+          //      studentsList.replace(student1, updatedRecord);
+                
+          	  setValueAt((String) array[1], rowNumber-1, 1);
+                  setValueAt((String) array[2], rowNumber-1, 2);
+                  setValueAt((String) array[3], rowNumber-1, 3);
+               
+                fireTableRowsUpdated(studentsList.size()-1, numcols-1); 
         }
 	
 

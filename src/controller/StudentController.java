@@ -43,6 +43,7 @@ public class StudentController implements ListSelectionListener, TableModelListe
 	        studentTablemodel.addTableModelListener(this);
 	        // update the JTable with the data
 	    	studentsListUI.updateTable1();
+                        System.out.println("table event: ");
 	    
 	        studentsListUI.setFirstNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 1));
                 studentsListUI.setLastNameTextField( (String) studentTablemodel.getValueAt(firstIndex, 2));

@@ -107,7 +107,6 @@ public class StudentsListUI extends javax.swing.JPanel {
     }
      
     public void setFirstNameTextField(String value) {
-        System.out.println("Value: " + value);
     	jTextField1.setText(value);
     }
     
