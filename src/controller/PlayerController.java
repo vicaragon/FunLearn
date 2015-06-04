@@ -22,6 +22,10 @@ public class PlayerController implements ListSelectionListener, TableModelListen
         
         @Override
 	public void valueChanged(ListSelectionEvent e) {
+            ListSelectionModel selectModel = (ListSelectionModel) e.getSource();
+            int firstIndex = selectModel.getMinSelectionIndex();
+            studentsListUI.setPlayerID( (String) playerTablemodel.getValueAt(firstIndex, 0));
+            studentsListUI.setPlayerName( (String) playerTablemodel.getValueAt(firstIndex, 1));
 	}   
         
         @Override
@@ -30,23 +34,23 @@ public class PlayerController implements ListSelectionListener, TableModelListen
 	    	// get the index of the inserted row
 	        //tableModel.getRowSet().moveToCurrentRow();
 	    	int firstIndex =  e.getFirstRow();
-	    	
+	    	System.out.println("able event");
 	    	// create a new table model with the new data
-	        playerTablemodel = new PlayerTableModel(playerTablemodel.getList());
+	        playerTablemodel = new PlayerTableModel(playerTablemodel.getPlayerIDs(), playerTablemodel.getPlayerList());
 	        playerTablemodel.addTableModelListener(this);
 	        // update the JTable with the data
-	    	studentsListUI.updateTable1();	    
+	    	studentsListUI.updateTable2();	    
 	} catch(Exception exp) {
 		exp.getMessage();
 		exp.printStackTrace();
 	}
 	}
 
-        public void addPlayer(String name){
-            playerTablemodel.addRow(name);	
+        public void addPlayer(String ID, String name){
+            playerTablemodel.addRow(Integer.valueOf(ID), name);	
 	}
         
-	public void deletePlayer(String name){
-            playerTablemodel.deleteRow(name);	
+	public void deletePlayer(String ID, String name){
+            playerTablemodel.deleteRow(Integer.valueOf(ID), name);	
 	}	
 }
