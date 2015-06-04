@@ -10,12 +10,12 @@ package view;
  *
  * @author Sonam
  */
-public class SpeedTypeUI extends javax.swing.JPanel {
+public class LevelUI extends javax.swing.JPanel {
 
     /**
      * Creates new form SpeedTypeUI
      */
-    public SpeedTypeUI() {
+    public LevelUI() {
         initComponents();
     }
 
@@ -34,7 +34,7 @@ public class SpeedTypeUI extends javax.swing.JPanel {
         speed2 = new javax.swing.JButton();
         speed3 = new javax.swing.JButton();
 
-        jLabel1.setText("Select Speed:");
+        jLabel1.setText("Select Level");
 
         speed1.setText("1");
         speed1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,17 +90,17 @@ public class SpeedTypeUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void speed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed2ActionPerformed
-        SetupUI.setTransitionSpeed(2);
+        SetupUI.setActivityLevel(2);
         SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_speed2ActionPerformed
 
     private void speed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed1ActionPerformed
-        SetupUI.setTransitionSpeed(1);
+        SetupUI.setActivityLevel(1);
         SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_speed1ActionPerformed
 
     private void speed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed3ActionPerformed
-        SetupUI.setTransitionSpeed(3);
+        SetupUI.setActivityLevel(3);
         SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_speed3ActionPerformed
 
