@@ -98,7 +98,7 @@ public class PlayerTableModel extends AbstractTableModel {
         playerIDs = list1;
         playerList = list2;
         numrows = playerList.size();
-        numcols = 1;     
+        numcols = 2;     
      }
     
     public void addRow(Integer ID, String name) {	 		 
@@ -106,7 +106,6 @@ public class PlayerTableModel extends AbstractTableModel {
         playerList.add(name);
         System.out.println("ID: " + ID + "name: " + name);
         fireTableRowsInserted(playerList.size()-1, numcols-1);
-//	fireTableRowsInserted(playerList.size(), numcols-1);
         numrows++;
     }
         
