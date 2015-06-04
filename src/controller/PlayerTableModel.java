@@ -71,9 +71,7 @@ public class PlayerTableModel extends AbstractTableModel {
     @Override
     public void setValueAt(Object aValue, int row, int col) {
 	try {
-   //         playerName = Integer.parseInt((String) value);
-//	   Student element = playerList.get(row);
- //          element.setColumnData(col, aValue); 
+           playerName = (String) aValue; 
            fireTableCellUpdated(row, col);
 	} catch(Exception err) {
             err.toString();
@@ -109,7 +107,7 @@ public class PlayerTableModel extends AbstractTableModel {
 	    int col = 0;
 
 	    // update the data in the model to the entries in array
-	    setValueAt((String) name, row-1, col);
+	    setValueAt((Object) name, row-1, col);
 		          
 	    numrows--;
         }

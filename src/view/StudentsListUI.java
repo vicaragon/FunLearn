@@ -110,7 +110,6 @@ public class StudentsListUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         //add a row to the table
     	String[] array = new String[jTable1.getColumnCount()];
-        array[0] = jTextField4.getText();
     	array[1] = jTextField1.getText();
     	array[2] = jTextField2.getText();
     	array[3] = jTextField3.getText();
@@ -124,14 +123,14 @@ public class StudentsListUI extends javax.swing.JPanel {
     // code for the Delete button
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-        //add a row to the table
+        int rowNumber = jTable1.getRowCount();
     	String[] array = new String[jTable1.getColumnCount()];
     	array[0] = jTextField4.getText();
         array[1] = jTextField1.getText();
     	array[2] = jTextField2.getText();
     	array[3] = jTextField3.getText();
     	// send data to the controller to add it to the model
-   	    studentController.deleteStudent( array);
+   	    studentController.deleteStudent( rowNumber, array);
     } 
     
     // code for the Update button

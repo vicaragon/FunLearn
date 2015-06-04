@@ -109,7 +109,7 @@ public class StudentTableModel extends AbstractTableModel {
 	    numrows++;           
         }
         
-        public void deleteRow(Object[] array) {
+        public void deleteRow(int rowNumber, Object[] array) {
             EntityTransaction userTransaction = manager.getTransaction();  
             userTransaction.begin();
             studentService.deleteStudent(Integer.parseInt((String) array[0]));
@@ -119,10 +119,21 @@ public class StudentTableModel extends AbstractTableModel {
 	    int row = studentsList.size();  
 	    int col = 0;
 
-	    // update the data in the model to the entries in array
-	    for (Object data : array) {
-		 setValueAt((String) data, row-1, col++);
-	    }
+	    studentsList.remove(rowNumber-1);
+            
+            while(rowNumber < row) {  
+                Student element1 = studentsList.get(rowNumber-1);
+                Student element2 = studentsList.get(rowNumber);
+                int i = 0;
+                try {
+                    while (i < 7)
+                    element1.setColumnData(i, element2.getColumnData(i)); 
+        //            fireTableCellUpdated((rowNumber-1), i);
+                } catch(Exception err) {
+			err.toString();
+		}
+                rowNumber++;
+            }
 		          
 	    numrows--;
         }
@@ -132,13 +143,13 @@ public class StudentTableModel extends AbstractTableModel {
             userTransaction.begin();
 		Student updatedRecord = studentService.updateStudent(Integer.parseInt((String) array[0]),(String) array[1],(String) array[2], Integer.parseInt((String) array[3]));
 		userTransaction.commit();
-		studentsList.set(1, updatedRecord);
+		studentsList.set(rowNumber-1, updatedRecord);
                 int row = studentsList.size();  
                 int col = 0;
 
              // update the data in the model to the entries in array
                 for (Object data : array) {
-          	  setValueAt((String) data, row-1, col++);
+          	  setValueAt((String) data, rowNumber, col++);
                 }
         }
 	
