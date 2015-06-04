@@ -80,7 +80,7 @@ public class GameUI extends javax.swing.JFrame {
             } else {
                 right = false;
                 gameController.updateScore(false, score);
-                scoreList.set(playerIndex, gameController.updateScore(true, score));
+                scoreList.set(playerIndex, gameController.updateScore(false, score));
             }
             timer1.stop();
             judgeAnswer();
