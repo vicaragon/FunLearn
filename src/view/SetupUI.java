@@ -16,13 +16,13 @@ import javax.swing.*;
  * @author me
  */
 public class SetupUI extends javax.swing.JPanel {
-    //USE JFRAME INSTEAD
+    //TODO: USE JFRAME INSTEAD
     public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
     public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     private JFrame window;
     private StudentsListUI studentListUI;
     private GameTypeUI gameTypeUI;
-    private SpeedTypeUI speedTypeUI;
+    private LevelUI speedTypeUI;
     private StartUI startUI;
     private GameUI gameUI;
     private StoryUI storyUI;
@@ -30,6 +30,7 @@ public class SetupUI extends javax.swing.JPanel {
     static private CardLayout cardLayout;
     static private JPanel cards;
     static int activityType=2;//Story is default activity
+    static int activityLevel=3;//Default timing for audio is 3 seconds
 
     public static int getActivityType() {
         return activityType;
@@ -39,14 +40,13 @@ public class SetupUI extends javax.swing.JPanel {
         SetupUI.activityType = activityType;
     }
 
-    public static int getTransitionSpeed() {
-        return transitionSpeed;
+    public static int getActivityLevel() {
+        return activityLevel;
     }
 
-    public static void setTransitionSpeed(int transitionSpeed) {
-        SetupUI.transitionSpeed = transitionSpeed;
+    public static void setActivityLevel(int activityLevel) {
+        SetupUI.activityLevel = activityLevel;
     }
-    static int transitionSpeed=3;//Default timing for audio is 3 seconds
     
     /**
      * Creates new form SetupUI
@@ -57,7 +57,7 @@ public class SetupUI extends javax.swing.JPanel {
         cards = new JPanel(cardLayout);
         studentListUI = new StudentsListUI();
         gameTypeUI = new GameTypeUI();
-        speedTypeUI = new SpeedTypeUI();
+        speedTypeUI = new LevelUI();
         startUI = new StartUI();
         cards.add(studentListUI,"StudentList");
         cards.add(gameTypeUI,"GameType"); 
