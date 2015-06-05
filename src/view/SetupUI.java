@@ -8,6 +8,7 @@ package view;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.persistence.*;
 import javax.swing.*;
 
@@ -75,10 +76,22 @@ public class SetupUI extends javax.swing.JPanel {
         }
         TimerHandler timerHandler = new TimerHandler();
         Timer timer1 = new Timer(7000,timerHandler);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        timer1.start();
+        
         window.setSize(600,600);
         window.setVisible(true);
+        timer1.start();
+        window.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);        
+        window.addWindowListener(new WindowAdapter(){
+                @Override
+                public void windowClosing(WindowEvent e){
+                    int i=JOptionPane.showConfirmDialog(window, "Are you sure you want to close?", "Confirm close", JOptionPane.YES_NO_OPTION);
+                    System.out.println("i: " + i);
+                    if(i==0)
+                        System.exit(0);
+                    else if(i==1)
+                        window.setVisible(true);
+                }
+            });
     }
 
     static public JPanel getCards() {
