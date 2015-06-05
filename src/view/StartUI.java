@@ -21,7 +21,6 @@ public class StartUI extends javax.swing.JPanel {
         initComponents();
     }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,15 +65,17 @@ public class StartUI extends javax.swing.JPanel {
                 gameUI.start();
                 break;
             case 2:
-                new StoryUI().setVisible(true);
+                StoryUI storyUI = new StoryUI(SetupUI.activityLevel);
+                storyUI.setVisible(true);
+                storyUI.start();
                 break;
             case 3:
-                SongUI songUI = new SongUI(0);
+                SongUI songUI = new SongUI(SetupUI.activityLevel);
                 songUI.setVisible(true);
                 songUI.start();
                 break;
             default:
-                SongUI songDef = new SongUI(0);
+                SongUI songDef = new SongUI(SetupUI.activityLevel);
                 songDef.setVisible(true);
                 songDef.start();
         }

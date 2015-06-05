@@ -92,7 +92,12 @@ public class SongUI extends javax.swing.JFrame {
     }*/
     
     public void play() {
-        for (int i=0; i<picturePaths.size();i++){
+        
+        SwingWorker songWorker = new SwingWorker(){
+
+            @Override
+            protected Object doInBackground() throws Exception {
+                for (int i=0; i<picturePaths.size();i++){
             try {
                 //pictureIndex = i;
                 pictureIndex = i;
@@ -107,6 +112,26 @@ public class SongUI extends javax.swing.JFrame {
                 Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+                return null;
+            }
+        };
+        songWorker.execute();
+        
+        /*for (int i=0; i<picturePaths.size();i++){
+            try {
+                //pictureIndex = i;
+                pictureIndex = i;
+                //picture = new PicturePanel();
+                //picLabel.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+                //songPanel.add(picLabel,BorderLayout.CENTER);
+                //picLabel.repaint();
+                jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+                jLabel2.repaint();
+                Thread.sleep(pictureTime.get(pictureIndex)*1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }*/
         
     }
     
@@ -149,14 +174,14 @@ public class SongUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
+            .addGap(0, 344, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 240, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("           ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

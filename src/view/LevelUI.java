@@ -90,17 +90,17 @@ public class LevelUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void speed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed2ActionPerformed
-        SetupUI.setActivityLevel(2);
+        SetupUI.setActivityLevel(1);
         SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_speed2ActionPerformed
 
     private void speed1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed1ActionPerformed
-        SetupUI.setActivityLevel(1);
+        SetupUI.setActivityLevel(0);
         SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_speed1ActionPerformed
 
     private void speed3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed3ActionPerformed
-        SetupUI.setActivityLevel(3);
+        SetupUI.setActivityLevel(2);
         SetupUI.getCardLayout().next(SetupUI.getCards());
     }//GEN-LAST:event_speed3ActionPerformed
 

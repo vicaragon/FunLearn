@@ -30,7 +30,7 @@ public class SetupUI extends javax.swing.JPanel {
     static private CardLayout cardLayout;
     static private JPanel cards;
     static int activityType=2;//Story is default activity
-    static int activityLevel=3;//Default timing for audio is 3 seconds
+    static int activityLevel=0;//Default level is 0
 
     public static int getActivityType() {
         return activityType;

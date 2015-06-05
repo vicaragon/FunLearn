@@ -80,7 +80,12 @@ public class StoryUI extends javax.swing.JFrame {
     }
     
     public void play() {
-        for (int i=0; i<picturePaths.size();i++){
+        
+        SwingWorker songWorker = new SwingWorker(){
+
+            @Override
+            protected Object doInBackground() throws Exception {
+                for (int i=0; i<picturePaths.size();i++){
             try {
                 pictureIndex = i;
                 jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
@@ -91,6 +96,22 @@ public class StoryUI extends javax.swing.JFrame {
                 Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+                return null;
+            }
+        };
+        songWorker.execute();
+        
+        /*for (int i=0; i<picturePaths.size();i++){
+            try {
+                pictureIndex = i;
+                jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+                jLabel2.repaint();
+                jTextArea1.setText(storyText.get(pictureIndex));
+                Thread.sleep(pictureTime.get(pictureIndex)*1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }*/
         
     }
     
@@ -206,6 +227,7 @@ public class StoryUI extends javax.swing.JFrame {
         StoryUI storyWindow = new StoryUI(0);
         storyWindow.setVisible( true );
         storyWindow.start();
+        storyWindow.play();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
