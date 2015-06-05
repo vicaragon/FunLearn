@@ -15,6 +15,7 @@ public class GameController implements TableModelListener {
 	private int index;
 	private int score;
         private GameTableModel gameTablemodel;
+        private StudentTableModel studentTablemodel;
         private GameUI gameUI;
         private ArrayList<String> picturePaths;
         private ArrayList<String> questions;
@@ -33,7 +34,9 @@ public class GameController implements TableModelListener {
         public GameController(GameUI gameUI) {
             this.gameUI = gameUI;
             gameTablemodel = new GameTableModel();
+            studentTablemodel = new StudentTableModel();
             gameTablemodel.addTableModelListener(this);
+            studentTablemodel.addTableModelListener(this);
             score = 0;
         }
         public GameTableModel getTableModel() {
@@ -91,6 +94,10 @@ public class GameController implements TableModelListener {
             return score; //we can implement penalty later if needed
         }
     }
+        
+        public void storeScores(List<Integer> userIDs, List<String> users, List<Integer> scores) {
+            studentTablemodel.updateScores(userIDs, users, scores);
+        }
 	
 	public ImageIcon retrievePicture() {
 		return null;

@@ -59,4 +59,12 @@ public class StudentService {
     	 }
          return student;
     }
+    
+        public void updateScores(Integer studentID, String studentFirstName, Integer studentScore) {
+         Student student = manager.find(Student.class, studentID);
+    	 if (student != null) {
+   	    student.setMinScore(studentScore);
+            manager.merge(student);
+    	 }
+    }
 }

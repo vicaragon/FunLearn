@@ -125,13 +125,25 @@ public class StudentTableModel extends AbstractTableModel {
             EntityTransaction userTransaction = manager.getTransaction();  
             userTransaction.begin();
 		Student updatedRecord = studentService.updateStudent(Integer.parseInt((String) array[0]),(String) array[1],(String) array[2], Integer.parseInt((String) array[3]));
-		userTransaction.commit();
+            userTransaction.commit();
                 
            //     studentsList.set(rowNumber-1, updatedRecord);
                 int row = studentsList.size();  
                
                 fireTableRowsUpdated(row-1, numcols-1);
         }
+        
+         public void updateScores(List<Integer> userIDs, List<String> users, List<Integer> scores) {
+             EntityTransaction userTransaction = manager.getTransaction(); 
+             userTransaction.begin();
+             int s = users.size();
+                for(int i = 0; i < s; i++) {
+                    System.out.println(userIDs.get(i) +"," + users.get(i) + "," + scores.get(i));
+                   studentService.updateScores(userIDs.get(i), users.get(i),scores.get(i));
+                }
+             
+             userTransaction.commit();
+         }
 	
 
 }

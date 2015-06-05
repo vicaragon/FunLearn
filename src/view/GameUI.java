@@ -42,7 +42,8 @@ public class GameUI extends javax.swing.JFrame {
     private String rightAnswer;
     private boolean right = false;
     private CircularList<Integer> scoreList;
-    private CircularList<String> userLists;
+    private CircularList<Integer> userIDList;
+    private CircularList<String> userList;
 
     /**
      * Creates new form GameUI
@@ -53,9 +54,12 @@ public class GameUI extends javax.swing.JFrame {
         gameController = new GameController(this);
         ///////////////
         gameNumber = 0; //NEED TO CHANGE ONCE WE HAVE MORE THAN 1 GAME
-        userLists = new CircularList<>();
-        userLists.add("Roberto1");
-        userLists.add("Roberto2");
+        userIDList = new CircularList<>();
+        userIDList.add(63);
+        userIDList.add(64);
+        userList = new CircularList<>();
+        userList.add("Roberto1");
+        userList.add("Roberto2");
         scoreList = new CircularList<>();
         scoreList.add(0);
         scoreList.add(5);
@@ -68,7 +72,7 @@ public class GameUI extends javax.swing.JFrame {
         buttonsList.add(jButton2);
         buttonsList.add(jButton3);
         gameController.loadGame(gameNumber);
-        jLabel4.setText(userLists.get(playerIndex).toString());
+        jLabel4.setText(userList.get(playerIndex).toString());
         jLabel5.setText(scoreList.get(playerIndex).toString());
         
 
@@ -91,7 +95,7 @@ public class GameUI extends javax.swing.JFrame {
             judgeAnswer();
             questionNumber++;
             playerIndex++;
-            jLabel4.setText(userLists.get(playerIndex).toString());
+            jLabel4.setText(userList.get(playerIndex).toString());
             jLabel5.setText(scoreList.get(playerIndex).toString());
             play();
         }
@@ -203,8 +207,12 @@ public class GameUI extends javax.swing.JFrame {
         return scoreList;
     }
 
-    public CircularList<String> getUserLists() {
-        return userLists;
+    public CircularList<String> getUserList() {
+        return userList;
+    }
+    
+    public CircularList<Integer> getUserIDList() {
+        return userIDList;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -339,6 +347,7 @@ public class GameUI extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
             if(i == 0)
+                gameController.storeScores(getUserIDList(), getUserList(), getScoreList());
                 System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
