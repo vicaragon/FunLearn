@@ -44,12 +44,11 @@ public class StudentService {
     public Student updateStudent(Integer studentID, String studentFirstName, String studentLastName, Integer studentAgeGroup) {
          Student student = manager.find(Student.class, studentID);
     	 if (student != null) {
-            student.setLastName(studentFirstName);
+            student.setFirstName(studentFirstName);
             student.setLastName(studentLastName);
  	    student.setAgeGroup(studentAgeGroup);
- 	//    student.setMinScore(studentMinScore);
- 	//    student.setMaxScore(studentMaxScore);
- 	//    student.setAvgScore(studentAvgScore);
+            manager.merge(student);
+        //    manager.flush();
     	 }
     	 return student;
     }
