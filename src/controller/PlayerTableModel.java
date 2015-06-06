@@ -22,8 +22,8 @@ public class PlayerTableModel extends AbstractTableModel {
     private int numcols, numrows;
     
     public PlayerTableModel() {
-     playerIDs = new ArrayList<Integer>();
-     playerList = new ArrayList<String>();
+     playerIDs = new CircularList<Integer>();
+     playerList = new CircularList<String>();
 //     arr = playerList.toArray(new Object[playerList.size()][]);
      numrows = playerList.size();
      numcols = 2;    

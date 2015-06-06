@@ -25,6 +25,8 @@ public class StudentsListUI extends javax.swing.JPanel {
     private JTable jTable1; 
     private JTable jTable2; 
     private StudentController studentController;
+    static private PlayerController playerController;
+    private int i;
 
     public StudentController getStudentController() {
         return studentController;
@@ -34,15 +36,14 @@ public class StudentsListUI extends javax.swing.JPanel {
         this.studentController = studentController;
     }
 
-    public PlayerController getPlayerController() {
+    public static PlayerController getPlayerController() {
         return playerController;
     }
 
-    public void setPlayerController(PlayerController playerController) {
-        this.playerController = playerController;
+    public static void setPlayerController(PlayerController playerController) {
+        playerController = playerController;
     }
-    private PlayerController playerController;
-    private int i;
+
     /**
      * Creates new form StudentsListUI
      */

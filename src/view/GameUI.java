@@ -12,6 +12,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
@@ -42,17 +43,19 @@ public class GameUI extends javax.swing.JFrame {
     private String rightAnswer;
     private boolean right = false;
     private CircularList<Integer> scoreList;
-    private CircularList<Integer> userIDList;
-    private CircularList<String> userList;
+    private List<Integer> userIDList;
+    private List<String> userList;
 
     /**
      * Creates new form GameUI
      */
-    public GameUI() {
-        //CONSTRUCTOR SHOULD TAKE int gameNumber, ArrayLust<Integer>, ArrayList<String>
+    public GameUI(int gameNumber,List<Integer> userIDList, List<String> userList ) {
         initComponents();
         gameController = new GameController(this);
+        this.userIDList = userIDList;
+        this.userList = userList;
         ///////////////
+        /*
         gameNumber = 0; //NEED TO CHANGE ONCE WE HAVE MORE THAN 1 GAME
         userIDList = new CircularList<>();
         userIDList.add(63);
@@ -64,6 +67,7 @@ public class GameUI extends javax.swing.JFrame {
         scoreList.add(0);
         scoreList.add(5);
         ///////
+        */
         judgePlayer = new AudioPlayer();
         correct = new File("song/correct.wav");
         wrong = new File("song/wrong.wav");
@@ -207,11 +211,11 @@ public class GameUI extends javax.swing.JFrame {
         return scoreList;
     }
 
-    public CircularList<String> getUserList() {
+    public List<String> getUserList() {
         return userList;
     }
     
-    public CircularList<Integer> getUserIDList() {
+    public List<Integer> getUserIDList() {
         return userIDList;
     }
     /**
@@ -364,11 +368,5 @@ public class GameUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 
-    class CircularList<E> extends ArrayList<E> {
 
-        @Override
-        public E get(int index) {
-            return super.get(index % size());
-        }
-    }
 }

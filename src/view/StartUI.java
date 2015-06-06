@@ -60,7 +60,8 @@ public class StartUI extends javax.swing.JPanel {
     private void startPlayingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPlayingActionPerformed
         switch (SetupUI.activityType) {
             case 1:
-                GameUI gameUI = new GameUI();
+                GameUI gameUI = new GameUI(SetupUI.activityLevel,StudentsListUI.getPlayerController().getPlayerTablemodel().getPlayerIDs(),StudentsListUI.getPlayerController().getPlayerTablemodel().getPlayerList());
+                ;
                 gameUI.setVisible(true);
                 gameUI.start();
                 break;
