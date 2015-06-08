@@ -44,7 +44,7 @@ public class AboutUI extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(51, 0, 51));
         jLabel3.setText("This is a learning software developed mainly for visually impared kids of 3-5 years");
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 102));
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 0, 0));
         jButton1.setText("Start Playing");
