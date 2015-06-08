@@ -51,6 +51,7 @@ public class GameUI extends javax.swing.JFrame {
      */
     public GameUI(int gameNumber,List<Integer> userIDList, List<String> userList ) {
         initComponents();
+        setSize(1000, 750);
         gameController = new GameController(this);
         this.userIDList = userIDList;
         this.userList = userList;

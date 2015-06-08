@@ -32,7 +32,11 @@ public class StartUI extends javax.swing.JPanel {
 
         startPlaying = new javax.swing.JButton();
 
+        startPlaying.setBackground(new java.awt.Color(0, 204, 204));
+        startPlaying.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        startPlaying.setForeground(new java.awt.Color(204, 0, 0));
         startPlaying.setText("Let's Start Playing!");
+        startPlaying.setFocusPainted(false);
         startPlaying.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startPlayingActionPerformed(evt);
@@ -44,16 +48,16 @@ public class StartUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(startPlaying, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(209, 209, 209)
+                .addComponent(startPlaying, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(startPlaying, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addGap(244, 244, 244)
+                .addComponent(startPlaying, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(331, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

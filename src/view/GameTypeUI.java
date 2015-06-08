@@ -34,8 +34,12 @@ public class GameTypeUI extends javax.swing.JPanel {
         story = new javax.swing.JButton();
         game = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Select Activity:");
 
+        song.setBackground(new java.awt.Color(0, 204, 204));
+        song.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        song.setForeground(new java.awt.Color(204, 0, 0));
         song.setText("Song");
         buttonGroup.add(song);
         song.addActionListener(new java.awt.event.ActionListener() {
@@ -44,6 +48,9 @@ public class GameTypeUI extends javax.swing.JPanel {
             }
         });
 
+        story.setBackground(new java.awt.Color(0, 204, 204));
+        story.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        story.setForeground(new java.awt.Color(204, 0, 0));
         story.setText("Story");
         buttonGroup.add(story);
         story.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +59,9 @@ public class GameTypeUI extends javax.swing.JPanel {
             }
         });
 
+        game.setBackground(new java.awt.Color(0, 204, 204));
+        game.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        game.setForeground(new java.awt.Color(204, 0, 0));
         game.setText("Game");
         buttonGroup.add(game);
         game.addActionListener(new java.awt.event.ActionListener() {
@@ -65,30 +75,28 @@ public class GameTypeUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(166, 166, 166)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(song)
-                        .addGap(39, 39, 39)
-                        .addComponent(story)
-                        .addGap(39, 39, 39)
-                        .addComponent(game)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addComponent(song, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(74, 74, 74)
+                .addComponent(game, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(game, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(story, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                    .addComponent(song, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(song, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(story, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(game, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(393, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

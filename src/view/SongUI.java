@@ -38,7 +38,7 @@ public class SongUI extends javax.swing.JFrame {
     
     public SongUI() {
         initComponents();
-        setSize(800, 800);
+        setSize(1000, 750);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         //songPanel = new JPanel(new BorderLayout());
         //setContentPane(songPanel);

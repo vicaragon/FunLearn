@@ -43,7 +43,7 @@ public class StoryUI extends javax.swing.JFrame {
     
     public StoryUI() {
         initComponents();
-        setSize(1000, 1000);
+        setSize(1000, 750);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         storyController = new StoryController(this);
     }

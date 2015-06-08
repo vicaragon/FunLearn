@@ -307,7 +307,7 @@ public class StudentsListUI extends javax.swing.JPanel {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 255));
+        jButton6.setBackground(new java.awt.Color(0, 204, 204));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton6.setForeground(new java.awt.Color(204, 0, 0));
         jButton6.setText("Setup Game!");
