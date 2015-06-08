@@ -21,6 +21,7 @@ public class SetupUI extends javax.swing.JPanel {
     public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
     public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     private JFrame window;
+    private AboutUI aboutUI;
     private StudentsListUI studentListUI;
     private GameTypeUI gameTypeUI;
     private LevelUI speedTypeUI;
@@ -56,10 +57,12 @@ public class SetupUI extends javax.swing.JPanel {
         window = new JFrame();
         cardLayout = new CardLayout();
         cards = new JPanel(cardLayout);
+        aboutUI = new AboutUI();
         studentListUI = new StudentsListUI();
         gameTypeUI = new GameTypeUI();
         speedTypeUI = new LevelUI();
         startUI = new StartUI();
+        cards.add(aboutUI, "AboutSoftware");
         cards.add(studentListUI,"StudentList");
         cards.add(gameTypeUI,"GameType"); 
         cards.add(speedTypeUI,"Speed");
@@ -70,14 +73,15 @@ public class SetupUI extends javax.swing.JPanel {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-                window.setTitle("WOOOW");
+        //        window.setTitle("Fun Learn");
             }
             
         }
         TimerHandler timerHandler = new TimerHandler();
         Timer timer1 = new Timer(7000,timerHandler);
         
-        window.setSize(600,600);
+        window.setSize(1000,700);
+        window.setTitle("Fun Learn");
         window.setVisible(true);
         timer1.start();
         window.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);        
@@ -122,15 +126,17 @@ public class SetupUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setPreferredSize(new java.awt.Dimension(800, 800));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 431, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
