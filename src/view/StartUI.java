@@ -79,7 +79,7 @@ public class StartUI extends javax.swing.JPanel {
         switch (SetupUI.activityType) {
             case 1:
                 GameUI gameUI = new GameUI(SetupUI.activityLevel,StudentsListUI.getPlayerController().getPlayerTablemodel().getPlayerIDs(),StudentsListUI.getPlayerController().getPlayerTablemodel().getPlayerList());
-                ;
+                SetupUI.getCardLayout().show(SetupUI.getCards(),"StudentList");
                 gameUI.setVisible(true);
                 gameUI.start();
                 break;
