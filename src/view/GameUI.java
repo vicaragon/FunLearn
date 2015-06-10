@@ -353,7 +353,7 @@ public class GameUI extends javax.swing.JFrame {
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
             if(i == 0)
                 gameController.storeScores(getUserIDList(), getUserList(), getScoreList());
-                System.exit(0);
+                this.dispose();
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

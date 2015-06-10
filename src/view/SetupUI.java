@@ -89,11 +89,12 @@ public class SetupUI extends javax.swing.JPanel {
                 @Override
                 public void windowClosing(WindowEvent e){
                     int i=JOptionPane.showConfirmDialog(window, "Are you sure you want to close?", "Confirm close", JOptionPane.YES_NO_OPTION);
-                    if(i == 0)
-                        System.exit(0);
+                 //   if(i == 0)
+                     //   System.exit(0);
                 }
             });
     }
+   
 
     static public JPanel getCards() {
         return cards;
