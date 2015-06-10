@@ -101,11 +101,13 @@ public class PlayerTableModel extends AbstractTableModel {
         numcols = 2;     
      }
     
-    public void addRow(Integer ID, String name) {	 		 
-        playerIDs.add(ID);
-        playerList.add(name);
-        fireTableRowsInserted(playerList.size()-1, numcols-1);
-        numrows++;
+    public void addRow(Integer ID, String name) {
+        if(!playerIDs.contains(ID)) {
+            playerIDs.add(ID);
+            playerList.add(name);
+            fireTableRowsInserted(playerList.size()-1, numcols-1);
+            numrows++;
+        }
     }
         
     public void deleteRow(Integer ID, String name) {
