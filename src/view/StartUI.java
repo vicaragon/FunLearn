@@ -85,16 +85,19 @@ public class StartUI extends javax.swing.JPanel {
                 break;
             case 2:
                 StoryUI storyUI = new StoryUI(SetupUI.activityLevel);
+                SetupUI.getCardLayout().show(SetupUI.getCards(),"StudentList");
                 storyUI.setVisible(true);
                 storyUI.start();
                 break;
             case 3:
                 SongUI songUI = new SongUI(SetupUI.activityLevel);
+                SetupUI.getCardLayout().show(SetupUI.getCards(),"StudentList");
                 songUI.setVisible(true);
                 songUI.start();
                 break;
             default:
                 SongUI songDef = new SongUI(SetupUI.activityLevel);
+                SetupUI.getCardLayout().show(SetupUI.getCards(),"StudentList");
                 songDef.setVisible(true);
                 songDef.start();
         }

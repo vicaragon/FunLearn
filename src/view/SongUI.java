@@ -215,7 +215,7 @@ public class SongUI extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the song?", "Confirm close", JOptionPane.YES_NO_OPTION);
         if(i == 0) {
-          //  Thread.interrupt();
+            
             this.setVisible(false);
             this.dispose();
         }
