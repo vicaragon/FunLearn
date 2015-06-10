@@ -21,6 +21,7 @@ import javax.swing.Timer;
 public class AudioPlayer {
 
     private File audioFile = null;
+    private static Clip clip;
     
     public void setAudioFile(File f){
         audioFile = f;
@@ -57,12 +58,16 @@ public class AudioPlayer {
         return 0;
     }
     
+    public static Clip getClip() {
+        return clip;
+    }
+    
     public  void play(){
         AudioInputStream stream = null;
         
         try {
             stream = AudioSystem.getAudioInputStream(audioFile);
-            Clip clip = (Clip)AudioSystem.getClip();
+            clip = (Clip)AudioSystem.getClip();
             
             clip.open(stream);
             clip.start();
