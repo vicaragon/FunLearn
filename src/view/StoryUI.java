@@ -44,7 +44,6 @@ public class StoryUI extends javax.swing.JFrame {
     public StoryUI() {
         initComponents();
         setSize(1000, 750);
-        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         storyController = new StoryController(this);
     }
     
@@ -145,7 +144,7 @@ public class StoryUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -203,8 +202,10 @@ public class StoryUI extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the story?", "Confirm close", JOptionPane.YES_NO_OPTION);
-        if(i == 0)
+        if(i == 0) {
+            this.setVisible(false);
             this.dispose();
+        }
     }//GEN-LAST:event_formWindowClosing
 
     /**

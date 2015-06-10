@@ -351,9 +351,11 @@ public class GameUI extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
-            if(i == 0)
+            if(i == 0) {
                 gameController.storeScores(getUserIDList(), getUserList(), getScoreList());
+                this.setVisible(false);
                 this.dispose();
+            }
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
