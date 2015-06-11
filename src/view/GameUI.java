@@ -98,13 +98,13 @@ public class GameUI extends javax.swing.JFrame {
                 scoreList.set(playerIndex, gameController.updateScore(true, score));
             } else {
                 right = false;
-                gameController.updateScore(false, score);
-                scoreList.set(playerIndex, gameController.updateScore(false, score));
+                //gameController.updateScore(false, score);
+                //scoreList.set(playerIndex, gameController.updateScore(false, score));
             }
             timer1.stop();
             judgeAnswer();
             questionNumber++;
-            playerIndex++;
+            playerIndex = (playerIndex+1) % userIDList.size();
             jLabel4.setText(userList.get(playerIndex).toString());
             jLabel5.setText(scoreList.get(playerIndex).toString());
             play();
