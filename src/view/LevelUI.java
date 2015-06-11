@@ -34,11 +34,16 @@ public class LevelUI extends javax.swing.JPanel {
         speed2 = new javax.swing.JButton();
         speed3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Select Level");
+        add(jLabel1);
+        jLabel1.setBounds(110, 100, 218, 66);
 
-        speed1.setBackground(new java.awt.Color(0, 204, 204));
+        speed1.setBackground(new java.awt.Color(255, 204, 204));
         speed1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed1.setForeground(new java.awt.Color(204, 0, 0));
         speed1.setText("1");
@@ -47,8 +52,10 @@ public class LevelUI extends javax.swing.JPanel {
                 speed1ActionPerformed(evt);
             }
         });
+        add(speed1);
+        speed1.setBounds(110, 290, 190, 140);
 
-        speed2.setBackground(new java.awt.Color(0, 204, 204));
+        speed2.setBackground(new java.awt.Color(255, 204, 204));
         speed2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed2.setForeground(new java.awt.Color(204, 0, 0));
         speed2.setText("2");
@@ -57,8 +64,10 @@ public class LevelUI extends javax.swing.JPanel {
                 speed2ActionPerformed(evt);
             }
         });
+        add(speed2);
+        speed2.setBounds(400, 290, 200, 140);
 
-        speed3.setBackground(new java.awt.Color(0, 204, 204));
+        speed3.setBackground(new java.awt.Color(255, 204, 204));
         speed3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed3.setForeground(new java.awt.Color(204, 0, 0));
         speed3.setText("3");
@@ -67,50 +76,24 @@ public class LevelUI extends javax.swing.JPanel {
                 speed3ActionPerformed(evt);
             }
         });
+        add(speed3);
+        speed3.setBounds(690, 290, 190, 140);
 
+        jButton2.setBackground(new java.awt.Color(0, 204, 204));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(204, 0, 0));
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2);
+        jButton2.setBounds(810, 560, 140, 70);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(speed1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                        .addComponent(speed2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
-                        .addComponent(speed3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(147, 147, 147))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(speed3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(speed2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(speed1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/bgg.jpg"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 1000, 700);
     }// </editor-fold>//GEN-END:initComponents
 
     private void speed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speed2ActionPerformed
@@ -137,6 +120,7 @@ public class LevelUI extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton speed1;
     private javax.swing.JButton speed2;
     private javax.swing.JButton speed3;
