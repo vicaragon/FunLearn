@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
@@ -28,7 +29,7 @@ public class GameUI extends javax.swing.JFrame {
     private final File correct;
     private final File wrong;
     private final CircularList<JButton> buttonsList;
-
+    private Random rn;
     private int i, j;
     private Timer timer1;
     private int score;
@@ -55,25 +56,11 @@ public class GameUI extends javax.swing.JFrame {
         gameController = new GameController(this);
         this.userIDList = userIDList;
         this.userList = userList;
+        rn = new Random();
         scoreList = new CircularList<>();
         for (int j=0;i<userIDList.size();i++) {
             scoreList.add(i, 0);
         }
-                
-        ///////////////
-        /*
-        gameNumber = 0; //NEED TO CHANGE ONCE WE HAVE MORE THAN 1 GAME
-        userIDList = new CircularList<>();
-        userIDList.add(63);
-        userIDList.add(64);
-        userList = new CircularList<>();
-        userList.add("Roberto1");
-        userList.add("Roberto2");
-        scoreList = new CircularList<>();
-        scoreList.add(0);
-        scoreList.add(5);
-        ///////
-        */
         judgePlayer = new AudioPlayer();
         correct = new File("song/correct.wav");
         wrong = new File("song/wrong.wav");
@@ -84,13 +71,10 @@ public class GameUI extends javax.swing.JFrame {
         gameController.loadGame(gameNumber);
         jLabel4.setText(userList.get(playerIndex).toString());
         jLabel5.setText(scoreList.get(playerIndex).toString());
-        
-
     }
 
     //prepareQuestion donnot repeat
     class ButtonListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if (gameController.isRightAnswer(rightAnswer, ((JButton) e.getSource()).getText())) {
@@ -103,7 +87,7 @@ public class GameUI extends javax.swing.JFrame {
             }
             timer1.stop();
             judgeAnswer();
-            questionNumber++;
+            questionNumber = rn.nextInt(9);
             playerIndex = (playerIndex+1) % userIDList.size();
             jLabel4.setText(userList.get(playerIndex).toString());
             jLabel5.setText(scoreList.get(playerIndex).toString());
