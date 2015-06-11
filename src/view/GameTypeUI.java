@@ -1,5 +1,8 @@
 package view;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -125,8 +128,15 @@ public class GameTypeUI extends javax.swing.JPanel {
     }//GEN-LAST:event_storyActionPerformed
 
     private void gameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameActionPerformed
-        SetupUI.setActivityType(1);
-        SetupUI.getCardLayout().next(SetupUI.getCards());
+        List<Integer> ID = StudentsListUI.getPlayerController().getPlayerTablemodel().getPlayerIDs();
+        List<String> names = StudentsListUI.getPlayerController().getPlayerTablemodel().getPlayerList();
+        if ( ID == null || names == null || ID.size()== 0 || names.size()== 0 ) {
+            //JOptionPane.showMessageDialog(game, game, TOOL_TIP_TEXT_KEY, WIDTH);
+            JOptionPane.showMessageDialog(null,"Please select players to play a game","No players assigned",JOptionPane.ERROR_MESSAGE);
+        } else {
+                    SetupUI.setActivityType(1);
+                    SetupUI.getCardLayout().next(SetupUI.getCards());
+        }
     }//GEN-LAST:event_gameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
