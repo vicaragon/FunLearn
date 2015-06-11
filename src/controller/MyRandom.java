@@ -20,7 +20,6 @@ public class MyRandom extends Random {
 
     public MyRandom(int n) {
         randomPool = new LinkedHashSet<Integer>();
-
         while (randomPool.size() < (n)) {
             Integer next = super.nextInt(n);
             if (!randomPool.contains(next)) {
@@ -35,7 +34,7 @@ public class MyRandom extends Random {
             poolIter = randomPool.iterator();
         }
         Integer val = poolIter.next();
-        randomPool.remove(val);
+        poolIter.remove();
         return val;
     }
 }
