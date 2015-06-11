@@ -63,7 +63,7 @@ public class GameUI extends javax.swing.JFrame {
         studentController = new StudentController(new StudentsListUI());
         this.userIDList = userIDList;
         this.userList = userList;
-        rn = new Random();
+        rn = new MyRandom(9);
         scoreList = new CircularList<>();
         for (int j=0;i<userIDList.size();i++) {
             scoreList.add(i, 0);
@@ -117,7 +117,7 @@ public class GameUI extends javax.swing.JFrame {
             @Override
             protected void done(){
                 if(!Thread.currentThread().isInterrupted()){
-                    questionNumber = rn.nextInt(9);
+                    questionNumber = rn.nextInt();
                     playerIndex = (playerIndex+1) % userIDList.size();
                     jLabel4.setText(userList.get(playerIndex).toString());
                     jLabel5.setText(scoreList.get(playerIndex).toString());
@@ -310,9 +310,9 @@ public class GameUI extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(204, 0, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 255, 255));
-        jButton1.setText("option1");
+        jButton1.setText("option3");
         jPanel1.add(jButton1);
-        jButton1.setBounds(120, 470, 210, 130);
+        jButton1.setBounds(700, 470, 210, 130);
 
         jButton2.setBackground(new java.awt.Color(204, 0, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -324,9 +324,9 @@ public class GameUI extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(204, 0, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton3.setForeground(new java.awt.Color(204, 255, 255));
-        jButton3.setText("option3");
+        jButton3.setText("option1");
         jPanel1.add(jButton3);
-        jButton3.setBounds(700, 470, 200, 130);
+        jButton3.setBounds(140, 470, 200, 130);
 
         jLabel1.setText("Question:");
         jPanel1.add(jLabel1);
