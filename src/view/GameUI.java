@@ -294,7 +294,7 @@ public class GameUI extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(240, 40, 380, 270);
+        jPanel2.setBounds(300, 50, 380, 270);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setText("question");
@@ -306,36 +306,36 @@ public class GameUI extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(204, 255, 255));
         jButton1.setText("option1");
         jPanel1.add(jButton1);
-        jButton1.setBounds(130, 470, 180, 130);
+        jButton1.setBounds(120, 470, 210, 130);
 
         jButton2.setBackground(new java.awt.Color(204, 0, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton2.setForeground(new java.awt.Color(204, 255, 255));
         jButton2.setText("option2");
         jPanel1.add(jButton2);
-        jButton2.setBounds(390, 470, 180, 130);
+        jButton2.setBounds(410, 470, 210, 130);
 
         jButton3.setBackground(new java.awt.Color(204, 0, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton3.setForeground(new java.awt.Color(204, 255, 255));
         jButton3.setText("option3");
         jPanel1.add(jButton3);
-        jButton3.setBounds(650, 470, 180, 130);
+        jButton3.setBounds(700, 470, 200, 130);
 
         jLabel1.setText("Question:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(30, 280, 100, 30);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("jLabel4");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(750, 50, 90, 50);
+        jLabel4.setBounds(770, 50, 110, 50);
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("jLabel5");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(880, 60, 50, 30);
+        jLabel5.setBounds(890, 60, 80, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/gbg.jpg"))); // NOI18N
         jPanel1.add(jLabel6);
