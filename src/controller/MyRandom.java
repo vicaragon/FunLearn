@@ -22,7 +22,7 @@ public class MyRandom extends Random {
         randomPool = new LinkedHashSet<Integer>();
         while (randomPool.size() < (n)) {
             Integer next = super.nextInt(n);
-            if (!randomPool.contains(next)) {
+            if (!randomPool.contains(next) || next==0 ) {
                 randomPool.add(next);
             }
         }

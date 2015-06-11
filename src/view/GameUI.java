@@ -32,7 +32,7 @@ public class GameUI extends javax.swing.JFrame {
     private final File wrong;
     private final CircularList<JButton> buttonsList;
     private Random rn;
-    private int i, j;
+    private int optionsAudioIndex, j;
     private Timer timer1;
     private int score;
     private int playerIndex = 0;
@@ -65,8 +65,8 @@ public class GameUI extends javax.swing.JFrame {
         this.userList = userList;
         rn = new MyRandom(9);
         scoreList = new CircularList<>();
-        for (int j=0;i<userIDList.size();i++) {
-            scoreList.add(i, 0);
+        for (int j=0;j<userIDList.size();j++) {
+            scoreList.add(j, 0);
         }
         judgePlayer = new AudioPlayer();
         correct = new File("song/correct.wav");
@@ -134,8 +134,8 @@ public class GameUI extends javax.swing.JFrame {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            buttonsList.get(i).requestFocusInWindow();
-            optionPlayer.setAudioFile(optionAudios.get(i++));
+            buttonsList.get(optionsAudioIndex).requestFocusInWindow();
+            optionPlayer.setAudioFile(optionAudios.get(optionsAudioIndex++));
             optionPlayer.play();
         }
     }
@@ -232,6 +232,7 @@ public class GameUI extends javax.swing.JFrame {
         optionAudios.add(new File(op1));
         optionAudios.add(new File(op2));
         optionAudios.add(new File(op3));
+        optionsAudioIndex=0;
     }
 
     public void setAnswerAudio(String answerPath) {
@@ -310,9 +311,9 @@ public class GameUI extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(204, 0, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 255, 255));
-        jButton1.setText("option3");
+        jButton1.setText("option1");
         jPanel1.add(jButton1);
-        jButton1.setBounds(700, 470, 210, 130);
+        jButton1.setBounds(140, 470, 210, 130);
 
         jButton2.setBackground(new java.awt.Color(204, 0, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -324,9 +325,9 @@ public class GameUI extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(204, 0, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton3.setForeground(new java.awt.Color(204, 255, 255));
-        jButton3.setText("option1");
+        jButton3.setText("option3");
         jPanel1.add(jButton3);
-        jButton3.setBounds(140, 470, 200, 130);
+        jButton3.setBounds(690, 470, 200, 130);
 
         jLabel1.setText("Question:");
         jPanel1.add(jLabel1);
@@ -345,7 +346,7 @@ public class GameUI extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/gbg.jpg"))); // NOI18N
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(0, 0, 1000, 750);
+        jLabel6.setBounds(0, -10, 1000, 750);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -362,8 +363,8 @@ public class GameUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
-            if(i == 0) {
+        int sureClose = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
+            if(sureClose == 0) {
                 studentController.storeScores(getUserIDList(), getUserList(), getScoreList());
                 if (AudioPlayer.getClip() != null)
                     AudioPlayer.getClip().stop();
