@@ -8,6 +8,7 @@ package view;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.*;
 import javax.persistence.*;
 import javax.swing.*;
@@ -33,6 +34,7 @@ public class SetupUI extends javax.swing.JPanel {
     static private JPanel cards;
     static int activityType=2;//Story is default activity
     static int activityLevel=0;//Default level is 0
+    ImageIcon icon = new ImageIcon("/pis/bg1.jpg"); 
 
     public static int getActivityType() {
         return activityType;
@@ -111,6 +113,12 @@ public class SetupUI extends javax.swing.JPanel {
     public void setCardLayout(CardLayout cardLayout) {
         this.cardLayout = cardLayout;
     }
+    
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.drawImage(icon.getImage(), 10, 10, this);
+    }    
+        
     public static void main (String[] args) {
             java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
