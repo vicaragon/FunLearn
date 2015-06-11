@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import view.StudentsListUI;
@@ -56,6 +57,10 @@ public class PlayerController implements ListSelectionListener, TableModelListen
 	}
         
 	public void deletePlayer(String ID, String name){
-            playerTablemodel.deleteRow(Integer.valueOf(ID), name);	
+            if (ID.equals("") || name.equals("")) {
+                JOptionPane.showMessageDialog(null,"Please select a player to delete","No players selected",JOptionPane.ERROR_MESSAGE);
+            } else {
+                playerTablemodel.deleteRow(Integer.valueOf(ID), name);
+            }
 	}	
 }
