@@ -49,6 +49,9 @@ public class GameUI extends javax.swing.JFrame {
     private CircularList<Integer> scoreList;
     private List<Integer> userIDList;
     private List<String> userList;
+    private SwingWorker questionWorker;
+    private SwingWorker judgeWorker;
+    private ButtonListener bListener;
 
     /**
      * Creates new form GameUI
@@ -79,12 +82,17 @@ public class GameUI extends javax.swing.JFrame {
         TimerHandler timerHandler = new TimerHandler();
         timer1 = new Timer(3500, timerHandler);
         timer1.setRepeats(true);
+        
     }
 
     //prepareQuestion donnot repeat
     class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println(questionNumber);
+            jButton1.removeActionListener(bListener);
+            jButton2.removeActionListener(bListener);
+            jButton3.removeActionListener(bListener);
             if (gameController.isRightAnswer(rightAnswer, ((JButton) e.getSource()).getText())) {
                 right = true;
             //    System.out.println("Score: " + gameController.updateScore(true, score));
@@ -96,30 +104,24 @@ public class GameUI extends javax.swing.JFrame {
             }
             timer1.stop();
             
-            SwingWorker judgeWorker = new SwingWorker() {
+            judgeWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 judgeAnswer();
                 return null;
             }
+            
+            @Override
+            protected void done(){
+                questionNumber = rn.nextInt(9);
+                playerIndex = (playerIndex+1) % userIDList.size();
+                jLabel4.setText(userList.get(playerIndex).toString());
+                jLabel5.setText(scoreList.get(playerIndex).toString());
+                play();
+            }
         };
         judgeWorker.execute();
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(GameUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            jButton1.removeActionListener(this);
-            jButton2.removeActionListener(this);
-            jButton3.removeActionListener(this);
-            //judgeAnswer();
-            //questionNumber = rn.nextInt(9);
-            questionNumber ++;
-            playerIndex = (playerIndex+1) % userIDList.size();
-            jLabel4.setText(userList.get(playerIndex).toString());
-            jLabel5.setText(scoreList.get(playerIndex).toString());
-            play();
+        
         }
     }
 
@@ -134,21 +136,18 @@ public class GameUI extends javax.swing.JFrame {
     }
 
     public void prepareQuestion() {
-        /*SwingWorker loadWorker = new SwingWorker() {
-            @Override
-            protected Object doInBackground() throws Exception {
-                gameController.loadGameEntry(questionNumber);
-                return null;
-            }
-        };
-        loadWorker.execute();*/
         gameController.loadGameEntry(questionNumber);
-        SwingWorker questionWorker = new SwingWorker() {
+        questionWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
                 Thread.sleep(1000);
                 questionPlayer.play();
                 return null;
+            }
+            
+            @Override
+            protected void done(){
+                playQuestion();
             }
         };
         questionWorker.execute();
@@ -157,13 +156,11 @@ public class GameUI extends javax.swing.JFrame {
     //playQuestion may repeat
 
     public void playQuestion() {
-        jButton1.addActionListener(new ButtonListener());
-        jButton2.addActionListener(new ButtonListener());
-        jButton3.addActionListener(new ButtonListener());
+        bListener = new ButtonListener();
+        jButton1.addActionListener(bListener);
+        jButton2.addActionListener(bListener);
+        jButton3.addActionListener(bListener);
         
-        /*TimerHandler timerHandler = new TimerHandler();
-        timer1 = new Timer(3500, timerHandler);
-        timer1.setRepeats(true);*/
         timer1.restart();
     }
 
@@ -181,7 +178,7 @@ public class GameUI extends javax.swing.JFrame {
 
     public void play() {
         prepareQuestion();
-        playQuestion();
+        //playQuestion();
     }
 
     //to iterate through a list of questions
@@ -359,8 +356,14 @@ public class GameUI extends javax.swing.JFrame {
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
             if(i == 0) {
                 studentController.storeScores(getUserIDList(), getUserList(), getScoreList());
-                AudioPlayer.getClip().stop();
-                timer1.stop();
+                if (AudioPlayer.getClip() != null)
+                    AudioPlayer.getClip().stop();
+                if (timer1 != null)
+                    timer1.stop();
+                if (questionWorker != null)
+                    questionWorker.cancel(true);
+                if (judgeWorker != null)
+                    judgeWorker.cancel(true);
                 this.setVisible(false);
                 this.dispose();
             }
