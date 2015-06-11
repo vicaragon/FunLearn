@@ -33,8 +33,7 @@ public class GameUI extends javax.swing.JFrame {
     private final CircularList<JButton> buttonsList;
     private Random rn;
     private int optionsAudioIndex, j;
-    private Timer timer1;
-    private int score;
+    private Timer timer1;    
     private int playerIndex = 0;
     private GameController gameController;
     private StudentController studentController;
@@ -96,12 +95,9 @@ public class GameUI extends javax.swing.JFrame {
             jButton3.removeActionListener(bListener);
             if (gameController.isRightAnswer(rightAnswer, ((JButton) e.getSource()).getText())) {
                 right = true;
-            //    System.out.println("Score: " + gameController.updateScore(true, score));
-                scoreList.set(playerIndex, gameController.updateScore(true, score));
+                scoreList.set(playerIndex, scoreList.get(playerIndex)+5);
             } else {
                 right = false;
-                //gameController.updateScore(false, score);
-                //scoreList.set(playerIndex, gameController.updateScore(false, score));
             }
             timer1.stop();
             

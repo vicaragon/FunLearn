@@ -87,13 +87,6 @@ public class GameController implements TableModelListener {
             return score;
         }
         
-	public int updateScore(boolean status, int score) {
-        if (status) {
-            return (score+5);
-        } else {
-            return score; //we can implement penalty later if needed
-        }
-    }
 	
 	public ImageIcon retrievePicture() {
 		return null;
