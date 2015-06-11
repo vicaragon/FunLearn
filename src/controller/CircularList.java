@@ -16,6 +16,10 @@ import java.util.ArrayList;
 
         @Override
         public E get(int index) {
+            if (size() != 0) {
             return super.get(index % size());
+            } else {
+                return null;
+            }
         }
     }
