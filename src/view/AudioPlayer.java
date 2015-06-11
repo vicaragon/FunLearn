@@ -80,7 +80,8 @@ public class AudioPlayer {
         } catch (LineUnavailableException ex) {
             Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InterruptedException ex) {
-            Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
+            Thread.currentThread().interrupt();
         } finally {
             try {
                 stream.close();
@@ -88,6 +89,10 @@ public class AudioPlayer {
                 Logger.getLogger(AudioPlayer.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public void stop(){
+        clip.stop();
     }
     
     public static void main(String[] args){

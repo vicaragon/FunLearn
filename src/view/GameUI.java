@@ -107,17 +107,22 @@ public class GameUI extends javax.swing.JFrame {
             judgeWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
-                judgeAnswer();
+                if(!Thread.currentThread().isInterrupted()){
+                //clean up and return
+                    judgeAnswer();
+                }
                 return null;
             }
             
             @Override
             protected void done(){
-                questionNumber = rn.nextInt(9);
-                playerIndex = (playerIndex+1) % userIDList.size();
-                jLabel4.setText(userList.get(playerIndex).toString());
-                jLabel5.setText(scoreList.get(playerIndex).toString());
-                play();
+                if(!Thread.currentThread().isInterrupted()){
+                    questionNumber = rn.nextInt(9);
+                    playerIndex = (playerIndex+1) % userIDList.size();
+                    jLabel4.setText(userList.get(playerIndex).toString());
+                    jLabel5.setText(scoreList.get(playerIndex).toString());
+                    play();
+                }   
             }
         };
         judgeWorker.execute();
@@ -140,14 +145,18 @@ public class GameUI extends javax.swing.JFrame {
         questionWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
-                Thread.sleep(1000);
-                questionPlayer.play();
+                if(!Thread.currentThread().isInterrupted()){
+                    Thread.sleep(1000);
+                    questionPlayer.play();
+                }
                 return null;
             }
             
             @Override
             protected void done(){
-                playQuestion();
+                if(!Thread.currentThread().isInterrupted()){
+                    playQuestion();
+                }
             }
         };
         questionWorker.execute();
@@ -364,6 +373,8 @@ public class GameUI extends javax.swing.JFrame {
                     questionWorker.cancel(true);
                 if (judgeWorker != null)
                     judgeWorker.cancel(true);
+                if (timer1 != null)
+                    timer1.stop();
                 this.setVisible(false);
                 this.dispose();
             }
