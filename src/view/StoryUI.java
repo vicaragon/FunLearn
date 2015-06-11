@@ -237,10 +237,9 @@ public class StoryUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        StoryUI storyWindow = new StoryUI(0);
+        StoryUI storyWindow = new StoryUI(2);
         storyWindow.setVisible( true );
         storyWindow.start();
-        storyWindow.play();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
