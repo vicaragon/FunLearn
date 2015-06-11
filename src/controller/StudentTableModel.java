@@ -133,16 +133,21 @@ public class StudentTableModel extends AbstractTableModel {
                 fireTableRowsUpdated(row-1, numcols-1);
         }
         
-         public void updateScores(List<Integer> userIDs, List<String> users, List<Integer> scores) {
+         public void updateScores(List<Integer> userIDs, List<String> users, CircularList<Integer> scores) {
+             int row = studentsList.size(); 
              EntityTransaction userTransaction = manager.getTransaction(); 
-             userTransaction.begin();
+             
              int s = users.size();
                 for(int i = 0; i < s; i++) {
-                    System.out.println(userIDs.get(i) +"," + users.get(i) + "," + scores.get(i));
-                   studentService.updateScores(userIDs.get(i), users.get(i),scores.get(i));
+                   userTransaction.begin();
+                   System.out.println(userIDs.get(i) +"," + users.get(i) + "," + scores.get(i));
+                   Student updatedRecord = studentService.updateScores(userIDs.get(i), users.get(i),scores.get(i));
+                   userTransaction.commit();
+                   fireTableRowsUpdated(row-1, numcols-1); 
                 }
              
-             userTransaction.commit();
+             
+                         
          }
 	
 

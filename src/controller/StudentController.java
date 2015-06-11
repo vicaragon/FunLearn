@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.List;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import view.StudentsListUI;
@@ -78,6 +79,10 @@ public class StudentController implements ListSelectionListener, TableModelListe
 	public void updateStudent(int rowNumber, String[] array){
             studentTablemodel.updateRow(rowNumber, array);	
 	}
+        
+        public void storeScores(List<Integer> userIDs, List<String> users, CircularList<Integer> scores) {
+            studentTablemodel.updateScores(userIDs, users, scores);
+        }
        
 
 		

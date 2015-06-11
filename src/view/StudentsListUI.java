@@ -100,6 +100,7 @@ public class StudentsListUI extends javax.swing.JPanel {
     }
     
      public void updateTable1() {
+         System.out.println("hello");
     	jTable1.setModel(studentController.getTableModel());
     }
      

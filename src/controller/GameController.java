@@ -89,15 +89,11 @@ public class GameController implements TableModelListener {
         
 	public int updateScore(boolean status, int score) {
         if (status) {
-            return score++;
+            return (score+5);
         } else {
             return score; //we can implement penalty later if needed
         }
     }
-        
-        public void storeScores(List<Integer> userIDs, List<String> users, List<Integer> scores) {
-            studentTablemodel.updateScores(userIDs, users, scores);
-        }
 	
 	public ImageIcon retrievePicture() {
 		return null;

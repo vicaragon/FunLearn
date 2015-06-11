@@ -35,6 +35,7 @@ public class GameUI extends javax.swing.JFrame {
     private int score;
     private int playerIndex = 0;
     private GameController gameController;
+    private StudentController studentController;
     private int gameNumber = 0;
     private int questionNumber = 0;
     private AudioPlayer questionPlayer;
@@ -54,6 +55,7 @@ public class GameUI extends javax.swing.JFrame {
         initComponents();
         setSize(1000, 750);
         gameController = new GameController(this);
+        studentController = new StudentController(new StudentsListUI());
         this.userIDList = userIDList;
         this.userList = userList;
         rn = new Random();
@@ -69,7 +71,7 @@ public class GameUI extends javax.swing.JFrame {
         buttonsList.add(jButton2);
         buttonsList.add(jButton3);
         gameController.loadGame(gameNumber);
-        jLabel4.setText(userList.get(playerIndex).toString());
+        jLabel4.setText(userList.get(playerIndex));
         jLabel5.setText(scoreList.get(playerIndex).toString());
     }
 
@@ -79,6 +81,7 @@ public class GameUI extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent e) {
             if (gameController.isRightAnswer(rightAnswer, ((JButton) e.getSource()).getText())) {
                 right = true;
+            //    System.out.println("Score: " + gameController.updateScore(true, score));
                 scoreList.set(playerIndex, gameController.updateScore(true, score));
             } else {
                 right = false;
@@ -341,7 +344,7 @@ public class GameUI extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
             if(i == 0) {
-                gameController.storeScores(getUserIDList(), getUserList(), getScoreList());
+                studentController.storeScores(getUserIDList(), getUserList(), getScoreList());
                 AudioPlayer.getClip().stop();
                 timer1.stop();
                 this.setVisible(false);
