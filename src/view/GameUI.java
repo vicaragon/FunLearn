@@ -14,6 +14,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
@@ -73,6 +75,10 @@ public class GameUI extends javax.swing.JFrame {
         gameController.loadGame(gameNumber);
         jLabel4.setText(userList.get(playerIndex));
         jLabel5.setText(scoreList.get(playerIndex).toString());
+        
+        TimerHandler timerHandler = new TimerHandler();
+        timer1 = new Timer(3500, timerHandler);
+        timer1.setRepeats(true);
     }
 
     //prepareQuestion donnot repeat
@@ -89,8 +95,27 @@ public class GameUI extends javax.swing.JFrame {
                 //scoreList.set(playerIndex, gameController.updateScore(false, score));
             }
             timer1.stop();
-            judgeAnswer();
-            questionNumber = rn.nextInt(9);
+            
+            SwingWorker judgeWorker = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                judgeAnswer();
+                return null;
+            }
+        };
+        judgeWorker.execute();
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(GameUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            jButton1.removeActionListener(this);
+            jButton2.removeActionListener(this);
+            jButton3.removeActionListener(this);
+            //judgeAnswer();
+            //questionNumber = rn.nextInt(9);
+            questionNumber ++;
             playerIndex = (playerIndex+1) % userIDList.size();
             jLabel4.setText(userList.get(playerIndex).toString());
             jLabel5.setText(scoreList.get(playerIndex).toString());
@@ -109,27 +134,37 @@ public class GameUI extends javax.swing.JFrame {
     }
 
     public void prepareQuestion() {
+        /*SwingWorker loadWorker = new SwingWorker() {
+            @Override
+            protected Object doInBackground() throws Exception {
+                gameController.loadGameEntry(questionNumber);
+                return null;
+            }
+        };
+        loadWorker.execute();*/
         gameController.loadGameEntry(questionNumber);
         SwingWorker questionWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
+                Thread.sleep(1000);
                 questionPlayer.play();
                 return null;
             }
         };
         questionWorker.execute();
 
-        jButton1.addActionListener(new ButtonListener());
-        jButton2.addActionListener(new ButtonListener());
-        jButton3.addActionListener(new ButtonListener());
     }
     //playQuestion may repeat
 
     public void playQuestion() {
-        TimerHandler timerHandler = new TimerHandler();
+        jButton1.addActionListener(new ButtonListener());
+        jButton2.addActionListener(new ButtonListener());
+        jButton3.addActionListener(new ButtonListener());
+        
+        /*TimerHandler timerHandler = new TimerHandler();
         timer1 = new Timer(3500, timerHandler);
-        timer1.setRepeats(true);
-        timer1.start();
+        timer1.setRepeats(true);*/
+        timer1.restart();
     }
 
     public void judgeAnswer() {
