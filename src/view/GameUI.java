@@ -64,6 +64,7 @@ public class GameUI extends javax.swing.JFrame {
         this.userIDList = userIDList;
         this.userList = userList;
         rn = new MyRandom(9);
+        questionNumber = rn.nextInt();
         scoreList = new CircularList<>();
         for (int j=0;j<userIDList.size();j++) {
             scoreList.add(j, 0);
