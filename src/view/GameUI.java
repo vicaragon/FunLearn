@@ -343,6 +343,7 @@ public class GameUI extends javax.swing.JFrame {
             if(i == 0) {
                 gameController.storeScores(getUserIDList(), getUserList(), getScoreList());
                 AudioPlayer.getClip().stop();
+                timer1.stop();
                 this.setVisible(false);
                 this.dispose();
             }
