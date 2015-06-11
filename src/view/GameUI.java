@@ -55,6 +55,11 @@ public class GameUI extends javax.swing.JFrame {
         gameController = new GameController(this);
         this.userIDList = userIDList;
         this.userList = userList;
+        scoreList = new CircularList<>();
+        for (int j=0;i<userIDList.size();i++) {
+            scoreList.add(i, 0);
+        }
+                
         ///////////////
         /*
         gameNumber = 0; //NEED TO CHANGE ONCE WE HAVE MORE THAN 1 GAME
