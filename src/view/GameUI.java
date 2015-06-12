@@ -59,7 +59,7 @@ public class GameUI extends javax.swing.JFrame {
         initComponents();
         setSize(1000, 750);
         gameController = new GameController(this);
-        studentController = new StudentController(new StudentsListUI());
+      //  studentController = new StudentController(new StudentsListUI());
         this.userIDList = userIDList;
         this.userList = userList;
         rn = new MyRandom(9);
@@ -362,7 +362,7 @@ public class GameUI extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int sureClose = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the game?", "Confirm close", JOptionPane.YES_NO_OPTION);
             if(sureClose == 0) {
-                studentController.storeScores(getUserIDList(), getUserList(), getScoreList());
+           //     StudentsListUI.getStudentController().storeScores(getUserIDList(), getUserList(), getScoreList());
                 if (AudioPlayer.getClip() != null)
                     AudioPlayer.getClip().stop();
                 if (timer1 != null)
