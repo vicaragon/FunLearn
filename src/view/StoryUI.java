@@ -10,14 +10,18 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+
 /**
  *
  * @author Xinran
@@ -27,12 +31,10 @@ public class StoryUI extends javax.swing.JFrame {
     /**
      * Creates new form StoryUI
      */
-    
     //private JPanel storyPanel;
     //private JLabel storyTitle;
     //private JTextArea storyLines;
     //private PicturePanel picture;
-    
     private StoryController storyController;
     private AudioPlayer player;
     private String audioPath;
@@ -40,84 +42,91 @@ public class StoryUI extends javax.swing.JFrame {
     private ArrayList<String> storyText;
     private ArrayList<String> picturePaths;
     private ArrayList<Integer> pictureTime;
-    
+
     public StoryUI() {
         this.setResizable(false);
         initComponents();
         setSize(1000, 750);
         storyController = new StoryController(this);
     }
-    
-    public StoryUI(int storyNumber){
+
+    public StoryUI(int storyNumber) {
         this();
-        jLabel1.setSize(100,800);
+        jLabel1.setSize(100, 800);
         //jLabel1.setBorder(new BevelBorder(BevelBorder.RAISED));
         jLabel1.setFont(new Font("Serif", Font.PLAIN, 25));
         storyController.loadStory(storyNumber);
         storyController.loadStoryEntry(this);
         setVisible(true);
     }
-    
-    public void setStoryName(String name){
+
+    public void setStoryName(String name) {
         //songTitle.setText(name);
         jLabel1.setText(name);
     }
-    
-    public void setAudioPath(String path){
+
+    public void setAudioPath(String path) {
         audioPath = path;
     }
-    
-    public void setStoryText(ArrayList<String> text){
+
+    public void setStoryText(ArrayList<String> text) {
         storyText = text;
     }
-    
-    public void setPicturePaths(ArrayList<String> path){
+
+    public void setPicturePaths(ArrayList<String> path) {
         picturePaths = path;
     }
-    
-    public void setPictureTime(ArrayList<Integer> time){
+
+    public void setPictureTime(ArrayList<Integer> time) {
         pictureTime = time;
     }
-    
+
     public void play() {
-        
-        SwingWorker songWorker = new SwingWorker(){
+
+        SwingWorker songWorker = new SwingWorker() {
 
             @Override
             protected Object doInBackground() throws Exception {
-                for (int i=0; i<picturePaths.size();i++){
-            try {
-                pictureIndex = i;
-                jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-                jLabel2.repaint();
-                jTextArea1.setText(storyText.get(pictureIndex));
-                Thread.sleep(pictureTime.get(pictureIndex)*1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                for (int i = 0; i < picturePaths.size(); i++) {
+                    try {
+                        pictureIndex = i;
+                //jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+                        BufferedImage img = null;
+                        try {
+                            img = ImageIO.read(new File(picturePaths.get(pictureIndex)));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ImageIcon imageIcon = new ImageIcon(img.getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH));
+                        jLabel2.setIcon(imageIcon);
+                        jLabel2.repaint();
+                        jTextArea1.setText(storyText.get(pictureIndex));
+                        Thread.sleep(pictureTime.get(pictureIndex) * 1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 return null;
             }
         };
         songWorker.execute();
-        
+
         /*for (int i=0; i<picturePaths.size();i++){
-            try {
-                pictureIndex = i;
-                jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-                jLabel2.repaint();
-                jTextArea1.setText(storyText.get(pictureIndex));
-                Thread.sleep(pictureTime.get(pictureIndex)*1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
-        
+         try {
+         pictureIndex = i;
+         jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+         jLabel2.repaint();
+         jTextArea1.setText(storyText.get(pictureIndex));
+         Thread.sleep(pictureTime.get(pictureIndex)*1000);
+         } catch (InterruptedException ex) {
+         Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         }*/
     }
-    
-    public void start(){
+
+    public void start() {
         player = new AudioPlayer(new File(audioPath));
-        SwingWorker songWorker = new SwingWorker(){
+        SwingWorker songWorker = new SwingWorker() {
 
             @Override
             protected Object doInBackground() throws Exception {
@@ -165,6 +174,7 @@ public class StoryUI extends javax.swing.JFrame {
 
         jTextArea1.setColumns(10);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(4);
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
@@ -178,7 +188,7 @@ public class StoryUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +205,7 @@ public class StoryUI extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the story?", "Confirm close", JOptionPane.YES_NO_OPTION);
-        if(i == 0) {
+        if (i == 0) {
             AudioPlayer.getClip().stop();
             this.setVisible(false);
             this.dispose();
@@ -231,7 +241,7 @@ public class StoryUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         StoryUI storyWindow = new StoryUI(2);
-        storyWindow.setVisible( true );
+        storyWindow.setVisible(true);
         storyWindow.start();
     }
 
