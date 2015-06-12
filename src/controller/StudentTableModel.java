@@ -126,10 +126,7 @@ public class StudentTableModel extends AbstractTableModel {
             userTransaction.begin();
 		Student updatedRecord = studentService.updateStudent(Integer.parseInt((String) array[0]),(String) array[1],(String) array[2], Integer.parseInt((String) array[3]));
             userTransaction.commit();
-                
-           //     studentsList.set(rowNumber-1, updatedRecord);
                 int row = studentsList.size();  
-               
                 fireTableRowsUpdated(row-1, numcols-1);
         }
         

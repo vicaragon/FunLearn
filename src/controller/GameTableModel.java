@@ -46,9 +46,6 @@ public class GameTableModel extends AbstractTableModel {
 		return getValueAt(0, col).getClass();
 	 }
         
-	//public void setValueAt(Object aValue, int row, int col) {
-		// TODO Auto-generated method stub
-	//}
 	public List<Game> getList() {
 		return gamesResultList;
 	}
@@ -56,7 +53,6 @@ public class GameTableModel extends AbstractTableModel {
 		return manager;
 	}
         
-        	 // create a new table model using the existing data in list
 	 public GameTableModel(List<Game> list, EntityManager em)  {
 	    gamesResultList = list;
 	    numrows = gamesResultList.size();

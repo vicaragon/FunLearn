@@ -66,7 +66,6 @@ public class GameUI extends javax.swing.JFrame {
         initComponents();
         setSize(1000, 750);
         gameController = new GameController(this);
-      //  studentController = new StudentController(new StudentsListUI());
         this.userIDList = userIDList;
         this.userList = userList;
         rn = new MyRandom(9);
@@ -191,10 +190,7 @@ public class GameUI extends javax.swing.JFrame {
 
     public void play() {
         prepareQuestion();
-        //playQuestion();
     }
-
-    //to iterate through a list of questions
 
     public void start() {
         play();

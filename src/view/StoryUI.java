@@ -31,10 +31,6 @@ public class StoryUI extends javax.swing.JFrame {
     /**
      * Creates new form StoryUI
      */
-    //private JPanel storyPanel;
-    //private JLabel storyTitle;
-    //private JTextArea storyLines;
-    //private PicturePanel picture;
     private StoryController storyController;
     private AudioPlayer player;
     private String audioPath;
@@ -109,18 +105,6 @@ public class StoryUI extends javax.swing.JFrame {
             }
         };
         songWorker.execute();
-
-        /*for (int i=0; i<picturePaths.size();i++){
-         try {
-         pictureIndex = i;
-         jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-         jLabel2.repaint();
-         jTextArea1.setText(storyText.get(pictureIndex));
-         Thread.sleep(pictureTime.get(pictureIndex)*1000);
-         } catch (InterruptedException ex) {
-         Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         }*/
     }
 
     public void start() {

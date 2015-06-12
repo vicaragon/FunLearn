@@ -18,13 +18,11 @@ public class PlayerTableModel extends AbstractTableModel {
     private List<String> playerList;
     private Integer playerID;
     private String playerName;
-//    private Object[][] arr;
     private int numcols, numrows;
     
     public PlayerTableModel() {
      playerIDs = new CircularList<Integer>();
      playerList = new CircularList<String>();
-//     arr = playerList.toArray(new Object[playerList.size()][]);
      numrows = playerList.size();
      numcols = 2;    
     }

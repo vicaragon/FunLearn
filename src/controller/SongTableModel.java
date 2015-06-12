@@ -51,9 +51,6 @@ public class SongTableModel extends AbstractTableModel {
 		return getValueAt(0, col).getClass();
 	 }
         
-	//public void setValueAt(Object aValue, int row, int col) {
-		// TODO Auto-generated method stub
-	//}
 	public List<Song> getList() {
 		return songsResultList;
 	}

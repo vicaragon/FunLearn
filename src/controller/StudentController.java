@@ -35,11 +35,7 @@ public class StudentController implements ListSelectionListener, TableModelListe
         @Override
         public void tableChanged(TableModelEvent e) {
 	   try {
-	    	// get the index of the inserted row
-	        //tableModel.getRowSet().moveToCurrentRow();
 	    	int firstIndex =  e.getFirstRow();
-	    	
-	    	// create a new table model with the new data
 	        studentTablemodel = new StudentTableModel(studentTablemodel.getList(), studentTablemodel.getEntityManager());
 	        studentTablemodel.addTableModelListener(this);
 	        // update the JTable with the data

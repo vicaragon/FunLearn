@@ -18,7 +18,6 @@ import javax.swing.*;
  * @author me
  */
 public class SetupUI extends javax.swing.JPanel {
-    //TODO: USE JFRAME INSTEAD
     public static final String PERSISTENCE_UNIT_NAME="PersistenceUnit";
     public static final EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
     private JFrame window;
@@ -76,7 +75,6 @@ public class SetupUI extends javax.swing.JPanel {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-        //        window.setTitle("Fun Learn");
             }
             
         }
