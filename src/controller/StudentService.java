@@ -63,7 +63,15 @@ public class StudentService {
         public Student updateScores(Integer studentID, String studentFirstName, Integer studentScore) {
          Student student = manager.find(Student.class, studentID);
     	 if (student != null) {
-   	    student.setMinScore(studentScore);
+            if (studentScore < student.getMinScore()) {
+                student.setMinScore(studentScore);
+            }
+            if (studentScore > student.getMaxScore()) {
+                student.setMaxScore(studentScore);
+            }
+            int avg = (student.getAvgScore() + studentScore)/2;
+            student.setAvgScore(avg);
+                
             manager.merge(student);
     	 }
          return student;

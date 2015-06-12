@@ -25,12 +25,12 @@ public class StudentsListUI extends javax.swing.JPanel {
     
     private JTable jTable1; 
     private JTable jTable2; 
-    private StudentController studentController;
+    private static StudentController studentController;
     static private PlayerController playerController;
     ImageIcon icon = new ImageIcon("/pis/bg1.jpg");
     private int i;
 
-    public StudentController getStudentController() {
+    public static StudentController getStudentController() {
         return studentController;
     }
 
