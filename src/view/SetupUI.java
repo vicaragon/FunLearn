@@ -70,6 +70,7 @@ public class SetupUI extends javax.swing.JPanel {
         cards.add(speedTypeUI,"Speed");
         cards.add(startUI,"Start");
         window.setContentPane(cards);
+        window.setResizable(false);
         initComponents();
         class TimerHandler implements ActionListener {
 
