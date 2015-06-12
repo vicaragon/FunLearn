@@ -63,7 +63,7 @@ public class StartUI extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgg.jpg"))); // NOI18N
         add(jLabel1);
-        jLabel1.setBounds(0, 0, 1000, 750);
+        jLabel1.setBounds(0, 0, 1050, 750);
     }// </editor-fold>//GEN-END:initComponents
 
     private void startPlayingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPlayingActionPerformed
