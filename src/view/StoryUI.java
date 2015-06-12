@@ -53,8 +53,6 @@ public class StoryUI extends javax.swing.JFrame {
     public StoryUI(int storyNumber) {
         this();
         jLabel1.setSize(100, 800);
-        //jLabel1.setBorder(new BevelBorder(BevelBorder.RAISED));
-        jLabel1.setFont(new Font("Serif", Font.PLAIN, 25));
         storyController.loadStory(storyNumber);
         storyController.loadStoryEntry(this);
         setVisible(true);
@@ -163,11 +161,11 @@ public class StoryUI extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 550, 70));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 700, 70));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);

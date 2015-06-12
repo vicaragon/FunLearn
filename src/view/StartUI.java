@@ -49,9 +49,9 @@ public class StartUI extends javax.swing.JPanel {
         add(startPlaying);
         startPlaying.setBounds(209, 244, 536, 175);
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 204));
+        jButton2.setBackground(new java.awt.Color(204, 0, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 0, 0));
+        jButton2.setForeground(new java.awt.Color(255, 204, 102));
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +59,7 @@ public class StartUI extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(800, 550, 150, 80);
+        jButton2.setBounds(810, 550, 140, 80);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bgg.jpg"))); // NOI18N
         add(jLabel1);

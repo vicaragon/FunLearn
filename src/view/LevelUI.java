@@ -43,7 +43,7 @@ public class LevelUI extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(110, 100, 218, 66);
 
-        speed1.setBackground(new java.awt.Color(255, 204, 204));
+        speed1.setBackground(new java.awt.Color(0, 204, 204));
         speed1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed1.setForeground(new java.awt.Color(204, 0, 0));
         speed1.setText("1");
@@ -55,7 +55,7 @@ public class LevelUI extends javax.swing.JPanel {
         add(speed1);
         speed1.setBounds(110, 290, 190, 140);
 
-        speed2.setBackground(new java.awt.Color(255, 204, 204));
+        speed2.setBackground(new java.awt.Color(0, 204, 204));
         speed2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed2.setForeground(new java.awt.Color(204, 0, 0));
         speed2.setText("2");
@@ -67,7 +67,7 @@ public class LevelUI extends javax.swing.JPanel {
         add(speed2);
         speed2.setBounds(400, 290, 200, 140);
 
-        speed3.setBackground(new java.awt.Color(255, 204, 204));
+        speed3.setBackground(new java.awt.Color(0, 204, 204));
         speed3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed3.setForeground(new java.awt.Color(204, 0, 0));
         speed3.setText("3");
@@ -79,9 +79,9 @@ public class LevelUI extends javax.swing.JPanel {
         add(speed3);
         speed3.setBounds(690, 290, 190, 140);
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 204));
+        jButton2.setBackground(new java.awt.Color(204, 0, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 0, 0));
+        jButton2.setForeground(new java.awt.Color(255, 204, 102));
         jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
