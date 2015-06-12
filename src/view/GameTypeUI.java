@@ -41,8 +41,9 @@ public class GameTypeUI extends javax.swing.JPanel {
 
         setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Select Activity:");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
+        jLabel1.setText("Select Activity");
         add(jLabel1);
         jLabel1.setBounds(110, 100, 421, 62);
 
