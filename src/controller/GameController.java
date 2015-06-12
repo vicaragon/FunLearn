@@ -59,7 +59,7 @@ public class GameController implements TableModelListener {
         
         public void loadGameEntry(int questionNumber) {
                 gameUI.setPictureField(picturePaths.get(questionNumber));
-                gameUI.setQuestionField(questions.get(questionNumber));
+                gameUI.setQuestionField("<html>"+questions.get(questionNumber)+"</html>");
                 gameUI.setQustionAudio(questionPaths.get(questionNumber));
 		gameUI.setOption1Field(option1.get(questionNumber));
 		gameUI.setOption2Field(option2.get(questionNumber));
