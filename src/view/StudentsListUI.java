@@ -224,6 +224,7 @@ public class StudentsListUI extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(215, 240, 217));
         setBorder(new javax.swing.border.MatteBorder(new javax.swing.ImageIcon(getClass().getResource("/bg1.jpg")))); // NOI18N
@@ -362,6 +363,11 @@ public class StudentsListUI extends javax.swing.JPanel {
 
         add(jPanel2);
         jPanel2.setBounds(610, 10, 370, 640);
+
+        jLabel6.setBackground(new java.awt.Color(215, 240, 217));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/bgstud.jpg"))); // NOI18N
+        add(jLabel6);
+        jLabel6.setBounds(0, 0, 1000, 750);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -404,6 +410,7 @@ public class StudentsListUI extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
