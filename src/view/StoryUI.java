@@ -166,6 +166,7 @@ public class StoryUI extends javax.swing.JFrame {
         jTextArea1.setColumns(10);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jTextArea1.setRows(4);
+        jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
 
