@@ -318,24 +318,24 @@ public class GameUI extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(204, 0, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(204, 255, 255));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("option1");
         jPanel1.add(jButton1);
-        jButton1.setBounds(110, 470, 210, 130);
+        jButton1.setBounds(60, 470, 260, 130);
 
         jButton2.setBackground(new java.awt.Color(204, 0, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 255, 255));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("option2");
         jPanel1.add(jButton2);
-        jButton2.setBounds(380, 470, 210, 130);
+        jButton2.setBounds(360, 470, 260, 130);
 
         jButton3.setBackground(new java.awt.Color(204, 0, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(204, 255, 255));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("option3");
         jPanel1.add(jButton3);
-        jButton3.setBounds(660, 470, 200, 130);
+        jButton3.setBounds(660, 470, 260, 130);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("name");
