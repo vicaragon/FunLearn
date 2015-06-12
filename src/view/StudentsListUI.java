@@ -327,9 +327,9 @@ public class StudentsListUI extends javax.swing.JPanel {
         jButton5.setBounds(110, 260, 200, 40);
 
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton6.setForeground(new java.awt.Color(204, 0, 0));
-        jButton6.setText("Setup Game");
+        jButton6.setText("Setup");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
