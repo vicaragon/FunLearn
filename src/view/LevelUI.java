@@ -47,6 +47,7 @@ public class LevelUI extends javax.swing.JPanel {
         speed1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed1.setForeground(new java.awt.Color(204, 0, 0));
         speed1.setText("1");
+        speed1.setPreferredSize(new java.awt.Dimension(137, 53));
         speed1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 speed1ActionPerformed(evt);
@@ -59,6 +60,7 @@ public class LevelUI extends javax.swing.JPanel {
         speed2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed2.setForeground(new java.awt.Color(204, 0, 0));
         speed2.setText("2");
+        speed2.setPreferredSize(new java.awt.Dimension(137, 53));
         speed2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 speed2ActionPerformed(evt);
@@ -71,6 +73,7 @@ public class LevelUI extends javax.swing.JPanel {
         speed3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         speed3.setForeground(new java.awt.Color(204, 0, 0));
         speed3.setText("3");
+        speed3.setPreferredSize(new java.awt.Dimension(137, 53));
         speed3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 speed3ActionPerformed(evt);
@@ -92,6 +95,7 @@ public class LevelUI extends javax.swing.JPanel {
         jButton2.setBounds(810, 560, 140, 70);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/bgg.jpg"))); // NOI18N
+        jLabel2.setPreferredSize(new java.awt.Dimension(121, 53));
         add(jLabel2);
         jLabel2.setBounds(0, 0, 1000, 700);
     }// </editor-fold>//GEN-END:initComponents

@@ -50,16 +50,16 @@ public class AboutUI extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new ImageIcon("pic/frugal_logo.jpg"));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 712, 106));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 712, 106));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("FUN LEARN SOFTWARE");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 520, 100));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 530, 100));
 
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setBackground(new java.awt.Color(0, 204, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 0, 0));
+        jButton1.setForeground(new java.awt.Color(153, 0, 0));
         jButton1.setText("Start Playing");
         jButton1.setFocusPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public class AboutUI extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("This is a learning software developed mainly for visually impared kids of 3-5 years");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 670, 42));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, 670, 42));
 
         jLabel4.setIcon(new ImageIcon(resizedImage));
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 650, 190));

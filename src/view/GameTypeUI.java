@@ -51,6 +51,7 @@ public class GameTypeUI extends javax.swing.JPanel {
         song.setForeground(new java.awt.Color(204, 0, 0));
         song.setText("Song");
         buttonGroup.add(song);
+        song.setPreferredSize(new java.awt.Dimension(137, 53));
         song.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 songActionPerformed(evt);
@@ -64,6 +65,7 @@ public class GameTypeUI extends javax.swing.JPanel {
         story.setForeground(new java.awt.Color(204, 0, 0));
         story.setText("Story");
         buttonGroup.add(story);
+        story.setPreferredSize(new java.awt.Dimension(137, 53));
         story.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 storyActionPerformed(evt);
