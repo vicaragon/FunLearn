@@ -56,6 +56,7 @@ public class GameUI extends javax.swing.JFrame {
      * Creates new form GameUI
      */
     public GameUI(int gameNumber,List<Integer> userIDList, List<String> userList ) {
+        this.setResizable(false);
         initComponents();
         setSize(1000, 750);
         gameController = new GameController(this);

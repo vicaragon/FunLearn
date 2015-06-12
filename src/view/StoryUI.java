@@ -42,6 +42,7 @@ public class StoryUI extends javax.swing.JFrame {
     private ArrayList<Integer> pictureTime;
     
     public StoryUI() {
+        this.setResizable(false);
         initComponents();
         setSize(1000, 750);
         storyController = new StoryController(this);
