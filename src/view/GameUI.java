@@ -279,9 +279,10 @@ public class GameUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -339,22 +340,29 @@ public class GameUI extends javax.swing.JFrame {
         jPanel1.add(jButton3);
         jButton3.setBounds(690, 470, 200, 130);
 
-        jLabel1.setText("Question:");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 280, 100, 30);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setText("jLabel4");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(770, 50, 110, 50);
+        jLabel4.setBounds(870, 40, 110, 50);
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("jLabel5");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(890, 60, 80, 30);
+        jLabel5.setBounds(870, 100, 100, 30);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/gbg.jpg"))); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel7.setText("Player");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(780, 50, 90, 40);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Score");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(780, 100, 80, 40);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/bggame.png"))); // NOI18N
         jPanel1.add(jLabel6);
         jLabel6.setBounds(0, -10, 1000, 750);
 
@@ -401,6 +409,7 @@ public class GameUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
