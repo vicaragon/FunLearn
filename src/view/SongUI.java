@@ -37,6 +37,7 @@ public class SongUI extends javax.swing.JFrame {
     //private JLabel picLabel;
     
     public SongUI() {
+        this.setResizable(false);
         initComponents();
         setSize(1000, 750);
         //songPanel = new JPanel(new BorderLayout());
