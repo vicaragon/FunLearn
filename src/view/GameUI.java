@@ -6,16 +6,21 @@
 package view;
 
 import controller.*;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
@@ -199,7 +204,14 @@ public class GameUI extends javax.swing.JFrame {
     }
 
     public void setPictureField(String value) {
-        jLabel3.setIcon(new javax.swing.ImageIcon(value));
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File(value));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ImageIcon imageIcon = new ImageIcon(img.getScaledInstance(jLabel3.getWidth(),jLabel3.getHeight(),Image.SCALE_SMOOTH));
+        jLabel3.setIcon(imageIcon);
         jLabel3.repaint();
     }
 
