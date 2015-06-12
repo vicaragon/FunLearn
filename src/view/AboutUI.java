@@ -77,7 +77,7 @@ public class AboutUI extends javax.swing.JPanel {
         jLabel4.setIcon(new ImageIcon(resizedImage));
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 650, 190));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sonam\\Desktop\\bgmain.jpg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/bgmain.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 1050));
     }// </editor-fold>//GEN-END:initComponents

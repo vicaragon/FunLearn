@@ -64,7 +64,7 @@ public class StudentService {
          Student student = manager.find(Student.class, studentID);
     	 if (student != null) {
             int avg;
-            if (studentScore < student.getMinScore()) {
+            if (studentScore < student.getMinScore() || (student.getMinScore()==0) ) {
                 student.setMinScore(studentScore);
             }
             if (studentScore > student.getMaxScore()) {

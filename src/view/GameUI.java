@@ -312,43 +312,43 @@ public class GameUI extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("option1");
         jPanel1.add(jButton1);
-        jButton1.setBounds(60, 470, 260, 130);
+        jButton1.setBounds(40, 470, 280, 130);
 
         jButton2.setBackground(new java.awt.Color(204, 0, 51));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("option2");
         jPanel1.add(jButton2);
-        jButton2.setBounds(360, 470, 260, 130);
+        jButton2.setBounds(350, 470, 280, 130);
 
         jButton3.setBackground(new java.awt.Color(204, 0, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("option3");
         jPanel1.add(jButton3);
-        jButton3.setBounds(660, 470, 260, 130);
+        jButton3.setBounds(670, 470, 290, 130);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setText("name");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(770, 100, 110, 50);
+        jLabel4.setBounds(870, 50, 110, 50);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setText("value");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(880, 110, 80, 30);
+        jLabel5.setBounds(870, 110, 80, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("Player");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(770, 60, 80, 30);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Score");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(880, 60, 70, 30);
+        jLabel8.setBounds(770, 110, 70, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/META-INF/gbg.jpg"))); // NOI18N
         jPanel1.add(jLabel6);
