@@ -7,10 +7,13 @@ package view;
 
 import controller.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -23,19 +26,17 @@ public class SongUI extends javax.swing.JFrame {
     /**
      * Creates new form SongUI
      */
-    
     private SongController songController;
     private AudioPlayer player;
     private String audioPath;
     private int pictureIndex;
     private ArrayList<String> picturePaths;
     private ArrayList<Integer> pictureTime;
-    
+
     //private JPanel songPanel;
     //private JLabel songTitle;
     //private PicturePanel picture;
     //private JLabel picLabel;
-    
     public SongUI() {
         this.setResizable(false);
         initComponents();
@@ -44,14 +45,14 @@ public class SongUI extends javax.swing.JFrame {
         //setContentPane(songPanel);
         songController = new SongController(this);
     }
-    
-    public SongUI(int songNumber){
+
+    public SongUI(int songNumber) {
         this();
         //songTitle = new JLabel("",SwingConstants.CENTER);
         //songTitle.setSize(100,800);
         //songTitle.setBorder(new BevelBorder(BevelBorder.RAISED));
         //songTitle.setFont(new Font("Serif", Font.PLAIN, 40));
-        jLabel1.setSize(100,800);
+        jLabel1.setSize(100, 800);
         jLabel1.setBorder(new BevelBorder(BevelBorder.RAISED));
         jLabel1.setFont(new Font("Serif", Font.PLAIN, 40));
         songController.loadSong(songNumber);
@@ -61,83 +62,81 @@ public class SongUI extends javax.swing.JFrame {
         //songPanel.add(picLabel,BorderLayout.CENTER);
         setVisible(true);
     }
-    
-    public void setSongName(String name){
+
+    public void setSongName(String name) {
         //songTitle.setText(name);
-        jLabel1.setText(name);
+        jLabel1.setText("<html>" + name + "</html>");
     }
-    
-    public void setAudioPath(String path){
+
+    public void setAudioPath(String path) {
         audioPath = path;
     }
-    
-    public void setPicturePaths(ArrayList<String> path){
+
+    public void setPicturePaths(ArrayList<String> path) {
         picturePaths = path;
     }
-    
-    public void setPictureTime(ArrayList<Integer> time){
+
+    public void setPictureTime(ArrayList<Integer> time) {
         pictureTime = time;
     }
-    
-    /*class PicturePanel extends JPanel {
-        @Override
-        public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        Graphics2D myGraphics = (Graphics2D)g;
-        if (!picturePaths.isEmpty()){
-            Image pic = new ImageIcon(picturePaths.get(pictureIndex)).getImage();
-            g.drawImage(pic,0,0,null);
-        }
-        }
-    }*/
-    
-    public void play() {
-        
-        SwingWorker songWorker = new SwingWorker(){
 
+    /*class PicturePanel extends JPanel {
+     @Override
+     public void paintComponent(Graphics g){
+     super.paintComponent(g);
+     Graphics2D myGraphics = (Graphics2D)g;
+     if (!picturePaths.isEmpty()){
+     Image pic = new ImageIcon(picturePaths.get(pictureIndex)).getImage();
+     g.drawImage(pic,0,0,null);
+     }
+     }
+     }*/
+    public void play() {
+        SwingWorker songWorker = new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
-                for (int i=0; i<picturePaths.size();i++){
-            try {
-                //pictureIndex = i;
-                pictureIndex = i;
-                //picture = new PicturePanel();
-                //picLabel.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-                //songPanel.add(picLabel,BorderLayout.CENTER);
-                //picLabel.repaint();
-                jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-                jLabel2.repaint();
-                Thread.sleep(pictureTime.get(pictureIndex)*1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                for (int i = 0; i < picturePaths.size(); i++) {
+                    try {
+                        pictureIndex = i;
+                        BufferedImage img = null;
+                        try {
+                            img = ImageIO.read(new File(picturePaths.get(pictureIndex)));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ImageIcon imageIcon = new ImageIcon(img.getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH));
+                        jLabel2.setIcon(imageIcon);
+                        jLabel2.repaint();
+                        Thread.sleep(pictureTime.get(pictureIndex) * 1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 return null;
             }
         };
         songWorker.execute();
-        
+
         /*for (int i=0; i<picturePaths.size();i++){
-            try {
-                //pictureIndex = i;
-                pictureIndex = i;
-                //picture = new PicturePanel();
-                //picLabel.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-                //songPanel.add(picLabel,BorderLayout.CENTER);
-                //picLabel.repaint();
-                jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-                jLabel2.repaint();
-                Thread.sleep(pictureTime.get(pictureIndex)*1000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }*/
-        
+         try {
+         //pictureIndex = i;
+         pictureIndex = i;
+         //picture = new PicturePanel();
+         //picLabel.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+         //songPanel.add(picLabel,BorderLayout.CENTER);
+         //picLabel.repaint();
+         jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
+         jLabel2.repaint();
+         Thread.sleep(pictureTime.get(pictureIndex)*1000);
+         } catch (InterruptedException ex) {
+         Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         }*/
     }
-    
-    public void start(){
+
+    public void start() {
         player = new AudioPlayer(new File(audioPath));
-        SwingWorker songWorker = new SwingWorker(){
+        SwingWorker songWorker = new SwingWorker() {
 
             @Override
             protected Object doInBackground() throws Exception {
@@ -149,8 +148,6 @@ public class SongUI extends javax.swing.JFrame {
         songWorker.execute();
         this.play();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -202,7 +199,7 @@ public class SongUI extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int i = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the song?", "Confirm close", JOptionPane.YES_NO_OPTION);
-        if(i == 0) {
+        if (i == 0) {
             AudioPlayer.getClip().stop();
             this.setVisible(false);
             this.dispose();
@@ -237,7 +234,6 @@ public class SongUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        
         SongUI songWindow = new SongUI(0);
         //songWindow.setSongName("Sample Song");
         //songWindow.setAudioPath("song/blues.wav");
@@ -249,7 +245,7 @@ public class SongUI extends javax.swing.JFrame {
         //time.add(5);
         //time.add(10);
         //songWindow.setPictureTime(time);
-        songWindow.setVisible( true );
+        songWindow.setVisible(true);
         songWindow.start();
     }
 
@@ -260,5 +256,4 @@ public class SongUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    
 }
