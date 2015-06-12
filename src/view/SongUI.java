@@ -33,39 +33,25 @@ public class SongUI extends javax.swing.JFrame {
     private ArrayList<String> picturePaths;
     private ArrayList<Integer> pictureTime;
 
-    //private JPanel songPanel;
-    //private JLabel songTitle;
-    //private PicturePanel picture;
-    //private JLabel picLabel;
     public SongUI() {
         this.setResizable(false);
         this.setTitle("Playing Song");
         initComponents();
         setSize(1000, 750);
-        //songPanel = new JPanel(new BorderLayout());
-        //setContentPane(songPanel);
         songController = new SongController(this);
     }
 
     public SongUI(int songNumber) {
         this();
-        //songTitle = new JLabel("",SwingConstants.CENTER);
-        //songTitle.setSize(100,800);
-        //songTitle.setBorder(new BevelBorder(BevelBorder.RAISED));
-        //songTitle.setFont(new Font("Serif", Font.PLAIN, 40));
         jLabel1.setSize(100, 800);
         jLabel1.setBorder(new BevelBorder(BevelBorder.RAISED));
         jLabel1.setFont(new Font("Serif", Font.PLAIN, 40));
         songController.loadSong(songNumber);
         songController.loadSongEntry(this);
-        //songPanel.add(songTitle,BorderLayout.NORTH);
-        //picLabel = new JLabel();
-        //songPanel.add(picLabel,BorderLayout.CENTER);
         setVisible(true);
     }
 
     public void setSongName(String name) {
-        //songTitle.setText(name);
         jLabel1.setText("<html>" + name + "</html>");
     }
 
@@ -81,17 +67,6 @@ public class SongUI extends javax.swing.JFrame {
         pictureTime = time;
     }
 
-    /*class PicturePanel extends JPanel {
-     @Override
-     public void paintComponent(Graphics g){
-     super.paintComponent(g);
-     Graphics2D myGraphics = (Graphics2D)g;
-     if (!picturePaths.isEmpty()){
-     Image pic = new ImageIcon(picturePaths.get(pictureIndex)).getImage();
-     g.drawImage(pic,0,0,null);
-     }
-     }
-     }*/
     public void play() {
         SwingWorker songWorker = new SwingWorker() {
             @Override
@@ -117,22 +92,6 @@ public class SongUI extends javax.swing.JFrame {
             }
         };
         songWorker.execute();
-
-        /*for (int i=0; i<picturePaths.size();i++){
-         try {
-         //pictureIndex = i;
-         pictureIndex = i;
-         //picture = new PicturePanel();
-         //picLabel.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-         //songPanel.add(picLabel,BorderLayout.CENTER);
-         //picLabel.repaint();
-         jLabel2.setIcon(new ImageIcon(picturePaths.get(pictureIndex)));
-         jLabel2.repaint();
-         Thread.sleep(pictureTime.get(pictureIndex)*1000);
-         } catch (InterruptedException ex) {
-         Logger.getLogger(SongUI.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         }*/
     }
 
     public void start() {
@@ -236,16 +195,6 @@ public class SongUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         SongUI songWindow = new SongUI(0);
-        //songWindow.setSongName("Sample Song");
-        //songWindow.setAudioPath("song/blues.wav");
-        //ArrayList<String> paths = new ArrayList<String>();
-        //paths.add("pic/butterflies.png");
-        //paths.add("pic/daffodils.jpg");
-        //songWindow.setPicturePaths(paths);
-        //ArrayList<Integer> time = new ArrayList<Integer>();
-        //time.add(5);
-        //time.add(10);
-        //songWindow.setPictureTime(time);
         songWindow.setVisible(true);
         songWindow.start();
     }

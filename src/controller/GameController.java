@@ -3,13 +3,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
 import view.*;
-import model.*;
 
 public class GameController implements TableModelListener {
 	private int index;

@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
-import model.*;
 import view.*;
 
 

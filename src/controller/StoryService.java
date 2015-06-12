@@ -9,7 +9,6 @@ import java.util.List;
 import model.Story;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import model.Song;
 /**
  *
  * @author rramsis

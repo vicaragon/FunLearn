@@ -4,7 +4,6 @@ import controller.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -80,12 +79,9 @@ public class StudentsListUI extends javax.swing.JPanel {
         }
         TimerHandler timerHandler = new TimerHandler();
         Timer timer1 = new Timer(4000, timerHandler);
-     //   timer1.start();
-
     }
     
     public void addJTable1() {
-        //TODO: Revisit code to be removed, but keep listSelection Listener.
         jTable1 = new JTable(studentController.getTableModel());
         jTable1.getSelectionModel().addListSelectionListener(studentController);
         JScrollPane scrollpane1 = new JScrollPane(jTable1);

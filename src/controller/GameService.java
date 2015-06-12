@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controller;
-import model.*;
 import java.util.*;
 import javax.persistence.*;
 import model.Game;
