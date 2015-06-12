@@ -36,7 +36,7 @@ public class GameUI extends javax.swing.JFrame {
     private final File correct;
     private final File wrong;
     private final CircularList<JButton> buttonsList;
-    private Random rn;
+    private MyRandom rn;
     private int optionsAudioIndex, j;
     private Timer timer1;    
     private int playerIndex = 0;
@@ -87,7 +87,7 @@ public class GameUI extends javax.swing.JFrame {
         jLabel5.setText(scoreList.get(playerIndex).toString());
         
         TimerHandler timerHandler = new TimerHandler();
-        timer1 = new Timer(3500, timerHandler);
+        timer1 = new Timer(2500, timerHandler);
         timer1.setRepeats(true);
         
     }
@@ -120,7 +120,7 @@ public class GameUI extends javax.swing.JFrame {
             
             @Override
             protected void done(){
-                if(!Thread.currentThread().isInterrupted()){
+                if(!Thread.currentThread().isInterrupted() && !rn.isEmpty()){
                     questionNumber = rn.nextInt();
                     playerIndex = (playerIndex+1) % userIDList.size();
                     jLabel4.setText(userList.get(playerIndex).toString());

@@ -37,4 +37,8 @@ public class MyRandom extends Random {
         poolIter.remove();
         return val;
     }
+    
+    public boolean isEmpty(){
+        return randomPool.isEmpty();
+    }
 }
