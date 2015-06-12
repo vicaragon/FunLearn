@@ -45,6 +45,7 @@ public class StoryUI extends javax.swing.JFrame {
 
     public StoryUI() {
         this.setResizable(false);
+        this.setTitle("Playing Story");
         initComponents();
         setSize(1000, 750);
         storyController = new StoryController(this);
