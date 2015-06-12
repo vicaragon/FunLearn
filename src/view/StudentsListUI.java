@@ -135,9 +135,9 @@ public class StudentsListUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         //add a row to the table
     	String[] array = new String[jTable1.getColumnCount()];
-    	array[1] = jTextField1.getText();
-    	array[2] = jTextField2.getText();
-    	array[3] = jTextField3.getText();
+    	array[1] = jTextField1.getText().isEmpty()?"N/A":jTextField1.getText();
+    	array[2] = jTextField2.getText().isEmpty()?"N/A":jTextField2.getText();
+    	array[3] = jTextField3.getText().isEmpty()?"N/A":jTextField3.getText();
         array[4] = "0";
         array[5] = "0";
         array[6] = "0";
