@@ -380,6 +380,7 @@ public class GameUI extends javax.swing.JFrame {
                     questionWorker.cancel(true);
                 if (judgeWorker != null)
                     judgeWorker.cancel(true);
+                Thread.currentThread().interrupt();
                 if (timer1 != null)
                     timer1.stop();
                 this.setVisible(false);
